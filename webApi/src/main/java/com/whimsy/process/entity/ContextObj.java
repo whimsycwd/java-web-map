@@ -25,9 +25,13 @@ public class ContextObj {
 
     private static boolean isLoaded = false;
     public static ContextObj getInstance() {
+
+        System.out.println("ContextObj Building Start!");
         if (!isLoaded) {
-           instance = new LoadOSM().work();
+           instance = new LoadOSM(instance).work();
         }
+
+        System.out.println("ContextObj Building End.");
         return instance;
     }
 
@@ -53,5 +57,9 @@ public class ContextObj {
 
     public void setWayMap(Map<Long, Way> wayMap) {
         this.wayMap = wayMap;
+    }
+
+    public static void main(String[] args) {
+        ContextObj obj = ContextObj.getInstance();
     }
 }

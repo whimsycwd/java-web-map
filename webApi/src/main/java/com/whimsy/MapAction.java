@@ -57,7 +57,16 @@ public class MapAction {
                                @PathParam("coordinateY") Double coordinateY) {
         System.out.printf("/api/nearest  requesting %.8f %.8f\n", coordinateX, coordinateY);
 
-        return Response.ok(new PinPointVO(1L, 1L, coordinateX, coordinateY)).build();
+        KdTree.Point point = tree.nearest(new KdTree.Point(coordinateX, coordinateY));
+
+
+        System.out.printf("Res Point : %.6f %.6f\n", point.x(), point.y());
+        return Response.ok(new PinPointVO(point.getId(), point.x(), point.y())).build();
+    }
+
+    public static void main(String [] args) {
+        MapAction action = new MapAction();
+        action.coordinate(121.5758, 31.1869);
     }
 
 

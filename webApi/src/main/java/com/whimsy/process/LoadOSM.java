@@ -15,6 +15,9 @@ import processing.data.XML;
  */
 public class LoadOSM extends PApplet {
 
+    public LoadOSM(ContextObj ctx) {
+        this.ctx = ctx;
+    }
 
     private ContextObj ctx = null;
 
@@ -23,8 +26,6 @@ public class LoadOSM extends PApplet {
 
     private String osmFilePath = "./osm-data/pudong-partial.osm";
     public ContextObj work() {
-
-        ctx = ContextObj.getInstance();
 
         Long startTime = System.currentTimeMillis();
 
@@ -99,12 +100,6 @@ public class LoadOSM extends PApplet {
         bound.setMaxLon(xml.getDouble("maxlon"));
         bound.setMinLat(xml.getDouble("minlat"));
         bound.setMaxLat(xml.getDouble("maxlat"));
-
-    }
-
-    public static void main(String[] args) {
-        ContextObj contextObj = new LoadOSM().work();
-
 
     }
 }

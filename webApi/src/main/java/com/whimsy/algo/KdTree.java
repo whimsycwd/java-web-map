@@ -5,31 +5,67 @@ package com.whimsy.algo;
  * @author whimsycwd
  * @since 2014.3.12
  *
+ * @date 2015.5.4
+ * change to fit map app's requirement.
+ *
  */
 
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.whimsy.process.entity.ContextObj;
 import com.whimsy.process.primitivie.Bound;
+import com.whimsy.process.primitivie.Way;
 
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.introcs.StdDraw;
 
 public class KdTree {
 
+
+
 	private static final boolean HORIZONTAL = true;
 
+	private static final double MARGIN = 1;
+
 	private static class Node {
-		private Point2D point; // the point
+		private Point point; // the point
 		private RectHV rect; // the axis-aligned rectangle corresponding to this
 		// node
 		private Node left; // the left/bottom subtree
 		private Node right; // the right/top subtree
 
-		public Node(Point2D p, RectHV rect) {
+		public Node(Point p, RectHV rect) {
 			this.point = p;
 			this.rect = rect;
+		}
+	}
+
+	public static class Point extends Point2D {
+		private Long id;
+
+		public Point(double x, double y) {
+			super(x,y);
+		}
+
+		public Point(Long id, double x, double y) {
+			super(x, y);
+			this.id = id;
+		}
+
+		public Point(double x, double y, Long id) {
+			super(x, y);
+			this.id = id;
+		}
+
+		public Long getId() {
+			return id;
+		}
+
+		public void setId(Long id) {
+			this.id = id;
 		}
 	}
 
@@ -37,9 +73,38 @@ public class KdTree {
 
 
 	public KdTree(ContextObj ctx) {
+		System.out.println("Building KdTree start!");
+
+		Long statTime = System.currentTimeMillis();
+
 		this.bound = ctx.getBound();
 
-		Map<Long, Way>
+		Map<Long, Way> wayMap = ctx.getWayMap();
+		Map<Long, com.whimsy.process.primitivie.Node> nodeMap = ctx.getNodeMap();
+
+		Set<Long> hash = new HashSet<Long>();
+
+		for (Map.Entry<Long, Way> entry : wayMap.entrySet()) {
+
+			List<Long> ndRefs = entry.getValue().getPathNodes();
+			for (int i = 0; i < ndRefs.size(); ++i) {
+				Long ndRef = ndRefs.get(i);
+
+				com.whimsy.process.primitivie.Node node = nodeMap.get(ndRef);
+
+				if (!hash.contains(ndRef)) {
+					hash.add(ndRef);
+					this.insert(new Point(ndRef, node.getLon(), node.getLat()));
+
+
+				}
+			}
+		}
+
+
+		System.out.printf("Node inserted : %d \nBuilding KdTree end. used Time %.2f\n",
+							 hash.size(), (double) (System.currentTimeMillis() - statTime) / 1000);
+
 	}
 
 
@@ -66,19 +131,23 @@ public class KdTree {
 		return size;
 	}
 
-	public void insert(Point2D p) {
+	public void insert(Point p) {
 		// add the point p to the set (if it is not already in the set)
 		root = insert(root, null, p, HORIZONTAL);
 	}
 
-	private Node insert(Node node, Node parentNode, Point2D p, boolean orient) {
+	private Node insert(Node node, Node parentNode, Point p, boolean orient) {
 		if (node == null) {
 			size++;
 
-			double rectXmin = bound.getMinLon();
-			double rectXmax = bound.getMaxLon();
-			double rectYmin = bound.getMinLat();
-			double rectYmax = bound.getMaxLat();
+
+			if (size == 69) {
+				int t = 1;
+			}
+			double rectXmin = bound.getMinLon() - MARGIN;
+			double rectXmax = bound.getMaxLon() + MARGIN;
+			double rectYmin = bound.getMinLat() - MARGIN;
+			double rectYmax = bound.getMaxLat() + MARGIN;
 
 			if (parentNode != null) {
 				if (HORIZONTAL == orient) {
@@ -125,12 +194,12 @@ public class KdTree {
 		return node;
 	}
 
-	public boolean contains(Point2D p) {
+	public boolean contains(Point p) {
 		// does the set contain the point p?
 		return get(root, p, HORIZONTAL) != null;
 	}
 
-	private Point2D get(Node node, Point2D p, boolean orient) {
+	private Point get(Node node, Point p, boolean orient) {
 		if (node == null) {
 			return null;
 		}
@@ -184,31 +253,31 @@ public class KdTree {
 		if (HORIZONTAL == orient) {
 			if (parentNode != null) {
 				if (node.point.y() < parentNode.point.y()) {
-					new Point2D(node.point.x(), parentNode.rect.ymin())
-							.drawTo(new Point2D(node.point.x(),
+					new Point(node.point.x(), parentNode.rect.ymin())
+							.drawTo(new Point(node.point.x(),
 									parentNode.point.y()));
 				} else if (node.point.y() > parentNode.point.y()) {
-					new Point2D(node.point.x(), parentNode.point.y())
-							.drawTo(new Point2D(node.point.x(), parentNode.rect
+					new Point(node.point.x(), parentNode.point.y())
+							.drawTo(new Point(node.point.x(), parentNode.rect
 									.ymax()));
 				}
 			} else {
-				new Point2D(node.point.x(), 0.0).drawTo(new Point2D(node.point
+				new Point(node.point.x(), 0.0).drawTo(new Point(node.point
 						.x(), 1.0));
 			}
 		} else {
 			if (parentNode != null) {
 				if (node.point.x() < parentNode.point.x()) {
-					new Point2D(parentNode.rect.xmin(), node.point.y())
-							.drawTo(new Point2D(parentNode.point.x(),
+					new Point(parentNode.rect.xmin(), node.point.y())
+							.drawTo(new Point(parentNode.point.x(),
 									node.point.y()));
 				} else if (node.point.x() > parentNode.point.x()) {
-					new Point2D(parentNode.point.x(), node.point.y())
-							.drawTo(new Point2D(parentNode.rect.xmax(),
+					new Point(parentNode.point.x(), node.point.y())
+							.drawTo(new Point(parentNode.rect.xmax(),
 									node.point.y()));
 				}
 			} else {
-				new Point2D(0.0, node.point.y()).drawTo(new Point2D(1.0,
+				new Point(0.0, node.point.y()).drawTo(new Point(1.0,
 						node.point.y()));
 			}
 		}
@@ -216,14 +285,14 @@ public class KdTree {
 		drawPoint(node.right, node, !orient);
 	}
 
-	public Iterable<Point2D> range(RectHV rect) {
+	public Iterable<Point> range(RectHV rect) {
 		// all points in the set that are inside the rectangle
-		Set<Point2D> result = new HashSet<Point2D>();
+		Set<Point> result = new HashSet<Point>();
 		rangeSearch(root, rect, result);
 		return result;
 	}
 
-	private void rangeSearch(Node node, RectHV rect, Set<Point2D> result) {
+	private void rangeSearch(Node node, RectHV rect, Set<Point> result) {
 		if (node == null || !rect.intersects(node.rect)) {
 			return;
 		}
@@ -234,7 +303,7 @@ public class KdTree {
 		rangeSearch(node.right, rect, result);
 	}
 
-	private static boolean rectContainsPoint(RectHV rect, Point2D point) {
+	private static boolean rectContainsPoint(RectHV rect, Point point) {
 		double pX = point.x();
 		double pY = point.y();
 		if (pX >= rect.xmin() && pX <= rect.xmax() && pY >= rect.ymin()
@@ -244,9 +313,9 @@ public class KdTree {
 		return false;
 	}
 
-	private Point2D nearest;
+	private Point nearest;
 
-	public Point2D nearest(Point2D p) {
+	public Point nearest(Point p) {
 		// a nearest neighbor in the set to p; null if set is empty
 		if (root == null)
 			return null;
@@ -255,7 +324,7 @@ public class KdTree {
 		return nearest;
 	}
 
-	private void nearestSearch(Node node, Point2D queryPoint, boolean orient) {
+	private void nearestSearch(Node node, Point queryPoint, boolean orient) {
 		if (node == null) {
 			return;
 		}
@@ -290,6 +359,11 @@ public class KdTree {
 			nearestSearch(firstNode, queryPoint, !orient);
 			nearestSearch(secondNode, queryPoint, !orient);
 		}
+	}
+
+
+	public static void main(String [] args) {
+		KdTree kdTree = new KdTree(ContextObj.getInstance());
 	}
 
 }

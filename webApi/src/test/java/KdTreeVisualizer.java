@@ -25,7 +25,7 @@ public class KdTreeVisualizer {
                 double x = StdDraw.mouseX();
                 double y = StdDraw.mouseY();
                 System.out.printf("%8.6f %8.6f\n", x, y);
-                Point2D p = new Point2D(x, y);
+                KdTree.Point p = new KdTree.Point(x, y);
                 kdtree.insert(p);
                 StdDraw.clear();
                 kdtree.draw();
