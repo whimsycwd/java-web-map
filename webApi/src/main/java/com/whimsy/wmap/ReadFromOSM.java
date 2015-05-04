@@ -30,7 +30,7 @@ public class ReadFromOSM {
 
         try {
 
-            File file = new File(getClass().getResource("/map.osm").toString().substring("file:".length()));
+            File file = new File("./osm-data/fudan.osm");
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dBuilder = dbFactory.newDocumentBuilder();
@@ -130,6 +130,8 @@ public class ReadFromOSM {
     }
 
     public static void main(String [] args)  {
-        new ReadFromOSM().work();
+        RtnObj rtnObj = new ReadFromOSM().work();
+        System.out.printf("Node Number : %d\n", rtnObj.getNodeMap().size());
+        System.out.printf("Way Number : %d\n", rtnObj.getWayMap().size());
     }
 }

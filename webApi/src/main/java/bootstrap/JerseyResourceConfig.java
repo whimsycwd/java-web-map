@@ -18,7 +18,7 @@ public class JerseyResourceConfig extends ResourceConfig {
                 .property(ServerProperties.BV_DISABLE_VALIDATE_ON_EXECUTABLE_OVERRIDE_CHECK, true)
                 .register(JacksonFeature.class)
                 .register(MultiPartFeature.class)
-                .packages("demo.whimsy.action", "com.whimsy.wmap");
+                .packages("demo.whimsy.action", "com.whimsy");
 //                .register(SpringLifecycleListener.class);
     }
 

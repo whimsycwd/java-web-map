@@ -1,0 +1,3974 @@
+/* Parameters */
+/* Styles common to large and small screens */
+/* Minimal CSS reset */
+/* line 7, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+html, body, ul, ol, li, form, fieldset, legend, h1, h2, h3, h4, h5, h6, p, input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+/* line 14, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+fieldset, img {
+  border: 0;
+}
+
+/* line 16, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+legend {
+  color: #000;
+}
+
+/* line 18, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+sup {
+  vertical-align: text-top;
+}
+
+/* line 20, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+sub {
+  vertical-align: text-bottom;
+}
+
+/* line 22, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 27, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+li {
+  list-style: none;
+}
+
+/* line 29, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input,
+select,
+textarea,
+body {
+  font: 14px/20px "Helvetica Neue", Arial, sans-serif;
+}
+
+/* line 34, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+abbr, acronym {
+  border-bottom: .1em dotted;
+  cursor: help;
+}
+
+/* line 39, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+strong {
+  font-weight: bold;
+}
+
+/* Micro Clearfix | Details: http://nicolasgallagher.com/micro-clearfix-hack/ */
+/* line 45, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+/* line 51, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* Basic grid */
+/* line 57, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col0 {
+  float: left;
+  width: 04.1666%;
+}
+
+/* line 58, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col1 {
+  float: left;
+  width: 08.3333%;
+}
+
+/* line 59, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col2 {
+  float: left;
+  width: 16.6666%;
+}
+
+/* line 60, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col3 {
+  float: left;
+  width: 25.0000%;
+}
+
+/* line 61, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col4 {
+  float: left;
+  width: 33.3333%;
+}
+
+/* line 62, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col5 {
+  float: left;
+  width: 41.6666%;
+}
+
+/* line 63, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col6 {
+  float: left;
+  width: 50.0000%;
+}
+
+/* line 64, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col7 {
+  float: left;
+  width: 58.3333%;
+}
+
+/* line 65, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col8 {
+  float: left;
+  width: 66.6666%;
+}
+
+/* line 66, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col9 {
+  float: left;
+  width: 75.0000%;
+}
+
+/* line 67, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col10 {
+  float: left;
+  width: 83.3333%;
+}
+
+/* line 68, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col11 {
+  float: left;
+  width: 91.6666%;
+}
+
+/* line 69, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.col12 {
+  width: 100%;
+}
+
+/* line 71, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin0 {
+  margin-left: 04.1666%;
+}
+
+/* line 72, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin1 {
+  margin-left: 08.3333%;
+}
+
+/* line 73, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin2 {
+  margin-left: 16.6666%;
+}
+
+/* line 74, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin3 {
+  margin-left: 25.0000%;
+}
+
+/* line 75, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin4 {
+  margin-left: 33.3333%;
+}
+
+/* line 76, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin5 {
+  margin-left: 41.6666%;
+}
+
+/* line 77, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin6 {
+  margin-left: 50.0000%;
+}
+
+/* line 78, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin7 {
+  margin-left: 58.3333%;
+}
+
+/* line 79, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin8 {
+  margin-left: 66.6666%;
+}
+
+/* line 80, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin9 {
+  margin-left: 75.0000%;
+}
+
+/* line 81, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin10 {
+  margin-left: 83.3333%;
+}
+
+/* line 82, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin11 {
+  margin-left: 91.6666%;
+}
+
+/* line 83, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.margin12 {
+  margin-left: 100.0000%;
+}
+
+/* line 85, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.fillL {
+  background-color: white;
+}
+
+/* Default rules for the body of every page */
+/* line 89, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 93, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+body {
+  font-family: 'Helvetica Neue',Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.6666;
+  color: #222;
+  background-color: #fff;
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+  height: 100%;
+}
+
+/* line 105, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+h1, h2, h3 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* line 110, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+h4, h5 {
+  font-weight: 500;
+}
+
+/* line 114, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+h1 {
+  font-size: 18px;
+}
+
+/* line 118, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+h2, h3 {
+  font-size: 16px;
+}
+
+/* line 122, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+p > img {
+  width: auto;
+  max-width: 100%;
+}
+
+/* line 127, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+small, aside {
+  font-size: 12px;
+}
+
+/* line 131, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#container {
+  position: relative;
+}
+
+/* line 133, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.column-1 {
+  width: 50%;
+  margin: 0 0 10px 0;
+}
+
+/* line 138, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.small_icon {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* line 143, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.red {
+  color: red;
+}
+
+/* Rules for icons */
+/* line 147, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon {
+  display: inline-block;
+  vertical-align: top;
+  width: 20px;
+  height: 20px;
+  background: transparent url(/assets/sprite-40f860f4a9881acf46d29c55303c1e53.png) no-repeat 0 0;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+/* line 157, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.search {
+  background-position: 0 0;
+}
+
+/* line 158, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.donate {
+  background-position: -20px 0;
+}
+
+/* line 159, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.zoomin {
+  background-position: -40px 0;
+}
+
+/* line 160, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.zoomout {
+  background-position: -60px 0;
+}
+
+/* line 161, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.geolocate {
+  background-position: -80px 0;
+}
+
+/* line 162, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.active .icon.geolocate {
+  background-position: -80px -20px;
+}
+
+/* line 163, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.layers {
+  background-position: -100px 0;
+}
+
+/* line 164, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.key {
+  background-position: -120px 0;
+}
+
+/* line 165, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.share {
+  background-position: -140px 0;
+}
+
+/* line 166, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.clipboard {
+  background-position: -160px 0;
+}
+
+/* line 167, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.link {
+  background-position: -180px 0;
+}
+
+/* line 168, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.close {
+  background-position: -200px 0;
+}
+
+/* line 169, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.close:hover {
+  background-position: -200px -20px;
+}
+
+/* line 170, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.check {
+  background-position: -220px 0;
+}
+
+/* line 171, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.note {
+  background-position: -240px 0;
+}
+
+/* line 172, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.icon.query {
+  background-position: -260px 0;
+}
+
+/* Rules for links */
+/* line 176, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+a {
+  color: #24d;
+  text-decoration: none;
+  -webkit-appearance: none;
+  outline: 0;
+}
+/* line 181, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* Rules for horizontal lines */
+/* line 188, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+hr {
+  border: none;
+  background-color: #ccc;
+  color: #ccc;
+  height: 1px;
+}
+
+/* General styles for tables */
+/* line 197, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+/* line 200, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+table th, table td {
+  text-align: left;
+  padding: 5px;
+  line-height: 20px;
+}
+/* line 205, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+table th {
+  font-weight: 600;
+  vertical-align: top;
+}
+/* line 209, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+table td {
+  vertical-align: middle;
+}
+
+/* Utility for de-emphasizing content */
+/* line 216, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.deemphasize {
+  color: #999;
+}
+/* line 218, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.deemphasize a {
+  color: #7092FF;
+}
+
+/* Rules for the header */
+/* line 225, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#menu-icon {
+  display: none !important;
+  float: right;
+  background: url(/assets/menu-icon-ee94b03a1f259bb06768a2b82db497ad.png) no-repeat;
+  background-size: 30px 30px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 14px 10px 0 0;
+  opacity: 0.6;
+}
+
+/* line 237, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+header {
+  height: 55px;
+  position: relative;
+  z-index: 1001;
+  font-size: 14px;
+}
+/* line 243, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+header h1, header nav, header nav > ul, header nav > ul > li, header .dropdown {
+  display: inline-block;
+}
+/* line 247, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+header > * {
+  height: 100%;
+  padding: 10px;
+}
+/* line 252, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+header h1, header nav.primary {
+  float: left;
+}
+/* line 256, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+header a, header a:hover {
+  text-decoration: none;
+}
+/* line 260, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+header img.logo {
+  width: 30px;
+  height: 30px;
+  margin-top: -2px;
+  vertical-align: middle;
+}
+/* line 267, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+header h1 {
+  margin: 0;
+  padding-top: 15px;
+}
+/* line 271, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+header h1 a {
+  color: #000;
+}
+
+/* line 278, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary > ul {
+  border: 1px solid #7ebc6f;
+  border-radius: 3px;
+}
+/* line 284, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary > ul > li {
+  border-right: 1px solid #7ebc6f;
+  float: left;
+}
+/* line 287, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary > ul > li:last-child {
+  border-right: 0;
+}
+/* line 290, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary > ul > li > a:hover {
+  background: #dcedd7;
+}
+/* line 291, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary > ul > li.current > a:hover {
+  background: #7ebc6f;
+}
+/* line 292, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary > ul > li.disabled > a:hover {
+  background: #f4faf3;
+}
+/* line 294, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary > ul > li.dropdown > a.tab {
+  border-right: 1px solid #dcedd7;
+}
+/* line 295, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary > ul > li.dropdown.current > a.tab {
+  border-right: 1px solid #9dcc92;
+}
+/* line 300, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary a.tab,
+nav.primary .dropdown-toggle {
+  display: inline-block;
+  font-weight: 500;
+  color: #7ebc6f;
+  padding: 5px 15px;
+}
+/* line 308, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary .dropdown-toggle {
+  padding: 5px 6px;
+}
+/* line 312, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary .caret {
+  border-top-color: #7ebc6f;
+  margin-top: 10px;
+}
+/* line 317, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary .disabled a {
+  color: #ccc;
+  cursor: default;
+}
+/* line 321, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary .disabled a .caret {
+  border-top-color: #ccc;
+}
+/* line 326, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary > ul li.current {
+  background-color: #7ebc6f;
+}
+/* line 329, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary > ul li.current .tab {
+  color: #fff;
+}
+/* line 333, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.primary > ul li.current .caret {
+  border-top-color: #fff;
+}
+
+/* line 339, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary {
+  position: absolute;
+  right: 0;
+}
+/* line 343, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary > ul {
+  vertical-align: middle;
+}
+/* line 345, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary > ul a, nav.secondary > ul .dropdown-toggle {
+  display: inline-block;
+  text-decoration: none;
+  color: #888;
+  padding: 5px;
+}
+/* line 351, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary > ul a:hover, nav.secondary > ul .dropdown-toggle:hover {
+  color: #484848;
+}
+/* line 355, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary > ul li.current a {
+  color: #484848;
+}
+/* line 359, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .user-menu {
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+/* line 365, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .user-menu > li {
+  border-right: 1px solid #CCC;
+  float: left;
+}
+/* line 368, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .user-menu > li:last-child {
+  border-right: 0;
+}
+/* line 371, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .user-menu > li:last-child > a {
+  border-radius: 0 3px 3px 0;
+}
+/* line 375, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .user-menu > li:first-child > a {
+  border-radius: 3px 0 0 3px;
+}
+/* line 376, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .user-menu > li:hover a {
+  background: #d5d5d5;
+}
+/* line 379, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .user-menu a {
+  padding: 5px 15px;
+}
+/* line 384, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .user-menu.logged-in > a {
+  padding: 0;
+}
+/* line 386, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .user-menu.logged-in > a > .user-button {
+  line-height: 1.8;
+  padding: 5px 10px 3px 6px;
+  display: inline-block;
+  color: #888;
+}
+/* line 392, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .user-menu.logged-in > a:hover > .user-button {
+  color: #7b7b7b;
+}
+/* line 396, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .caret {
+  border-top-color: #CCC;
+  margin-top: 9px;
+}
+/* line 401, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary img.user_thumbnail_tiny {
+  border: 0;
+  vertical-align: top;
+  margin-top: 0px;
+  margin: 4px 0 0 4px;
+  border-radius: 2px;
+}
+/* line 409, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary #inboxanchor {
+  display: inline-block;
+  vertical-align: top;
+  height: 25px;
+  margin: 3px 0 3px 3px;
+  background-color: #e6e6e6;
+  line-height: 20px;
+  border-radius: 2;
+}
+/* line 419, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .dropdown-menu {
+  left: auto;
+  right: -1px;
+  border-radius: 3px 0 3px 3px;
+}
+/* line 424, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+nav.secondary .dropdown-menu .count-number {
+  float: right;
+  padding: 0 5px;
+  margin: 0;
+}
+
+/* line 432, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#compact-secondary-nav {
+  display: none;
+}
+/* line 434, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#compact-secondary-nav ul li a {
+  width: 100%;
+  color: #333;
+}
+/* line 437, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#compact-secondary-nav ul li a:hover {
+  color: #fff;
+}
+
+@media only screen and (max-width: 960px) {
+  /* line 442, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+  #compact-secondary-nav {
+    display: inline-block;
+  }
+
+  /* line 445, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+  .compact-hide {
+    display: none;
+  }
+}
+/* Utility for styling notification numbers */
+/* line 452, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.count-number {
+  padding: 2px 5px;
+  border-radius: 2px;
+  background: #dcedd7;
+  margin: 0 2px;
+  font-size: 11px;
+  color: #333;
+}
+
+/* Rules for the message shown in place of the map when javascript is disabled */
+/* line 463, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#noscript {
+  z-index: 20000000;
+  margin-left: 400px;
+  margin-top: 50px;
+}
+
+/* Rules for Leaflet maps */
+/* line 471, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.leaflet-control .control-button {
+  display: block;
+  height: 40px;
+  width: 40px;
+  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px 0 0 4px;
+  margin-bottom: 10px;
+  outline: none;
+}
+/* line 481, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.leaflet-control .control-button:hover {
+  background-color: black;
+}
+/* line 485, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.leaflet-control .control-button.disabled {
+  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+/* line 491, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.leaflet-control .control-button.active {
+  background-color: #9ed485;
+}
+/* line 495, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.leaflet-control .control-button .icon {
+  margin: 10px;
+}
+
+/* line 500, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.leaflet-control .zoomin,
+.control-layers .control-button {
+  margin-bottom: 0px;
+  border-radius: 4px 0 0 0;
+}
+
+/* line 506, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.leaflet-control .zoomout,
+.control-key .control-button {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* line 512, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.control-locate .control-button,
+.control-share .control-button {
+  border-radius: 0 0 0 4px;
+}
+
+/* Rules for the sidebar and main map area */
+/* line 520, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #content {
+  overflow: hidden;
+  position: absolute;
+  top: 55px;
+  bottom: 0;
+  width: 100%;
+}
+/* line 528, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #sidebar, .map-layout #map {
+  position: relative;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+/* line 535, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #sidebar {
+  float: left;
+  width: 350px;
+  background: #fff;
+  font-size: 12px;
+}
+/* line 541, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #sidebar h2 {
+  padding: 20px 20px 10px;
+}
+/* line 545, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #sidebar h3, .map-layout #sidebar h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+/* line 551, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #sidebar .icon.close {
+  float: right;
+  cursor: pointer;
+}
+/* line 556, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #sidebar p.error {
+  background-color: #ff7070;
+  padding: 10px;
+  font-weight: bold;
+}
+/* line 563, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout .welcome {
+  display: none;
+}
+/* line 567, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout .overlay-sidebar #sidebar {
+  position: absolute;
+  z-index: 1000;
+  height: auto;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+/* line 573, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout .overlay-sidebar #sidebar .welcome {
+  display: block;
+}
+/* line 576, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout .overlay-sidebar #sidebar #sidebar_content {
+  display: none;
+}
+/* line 582, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout .welcome p {
+  padding: 10px 20px 20px;
+  font-size: 110%;
+  font-weight: 300;
+}
+/* line 588, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout .welcome .button {
+  width: 50%;
+  float: left;
+  margin: 0;
+  border-radius: 0;
+  font-weight: normal;
+  padding: .6em;
+}
+/* line 596, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout .welcome .button.learn-more {
+  border-right: 1px solid #fff;
+}
+/* line 602, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #map {
+  height: 100%;
+  overflow: hidden;
+}
+/* line 606, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #map.query-active {
+  cursor: help;
+}
+/* line 610, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #map.query-disabled {
+  cursor: not-allowed;
+}
+/* line 614, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #map .leaflet-marker-draggable {
+  cursor: move;
+}
+/* line 619, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #map-ui {
+  display: none;
+  position: relative;
+  float: right;
+  width: 250px;
+  height: 100%;
+  background: white;
+  overflow: auto;
+}
+/* line 628, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #map-ui .section {
+  border-bottom: 1px solid #DDD;
+  padding: 10px 20px;
+}
+/* line 633, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #map-ui a.close-button {
+  float: right;
+  padding: 5px;
+  font-size: 20px;
+  line-height: 10px;
+  color: #222;
+  border: 1px solid #ddd;
+}
+/* line 642, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #map-ui .tooltip {
+  opacity: 1;
+  border: 1px solid #ccc;
+}
+/* line 645, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.map-layout #map-ui .tooltip .tooltip-arrow {
+  border-top-color: #ccc;
+}
+
+/* line 654, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.layers-ui li:last-child,
+.share-ui li:last-child {
+  margin-bottom: 0;
+}
+
+/* line 661, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.layers-ui .base-layers .leaflet-container {
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+}
+/* line 667, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.layers-ui .base-layers li {
+  overflow: hidden;
+  border-radius: 3px;
+  border: 2px solid #fff;
+  margin-bottom: 8px;
+  position: relative;
+  -webkit-transition: border-color 0.08s ease-in;
+          transition: border-color 0.08s ease-in;
+}
+/* line 675, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.layers-ui .base-layers li label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2px 6px;
+  border-bottom-right-radius: 3px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  text-stroke: 2px #fff;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 2;
+}
+/* line 687, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.layers-ui .base-layers li label input[type="radio"] {
+  display: none;
+}
+/* line 692, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.layers-ui .base-layers li.active {
+  border-color: #60a94f;
+}
+/* line 693, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.layers-ui .base-layers li:hover {
+  border-color: #CCC;
+}
+/* line 695, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.layers-ui .base-layers li:hover.active {
+  border-color: #4d863f;
+}
+/* line 701, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.layers-ui .overlay-layers p {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+/* line 705, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.layers-ui .overlay-layers li.disabled {
+  color: #999;
+}
+
+/* line 710, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.share-ui .share-tabs {
+  margin-bottom: 10px;
+}
+/* line 713, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.share-ui .share-tabs a {
+  color: #fff;
+  text-decoration: none;
+  background-color: #B8C5F0;
+  padding: 5px 10px;
+}
+/* line 720, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.share-ui .share-tabs a:first-child {
+  border-right: 1px solid #fff;
+  border-radius: 4px 0 0 4px;
+}
+/* line 725, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.share-ui .share-tabs a:last-child {
+  border-left: 1px solid #fff;
+  border-radius: 0 4px 4px 0;
+}
+/* line 730, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.share-ui .share-tabs a.active {
+  background-color: #7092FF;
+}
+/* line 735, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.share-ui .share-tab {
+  display: none;
+}
+/* line 740, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.share-ui .share-link input[type=text],
+.share-ui .share-link textarea {
+  width: 100%;
+  font-family: monospace;
+  font-size: small;
+  line-height: 1.3;
+}
+/* line 750, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.share-ui .share-image label {
+  margin-right: 10px;
+}
+/* line 755, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.share-ui #embed_html {
+  resize: vertical;
+}
+/* line 759, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.share-ui #mapnik_scale {
+  width: 100px;
+}
+
+/* line 764, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.leaflet-top {
+  top: 10px !important;
+}
+/* line 766, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.leaflet-top .leaflet-control {
+  margin-right: 0px !important;
+  margin-top: 0px !important;
+}
+
+/* line 772, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.leaflet-popup-scrolled {
+  padding-right: 20px;
+  border-bottom: 0px !important;
+  border-top: 0px !important;
+}
+
+/* line 778, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.leaflet-popup-content-wrapper {
+  border-radius: 4px !important;
+}
+
+/* Rules for attribution text under the main map shown on printouts */
+/* line 784, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#attribution {
+  display: none;
+}
+/* line 787, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#attribution table {
+  width: 100%;
+}
+
+/* line 792, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.attribution_license,
+.attribution_project {
+  text-align: left;
+}
+
+/* line 797, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.attribution_notice {
+  text-align: center;
+}
+
+/* line 801, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.donate-attr {
+  color: #60a94f !important;
+}
+
+/* Rules for the sidebar */
+/* line 805, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.sidebar_heading {
+  position: relative;
+  padding: 10px 20px;
+}
+/* line 810, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.sidebar_heading > .close {
+  float: right;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+/* line 818, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#browse_status p {
+  padding: 20px;
+}
+/* line 822, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#browse_status input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 830, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar #sidebar_loader,
+#sidebar .loader,
+#sidebar .load_more {
+  text-align: center;
+  margin: 20px auto;
+  width: 40px;
+  display: block;
+}
+
+/* Rules for the search and direction forms */
+/* line 842, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+header .search_forms,
+.directions_form {
+  display: none;
+}
+
+/* line 847, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form,
+.directions_form {
+  position: relative;
+  padding: 10px;
+  background-color: #EEE;
+}
+/* line 853, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form .query_wrapper,
+.directions_form .query_wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px 0 0 2px;
+}
+/* line 859, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form input[type=text],
+.directions_form input[type=text] {
+  width: 100%;
+  height: 30px;
+  -webkit-transition: 300ms linear;
+          transition: 300ms linear;
+}
+/* line 865, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form input[type=text].overflow,
+.directions_form input[type=text].overflow {
+  border-right: none;
+}
+/* line 869, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form input:focus,
+.directions_form input:focus {
+  outline: none;
+  box-shadow: 0px 0px 7px #9ED485;
+}
+/* line 874, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form input[type=submit].float,
+.directions_form input[type=submit].float {
+  float: right;
+  width: auto;
+  min-width: 0;
+  border-radius: 0 2px 2px 0;
+}
+/* line 881, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form select,
+.directions_form select {
+  /* this next line is to polyfill the vertical alignment of text within a select element,
+   * which is different between firefox and chrome. */
+  padding: 0.3em 0;
+}
+/* line 887, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form .query_options,
+.directions_form .query_options {
+  text-align: right;
+  font-size: 10px;
+  color: #7092FF;
+}
+/* line 893, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form .describe_location,
+.directions_form .describe_location {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 10px;
+  color: #7092FF;
+}
+/* line 901, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form .switch_link,
+.directions_form .switch_link {
+  float: right;
+  width: auto;
+  min-width: 0;
+  margin-left: 6px;
+}
+/* line 908, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form img.button,
+.directions_form img.button {
+  display: block;
+}
+/* line 912, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form span.force_width,
+.directions_form span.force_width {
+  width: 100%;
+  padding-right: 25px;
+  display: block;
+}
+/* line 918, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form select.routing_engines,
+.directions_form select.routing_engines {
+  min-height: 30px;
+  margin: 0px 0px 5px 25px;
+}
+/* line 923, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form input.routing_go,
+.directions_form input.routing_go {
+  min-width: 100px;
+  float: right;
+}
+/* line 928, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form div.header,
+.directions_form div.header {
+  width: 100%;
+  height: 30px;
+}
+/* line 933, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form div.line,
+.directions_form div.line {
+  width: 100%;
+  margin: 0px 0px 5px 0px;
+}
+/* line 938, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form div.loader_copy,
+.directions_form div.loader_copy {
+  display: none;
+}
+/* line 941, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_form div.loader_copy img,
+.directions_form div.loader_copy img {
+  vertical-align: middle;
+}
+
+/* Rules for the map key which appears in the popout sidebar */
+/* line 950, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#mapkey .mapkey-table-key img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 955, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#mapkey td {
+  padding: 0 5px 5px 5px;
+}
+
+/* Rules for search sidebar */
+/* line 963, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_results_entry ul li {
+  border-bottom: 1px solid #EEE;
+  cursor: pointer;
+}
+/* line 966, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_results_entry ul li:first-child {
+  border-top: 1px solid #EEE;
+}
+/* line 967, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_results_entry ul li.selected {
+  background: #FFFFE6;
+}
+/* line 970, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_results_entry .search_details {
+  display: block;
+  float: right;
+  text-align: right;
+  margin-top: 0.2em;
+  margin-left: 0.5em;
+}
+
+/* line 979, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.search_results_error {
+  color: #f00;
+}
+
+/* Rules for routing */
+/* line 985, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content > table {
+  padding: 5px 20px 10px 15px;
+  width: 100%;
+  border-collapse: separate;
+}
+
+/* line 991, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction {
+  background-image: url(/assets/routing-sprite-9d0aeef1140bc1830b258f0332d3f134.png);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i1 {
+  background-position: 0px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i2 {
+  background-position: -20px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i3 {
+  background-position: -40px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i4 {
+  background-position: -60px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i5 {
+  background-position: -80px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i6 {
+  background-position: -100px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i7 {
+  background-position: -120px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i8 {
+  background-position: -140px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i9 {
+  background-position: -160px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i10 {
+  background-position: -180px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i11 {
+  background-position: -200px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i12 {
+  background-position: -220px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i13 {
+  background-position: -240px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i14 {
+  background-position: -260px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i15 {
+  background-position: -280px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i16 {
+  background-position: -300px 0px;
+}
+
+/* line 998, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.direction.i17 {
+  background-position: -320px 0px;
+}
+
+/* line 1001, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+p#routing_summary {
+  padding: 0 20px 5px;
+}
+
+/* line 1005, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+td.instruction, td.distance {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #DDD;
+}
+
+/* line 1010, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+td.distance {
+  color: #BBB;
+  text-align: right;
+  font-size: x-small;
+}
+
+/* line 1015, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+tr.turn {
+  cursor: pointer;
+}
+
+/* line 1018, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+tr.turn:hover {
+  background: #FFFFE6;
+}
+
+/* line 1021, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.routing_engines, #route_from, #route_to {
+  margin-left: 25px;
+}
+
+/* line 1022, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.routing_marker {
+  width: 15px;
+  position: absolute;
+  cursor: move;
+}
+
+/* Rules for entity history */
+/* line 1027, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse_details {
+  position: relative;
+  border-bottom: 1px solid #EEE;
+}
+
+/* line 1033, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.browse_status {
+  display: none;
+}
+
+/* Rules for the history sidebar */
+/* line 1040, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar .changesets li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  /* color is derived from changeset bbox fillColor in history.js */
+}
+/* line 1045, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar .changesets li.selected {
+  background: #FFFFE6;
+}
+/* line 1049, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar .changesets h4 {
+  margin: 0;
+}
+/* line 1051, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar .changesets h4 a {
+  color: #000;
+}
+
+/* Rules for the browse sidebar */
+/* line 1060, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-section {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+/* line 1064, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-section h4:first-child {
+  margin-top: 0;
+  word-wrap: break-word;
+}
+/* line 1070, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-section:last-of-type {
+  border-bottom: none;
+}
+/* line 1074, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .paginate {
+  float: right;
+  padding: 1px 6px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+/* line 1081, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .paginate ul {
+  padding-left: 20px;
+}
+/* line 1085, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-field {
+  margin-bottom: 10px;
+}
+/* line 1088, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-field h4 {
+  padding: 5px 0 5px 10px;
+  font-size: 12px;
+  border: 1px solid #CCC;
+  border-radius: 4px 4px 0 0;
+  background-color: #F6F6F6;
+}
+/* line 1096, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-field p {
+  padding: 7px 10px;
+  font-size: 12px;
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
+}
+/* line 1106, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-tag-list {
+  background-color: #F6F6F6;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 12px;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+/* line 1114, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-tag-list th, #sidebar_content .browse-tag-list td {
+  border-bottom: 1px solid #ddd;
+}
+/* line 1118, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-tag-list tr:last-child th, #sidebar_content .browse-tag-list tr:last-child td {
+  border-bottom: 0;
+}
+/* line 1122, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-tag-list .browse-tag-k,
+#sidebar_content .browse-tag-list .browse-tag-v {
+  width: 50%;
+  padding: 6px 10px;
+  word-wrap: break-word;
+}
+/* line 1129, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-tag-list .browse-tag-k {
+  font-weight: 500;
+  background-color: #F6F6F6;
+}
+/* line 1134, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .browse-tag-list .browse-tag-v {
+  border-left: 1px solid #ddd;
+  background-color: #fff;
+}
+/* line 1140, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .warning {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 90%;
+}
+/* line 1146, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .note-comments li, #sidebar_content .changeset-comments li {
+  margin: 10px 0;
+}
+/* line 1149, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .note-comments li p, #sidebar_content .changeset-comments li p {
+  margin-left: 10px;
+}
+/* line 1154, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .comments-header {
+  float: left;
+}
+/* line 1158, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .subscribe-buttons {
+  float: left;
+  margin: 18px 10px 10px;
+  min-width: 80px;
+}
+/* line 1164, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .subscribe-buttons input {
+  font-size: 90%;
+  line-height: 15px;
+  min-height: 20px;
+}
+/* line 1170, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content span.action-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* line 1175, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .note-description {
+  overflow: hidden;
+  margin: 0 0 10px 10px;
+}
+/* line 1180, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .query-intro p {
+  padding: 20px 20px 10px;
+}
+/* line 1184, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .query-results {
+  display: none;
+}
+/* line 1187, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .query-results h3 {
+  padding: 20px 20px 10px;
+  margin: 0;
+}
+/* line 1193, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .query-results ul li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+}
+/* line 1197, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .query-results ul li.query-result {
+  cursor: pointer;
+}
+/* line 1201, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content .query-results ul li.selected {
+  background: #FFFFE6;
+}
+
+/* Rules for export sidebar */
+/* line 1211, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form {
+  padding: 20px;
+}
+/* line 1214, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form .export_area_inputs,
+.export_form .export_button {
+  text-align: center;
+}
+/* line 1219, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form .export_area_inputs {
+  margin-bottom: 10px;
+}
+/* line 1221, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form .export_area_inputs input[type="text"] {
+  width: 80px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+/* line 1228, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form .export_boxy {
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+/* line 1233, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form .export_boxy #maxlat {
+  margin-top: -1px;
+}
+/* line 1234, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form .export_boxy #minlon {
+  float: left;
+  margin-left: -1px;
+}
+/* line 1238, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form .export_boxy #maxlon {
+  float: right;
+  margin-right: -1px;
+}
+/* line 1242, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form .export_boxy #minlat {
+  margin-bottom: 0;
+}
+/* line 1245, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form .export_bound {
+  margin: 5px;
+}
+/* line 1249, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form .export_button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* line 1254, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form dl {
+  padding-left: 10px;
+}
+/* line 1256, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.export_form dl dd {
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+/* Rules for the routing sidebar */
+/* line 1266, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#sidebar_content #routing_credit {
+  text-align: center;
+  padding: 0.5em;
+}
+
+/* Rules for edit pages */
+/* line 1275, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-edit #content {
+  position: absolute;
+  top: 55px;
+  bottom: 0;
+  width: 100%;
+}
+/* line 1282, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-edit #map {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Rules for non-map content pages */
+/* line 1290, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.content-heading {
+  background: #EEE;
+}
+/* line 1293, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.content-heading h1 {
+  font-size: 22px;
+}
+
+/* line 1297, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.content-body h1, .content-body h2, .content-body h3, .content-body p, .content-body ul, .content-body ol {
+  margin-bottom: 20px;
+}
+/* line 1301, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.content-body h1, .content-body h2, .content-body h3 {
+  margin-top: 10px;
+}
+
+/* line 1306, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.content-inner {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Overrides for pages that use new layout conventions */
+/* line 1318, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.user-new .content-body .content-inner,
+.user-create .content-body .content-inner,
+.user-terms .content-body .content-inner {
+  padding: 0;
+}
+
+/* line 1327, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.user-new .content-heading .content-inner,
+.user-create .content-heading .content-inner,
+.user-terms .content-heading .content-inner,
+.user-confirm .content-heading .content-inner {
+  height: 200px;
+}
+
+/* line 1332, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.header-illustration {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+/* line 1341, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.header-illustration.new-user-main {
+  background-image: url(/assets/sign-up-illustration-64f06d6ef5a0f81fff6c9e114858a259.png);
+}
+/* line 1345, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.header-illustration.confirm-main {
+  background-image: url(/assets/confirm-illustration-5bcae2bd8fea9ffd53c8232c32badc08.png);
+}
+/* line 1349, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.header-illustration.new-user-terms {
+  background-image: url(/assets/terms-illustration-d4a475787b793a0e0e63ea4a2c119c92.png);
+}
+/* line 1353, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.header-illustration.new-user-arm {
+  height: 110px;
+  width: 130px;
+  left: 260px;
+  top: 160px;
+  background-image: url(/assets/sign-up-illustration-arm-ec4d24284c01516d4d3bf841a6c94f41.png);
+  z-index: 100;
+}
+
+/* line 1363, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#content.maximised {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 0;
+  z-index: 2000;
+}
+
+/* Rules for small maps in content areas */
+/* line 1374, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.content_map {
+  position: relative;
+  width: 45%;
+  height: 400px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  float: right;
+}
+
+/* Rules for the trace list shown by the traces tab etc */
+/* line 1385, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#trace_list {
+  font-size: 10px;
+  border-width: 0px;
+  text-align: right;
+}
+/* line 1390, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#trace_list .trace_summary {
+  font-size: 12px;
+  color: gray;
+}
+/* line 1395, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#trace_list .trace_pending {
+  color: red;
+}
+/* line 1399, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#trace_list .trace_public {
+  color: green;
+}
+/* line 1403, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#trace_list .trace_identifiable {
+  color: green;
+}
+/* line 1407, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#trace_list .trace_trackable {
+  color: red;
+}
+/* line 1411, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#trace_list .trace_private {
+  color: red;
+}
+
+/* Rules for the new trace form */
+/* line 1419, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#new_trace input[type=text] {
+  width: 50%;
+  width: calc(100% - 150px);
+  max-width: 500px;
+}
+
+/* Rules for the edit trace form */
+/* line 1429, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.edit_trace .form-row p {
+  margin-bottom: 0px;
+}
+/* line 1433, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.edit_trace input[type=text] {
+  width: 50%;
+  width: calc(100% - 150px);
+  max-width: 500px;
+}
+
+/* Rules for the user profile page */
+/* line 1442, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#userinformation {
+  min-height: 100px;
+}
+/* line 1445, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#userinformation .userinformation-inner {
+  float: left;
+}
+/* line 1448, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#userinformation h2 {
+  margin-top: 0;
+}
+/* line 1451, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#userinformation .user-description {
+  width: 100%;
+  clear: both;
+}
+/* line 1455, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#userinformation .deemphasize {
+  margin: 0;
+}
+
+/* line 1460, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.admin-user-info small {
+  margin-bottom: 10px;
+  display: inline;
+  margin-right: 20px;
+}
+
+/* line 1466, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.activity-block {
+  clear: left;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  float: left;
+}
+/* line 1471, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.activity-block h3 {
+  margin-bottom: 10px;
+}
+
+/* line 1476, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.contact-activity {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* line 1481, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.activity-details p {
+  margin-left: 70px;
+  margin-bottom: 0;
+}
+
+/* line 1486, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#friends-container .contact-activity ul {
+  margin-left: 70px;
+}
+
+/* line 1492, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.user-view .content-inner {
+  max-width: none;
+}
+/* line 1495, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.user-view p#no_home_location {
+  margin: 20px;
+}
+/* line 1498, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.user-view .user_thumbnail {
+  margin-top: 5px;
+  float: left;
+}
+
+/* Rules for the user map */
+/* line 1506, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.content_map .leaflet-popup-content {
+  margin: 10px;
+  min-height: 50px;
+}
+
+/* Rules for user popups on maps */
+/* line 1513, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.user_popup {
+  min-width: 200px;
+}
+/* line 1515, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.user_popup p {
+  padding: 0 0 5px 0;
+  margin-top: 0 0 0 60px;
+  font-size: 12px;
+}
+/* line 1520, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.user_popup img.user_thumbnail {
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+/* Rules for the user list */
+/* line 1528, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#user_list {
+  font-size: 10px;
+  width: 100%;
+}
+/* line 1532, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#user_list tr {
+  vertical-align: middle;
+}
+/* line 1536, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#user_list p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* line 1542, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#user_list_actions {
+  float: right;
+  margin-top: 10px;
+}
+
+/* Rules for the diary list page */
+/* line 1549, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_post {
+  position: relative;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+/* line 1555, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_post .post_heading {
+  margin-bottom: 20px;
+}
+/* line 1558, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_post .post_heading h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+/* line 1565, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_post img.user_thumbnail {
+  float: left;
+}
+/* line 1569, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_post small.deemphasize {
+  float: left;
+  display: block;
+}
+/* line 1574, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_post ul.secondary-actions {
+  display: inline-block;
+}
+
+/* line 1579, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.content-heading .hide_unless_logged_in {
+  display: inline;
+}
+
+/* Rules for the diary entry page */
+/* line 1586, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_entry #map {
+  position: relative;
+  width: 90%;
+  height: 400px;
+  border: 1px solid #ccc;
+  display: none;
+  margin-bottom: 20px;
+}
+/* line 1594, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_entry #newcomment {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  margin-top: 10px;
+}
+/* line 1599, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_entry .comments {
+  max-width: 740px;
+}
+/* line 1602, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_entry .diary-comment {
+  margin-top: 10px;
+  border-top: 1px dashed #ccc;
+  padding-top: 10px;
+}
+/* line 1606, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_entry .diary-comment:first-child {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+/* line 1611, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_entry .diary-comment p {
+  margin-bottom: 10px;
+}
+/* line 1614, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_entry .diary-comment .comment-heading {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* line 1621, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_entry-view img.user_thumbnail {
+  float: left;
+}
+
+/* Rules for the log in page */
+/* line 1627, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#login_auth_buttons {
+  margin-bottom: 0;
+}
+
+/* line 1631, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#login_auth_buttons li {
+  float: left;
+  padding: 5px 10px;
+}
+
+/* Rules for the account confirmation page */
+/* line 1639, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.user-terms .legale {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow: auto;
+  height: 20em;
+}
+/* line 1647, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.user-terms #decline {
+  background: #B8C5F0;
+}
+/* line 1649, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.user-terms #decline:hover {
+  background: #6480de;
+}
+
+/* Rules for the account settings page */
+/* line 1657, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#accountForm .user_map {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  border: 1px solid #ccc;
+}
+
+/* line 1664, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#accountForm .user_image {
+  margin-bottom: 0;
+}
+
+/* line 1668, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#accountForm #user_image {
+  margin-left: 20px;
+}
+
+/* line 1672, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#accountForm ul.accountImage-options {
+  margin-left: 120px;
+}
+
+/* line 1676, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.nohome .location {
+  display: none;
+}
+
+/* line 1680, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#homerow .message {
+  display: none;
+}
+
+/* line 1684, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.nohome .message {
+  display: inline !important;
+}
+
+/* line 1688, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.content_map.settings_map {
+  width: 50%;
+  float: none;
+}
+
+/* Rules for the oauth settings page */
+/* line 1695, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.oauth_clients .buttons .oauth-edit {
+  border-radius: 2px 0 0 2px;
+}
+
+/* line 1699, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.oauth_clients .buttons .oauth-delete {
+  border-radius: 0 2px 2px 0;
+}
+
+/* Rules for messages pages */
+/* line 1705, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.messages {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+/* line 1709, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.messages input[type="submit"] {
+  margin: auto;
+}
+/* line 1712, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.messages tbody tr {
+  border-top: 1px solid #ccc;
+}
+/* line 1716, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.messages .inbox-row {
+  background: #f8f8ff;
+}
+/* line 1720, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.messages .inbox-row-unread {
+  background: #CBEEA7;
+}
+/* line 1724, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.messages .right {
+  float: right;
+}
+/* line 1728, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.messages tr td,
+.messages tr th {
+  padding: 5px;
+}
+/* line 1732, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.messages p:last-child,
+.messages h2:last-child,
+.messages h3:last-child,
+.messages ol:last-child,
+.messages ul:last-child {
+  margin-bottom: 0;
+}
+/* line 1739, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.messages tr td {
+  height: 30px;
+  border-right: 1px solid #EEE;
+}
+
+/* line 1745, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.inbox-row .inbox-mark-read {
+  display: none;
+}
+
+/* line 1749, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.info-line {
+  margin-bottom: 20px;
+  padding: 5px 0px 4px 0px;
+  border-bottom: 1px solid #ccc;
+}
+/* line 1754, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.info-line form, .info-line form div {
+  display: inline;
+}
+
+/* line 1759, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.info-line .user_thumbnail_tiny {
+  vertical-align: middle;
+}
+
+/* line 1763, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.inbox-sent {
+  white-space: nowrap;
+}
+
+/* line 1767, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.inbox-mark-unread,
+.inbox-mark-read,
+.inbox-delete {
+  width: 1%;
+}
+
+/* line 1773, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.inbox-row-unread .inbox-mark-unread {
+  display: none;
+}
+
+/* line 1777, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.message-read .message-buttons {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #EEE;
+}
+
+/* line 1784, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.message-read .buttons .mark-unread-button {
+  border-radius: 0;
+}
+
+/* Rules for "flash" notice boxes shown at the top of the content area */
+/* line 1790, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.flash {
+  padding: 20px;
+}
+/* line 1793, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.flash.error {
+  background-color: #ff7070;
+}
+/* line 1797, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.flash.warning {
+  background-color: #ffe0cc;
+}
+/* line 1801, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.flash.notice {
+  background-color: #CBEEA7;
+}
+/* line 1805, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.flash div.message {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* Rules for highlighting fields with rails validation errors */
+/* line 1814, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.formError {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #ff7070;
+}
+
+/* Rules for rails validation error boxes */
+/* line 1826, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #ff7070;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 1833, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#errorExplanation h2 {
+  margin: 0 -10px 10px -10px;
+  padding: 5px 5px 5px 15px;
+  font-weight: bold;
+  font-size: 12px;
+  background-color: #c00;
+  color: #fff;
+  text-align: left;
+}
+/* line 1843, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0px;
+  padding: 5px;
+}
+/* line 1849, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#errorExplanation ul {
+  padding-left: 20px;
+}
+/* line 1852, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc;
+}
+
+/* Rules for forms */
+/* line 1862, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.standard-form fieldset {
+  margin-bottom: 20px;
+}
+/* line 1865, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.standard-form label.standard-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+/* line 1872, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.standard-form label.standard-label.secondary {
+  display: inline-block;
+  font-weight: normal;
+}
+/* line 1876, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.standard-form .form-help {
+  font-weight: normal;
+}
+/* line 1879, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.standard-form .form-column {
+  float: left;
+  margin-right: 20px;
+}
+/* line 1883, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.standard-form .form-divider {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #EEE;
+}
+/* line 1888, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.standard-form .horizontal-list .form-row {
+  float: left;
+  padding-right: 10px;
+}
+/* line 1892, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.standard-form .form-row {
+  margin-bottom: 10px;
+}
+/* line 1895, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.standard-form .form-list {
+  margin-bottom: 0;
+}
+/* line 1898, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.standard-form .form-list li {
+  margin-bottom: 5px;
+}
+/* line 1901, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.standard-form input[type="checkbox"],
+.standard-form input[type="radio"] {
+  float: left;
+  margin-top: 5px;
+}
+
+/* line 1908, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+#remember_me_openid {
+  display: block;
+}
+
+/* line 1912, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+select {
+  padding: 2px;
+}
+
+/* line 1916, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* line 1921, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+textarea {
+  color: #222;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 2px 5px;
+  margin: 0;
+  width: 200px;
+}
+/* line 1933, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input[type="text"].field_with_errors,
+input[type="email"].field_with_errors,
+input[type="url"].field_with_errors,
+input[type="password"].field_with_errors,
+textarea.field_with_errors {
+  border: 2px solid #ff7070;
+}
+
+/* line 1938, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+textarea {
+  padding: 5px;
+  width: 100%;
+}
+
+/* Rules for user images */
+/* line 1945, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+img.user_image {
+  max-width: 100px;
+  max-height: 100px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  float: left;
+  margin-right: 20px;
+}
+
+/* line 1954, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+img.user_thumbnail {
+  max-width: 50px;
+  max-height: 50px;
+  border: 1px solid #ccc;
+  margin-right: 20px;
+}
+
+/* line 1961, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+img.user_thumbnail_tiny {
+  width: auto;
+  height: auto;
+  max-width: 25px;
+  max-height: 25px;
+  border: 1px solid #ccc;
+}
+
+/* Rules for geo microformats */
+/* line 1971, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+abbr.geo {
+  border-bottom: none;
+}
+
+/* Rules for RSS buttons */
+/* line 1977, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.rsssmall {
+  position: relative;
+  top: 3px;
+}
+
+/* General styles for action lists / subnavs / pager navs */
+/* line 1984, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+ul.secondary-actions {
+  font-style: normal;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+/* line 1988, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+ul.secondary-actions.pager {
+  display: inline-block;
+  margin-right: 60px;
+}
+/* line 1992, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+ul.secondary-actions > li {
+  display: block;
+  float: left;
+  list-style: none;
+  border-left: 1px solid #ccc;
+  padding-left: 10px;
+  margin-right: 10px;
+}
+/* line 1999, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+ul.secondary-actions > li:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+/* line 2003, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+ul.secondary-actions > li:last-child {
+  margin-right: 0px;
+}
+
+/* line 2009, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+div.secondary-actions {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Utility for managing inner content areas */
+/* line 2016, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.inner22 {
+  padding: 20px;
+}
+
+/* line 2018, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.inner12 {
+  padding: 10px 20px;
+}
+
+/* line 2020, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.inner11 {
+  padding: 10px;
+}
+
+/* line 2022, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.inner20 {
+  padding: 20px 0;
+}
+
+/* line 2024, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.inner02 {
+  padding: 0 20px;
+}
+
+/* Utility for general button styles */
+/* line 2028, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+a.button {
+  cursor: pointer;
+  border: 0;
+  display: inline-block;
+  padding: 5px 10px;
+  min-height: 30px;
+  min-width: 120px;
+  margin: 0 0 10px 0;
+  color: white;
+  background: #7092FF;
+  text-align: center;
+  border-radius: 2px;
+}
+/* line 2043, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+a.button:hover {
+  background: #0a44ff;
+  text-decoration: none;
+}
+/* line 2047, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input[type="button"].deemphasize,
+input[type="submit"].deemphasize,
+input[type="reset"].deemphasize,
+a.button.deemphasize {
+  background: #B8C5F0;
+}
+/* line 2049, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input[type="button"].deemphasize:hover,
+input[type="submit"].deemphasize:hover,
+input[type="reset"].deemphasize:hover,
+a.button.deemphasize:hover {
+  background: #6480de;
+}
+/* line 2053, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled,
+a.button:disabled {
+  background: #EEE;
+}
+/* line 2055, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input[type="button"]:disabled:hover,
+input[type="submit"]:disabled:hover,
+input[type="reset"]:disabled:hover,
+a.button:disabled:hover {
+  background: #EEE;
+}
+/* line 2059, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input[type="button"]:last-child,
+input[type="submit"]:last-child,
+input[type="reset"]:last-child,
+a.button:last-child {
+  margin-bottom: 0;
+}
+
+/* line 2064, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  line-height: normal;
+}
+
+/* line 2070, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+a.button {
+  line-height: 20px;
+}
+
+/* line 2074, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.buttons {
+  min-width: 200px;
+  /* if a 3-button set has a hidden middle button */
+  /* if a 3-button set starts with a hidden button */
+}
+/* line 2076, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.buttons input[type="submit"],
+.buttons input[type="button"],
+.buttons input[type="reset"],
+.buttons .button,
+.buttons .button_to {
+  box-sizing: border-box;
+  float: left;
+  border-radius: 0;
+  margin: 0;
+  min-width: 75px;
+  max-width: 180px;
+  border-right: 1px solid white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/* line 2092, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.buttons input:first-child,
+.buttons .button:first-child,
+.buttons .button_to:first-child {
+  border-radius: 2px 0 0 2px;
+}
+/* line 2097, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.buttons input:last-child,
+.buttons .button:last-child,
+.buttons .button_to:last-child {
+  border-radius: 0 2px 2px 0;
+  border-right-width: 0;
+}
+/* line 2103, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.buttons input:only-child,
+.buttons .button:only-child,
+.buttons .button_to:only-child,
+.buttons *[value="Hide"] + input:last-child,
+.buttons *[value="Hide"] + .button:last-child,
+.buttons *[value="Hide"] + .button_to:last-child {
+  border-radius: 2px;
+  border-right-width: 0;
+}
+/* line 2113, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.buttons *[value="Hide"] + input:nth-child(3),
+.buttons *[value="Hide"] + .button:nth-child(3),
+.buttons *[value="Hide"] + .button_to:nth-child(3) {
+  border-radius: 0 2px 2px 0;
+  border-right-width: 0;
+}
+/* line 2120, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.buttons *[value="Hide"] + input:nth-child(2):not(:last-child),
+.buttons *[value="Hide"] + .button:nth-child(2):not(:last-child),
+.buttons *[value="Hide"] + .button_to:nth-child(2):not(:last-child) {
+  border-radius: 2px 0 0 2px;
+  border-right-width: 1px;
+}
+
+/* Rules for doing distinct colour of alternate table rows */
+/* line 2130, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.table0,
+.item0 {
+  background: #f4f4ff;
+}
+
+/* line 2135, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.table1,
+.item1 {
+  background: #fff;
+}
+
+/* Rules for OpenID logo */
+/* line 2142, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.openid_logo {
+  vertical-align: text-bottom;
+  border: 0;
+}
+
+/* Rules for rich text */
+/* line 2151, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext h1, .richtext h2,
+.prose h1,
+.prose h2 {
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #cccccc;
+  margin-bottom: 10px;
+}
+/* line 2157, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext h1,
+.prose h1 {
+  font-size: 24px;
+}
+/* line 2161, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext h2,
+.prose h2 {
+  font-size: 18px;
+}
+/* line 2165, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext h3,
+.prose h3 {
+  font-size: 14px;
+}
+/* line 2169, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext code,
+.prose code {
+  font-size: 13px;
+  background: #e8e8e8;
+  padding: 2px 3px;
+}
+/* line 2175, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext pre,
+.prose pre {
+  font-size: 13px;
+  background: #e8e8e8;
+  padding: 2px 3px;
+}
+/* line 2180, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext pre code,
+.prose pre code {
+  padding: 0;
+}
+/* line 2185, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext img,
+.prose img {
+  padding: 20px;
+  background-color: #f4f4ff;
+  display: block;
+  max-width: 100%;
+  margin: auto;
+}
+/* line 2193, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext blockquote,
+.prose blockquote {
+  border-left: 20px solid #f4f4ff;
+  padding-left: 20px;
+  margin: 0;
+  color: #7E7E7E;
+}
+/* line 2200, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext ul, .richtext ol,
+.prose ul,
+.prose ol {
+  padding-left: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+/* line 2206, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext ul li,
+.prose ul li {
+  list-style: disc;
+}
+/* line 2210, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext ol li,
+.prose ol li {
+  list-style: decimal;
+}
+
+/* line 2215, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.diary_post .richtext {
+  margin-top: 20px;
+}
+
+/* line 2219, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.comments .richtext {
+  margin-left: 70px;
+  margin-top: 0;
+}
+
+/* Rules for rich text editors */
+/* line 2226, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+input.richtext_title[type="text"] {
+  width: 50%;
+  width: calc(100% - 235px);
+}
+@media only screen and (max-width: 768px) {
+  /* line 2226, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+  input.richtext_title[type="text"] {
+    width: 100%;
+  }
+}
+
+/* line 2235, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext_container {
+  margin-bottom: 20px;
+}
+/* line 2238, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext_container .richtext_content {
+  width: 50%;
+  width: calc(100% - 235px);
+  display: inline-block;
+  vertical-align: top;
+}
+@media only screen and (max-width: 768px) {
+  /* line 2238, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+  .richtext_container .richtext_content {
+    width: 100%;
+  }
+}
+/* line 2248, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext_container .richtext_content .richtext_preview {
+  display: inline-block;
+  padding: 20px;
+  background-color: #f4f4ff;
+  overflow-x: auto;
+}
+/* line 2254, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext_container .richtext_content .richtext_preview.loading {
+  background-image: url(/assets/loading-8fa417861e6c0a341f7c7dff67f4ea0e.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* line 2260, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext_container .richtext_content .richtext_preview > :first-child {
+  margin-top: 0px;
+}
+/* line 2266, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext_container .richtext_help {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 15px;
+  background-color: #f8f8ff;
+  padding: 10px;
+  width: 220px;
+}
+/* line 2274, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext_container .richtext_help ul {
+  margin-bottom: 0;
+}
+/* line 2278, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext_container .richtext_help h4.heading, .richtext_container .richtext_help li {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+/* line 2284, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext_container .richtext_help li h4, .richtext_container .richtext_help li span, .richtext_container .richtext_help li p {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 11px;
+}
+/* line 2290, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext_container .richtext_help li h4 {
+  width: 40%;
+  margin: 0;
+}
+/* line 2295, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.richtext_container .richtext_help li span, .richtext_container .richtext_help li p {
+  width: 50%;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  white-space: nowrap;
+}
+
+/* Rules for the user notes list */
+/* line 2307, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.note_list tr.creator {
+  background-color: #eeeeee;
+}
+/* line 2311, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.note_list td {
+  padding: 3px;
+}
+/* line 2315, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.note_list p {
+  margin-bottom: 0px;
+}
+
+/* Rules for the iD editor */
+/* line 2322, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.id-embed {
+  width: 100%;
+  height: 100%;
+}
+
+/* Rules for dropdown menus */
+/* line 2329, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown {
+  position: relative;
+}
+
+/* line 2333, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown-toggle {
+  *margin-bottom: -3px;
+}
+
+/* line 2337, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown-toggle:active,
+.open .dropdown-toggle {
+  outline: 0;
+}
+
+/* line 2342, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 4px solid #000000;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}
+
+/* line 2353, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown .caret {
+  margin-top: 8px;
+  margin-left: 2px;
+}
+
+/* line 2358, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 0;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 0 3px 3px;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  background-clip: padding-box;
+}
+
+/* line 2378, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+
+/* line 2383, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown-menu .divider {
+  *width: 100%;
+  height: 1px;
+  margin: 9px 1px;
+  *margin: -5px 0 5px;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* line 2393, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown-menu > li > a {
+  display: block;
+  padding: 3px 10px;
+  clear: both;
+  font-weight: normal;
+  line-height: 20px;
+  color: #333333;
+  white-space: nowrap;
+}
+
+/* line 2403, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-submenu:hover > a,
+.dropdown-submenu:focus > a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #7ebc6f;
+}
+
+/* line 2412, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #7ebc6f;
+  outline: 0;
+}
+
+/* line 2421, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  color: #999999;
+}
+
+/* line 2427, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  cursor: default;
+  background-color: transparent;
+  background-image: none;
+}
+
+/* line 2435, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.open {
+  *z-index: 1000;
+}
+
+/* line 2439, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.open > .dropdown-menu {
+  display: block;
+}
+
+/* line 2443, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 990;
+}
+
+/* Rules for the "Welcome" page */
+/* line 2454, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .center, .site-fixthemap .center {
+  text-align: center;
+}
+/* line 2456, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .center .sprite, .site-fixthemap .center .sprite {
+  float: none;
+  margin: auto;
+}
+/* line 2462, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .sprite, .site-fixthemap .sprite {
+  background-image: url(/assets/welcome-sprite-46a0ba1b360158a854c88a268d9d3b73.png);
+  background-size: 500px 250px;
+  display: block;
+  float: left;
+}
+/* line 2469, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .icon-list, .site-fixthemap .icon-list {
+  padding-bottom: 20px;
+}
+/* line 2471, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .icon-list div, .site-fixthemap .icon-list div {
+  margin-bottom: 10px;
+}
+/* line 2473, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .icon-list div p, .site-fixthemap .icon-list div p {
+  padding-top: 10px;
+}
+/* line 2478, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .sprite.small, .site-fixthemap .sprite.small {
+  width: 50px;
+  height: 50px;
+}
+/* line 2483, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .sprite.x, .site-fixthemap .sprite.x {
+  background-position: -50px 0;
+}
+/* line 2487, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .sprite.term, .site-fixthemap .sprite.term {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+/* line 2492, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .sprite.node, .site-fixthemap .sprite.node {
+  background-position: -100px 0;
+}
+/* line 2496, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .sprite.way, .site-fixthemap .sprite.way {
+  background-position: -150px 0;
+}
+/* line 2500, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .sprite.tag, .site-fixthemap .sprite.tag {
+  background-position: -200px 0;
+}
+/* line 2504, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .sprite.editor, .site-fixthemap .sprite.editor {
+  background-position: -250px 0;
+}
+/* line 2508, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .sprite.question, .site-fixthemap .sprite.question {
+  background-position: -300px 0;
+}
+/* line 2512, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .start-mapping, .site-fixthemap .start-mapping {
+  margin: auto;
+  cursor: pointer;
+  border: none;
+  padding: 20px 40px;
+  font-size: 30px;
+  text-decoration: none;
+}
+/* line 2521, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .note-box, .site-fixthemap .note-box {
+  margin-top: 20px;
+  background-color: #f4f4ff;
+}
+/* line 2526, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-welcome .icon.note, .site-fixthemap .icon.note {
+  background-color: #333;
+  border-radius: 4px;
+}
+
+/* line 2532, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content {
+  background-color: #eee;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+/* line 2540, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .caption {
+  max-width: 200px;
+  font: 13px/20px Helvetica, Arial, sans-serif;
+  position: fixed;
+  text-align: right;
+  right: 20px;
+  bottom: 60px;
+  text-shadow: #000 0px 1px 5px;
+  color: #eee;
+  opacity: 0.8;
+  display: none;
+}
+/* line 2553, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .caption a {
+  color: white;
+  white-space: nowrap;
+  text-decoration: none;
+}
+/* line 2559, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content a.next {
+  display: block;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: url(/assets/about/sprite-7264b6f6ce5db3af96bd5fdb98cab410.png) -120px 0px no-repeat;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 2574, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .content-inner {
+  position: relative;
+  color: #333;
+  min-width: 320px;
+  max-width: 640px;
+}
+/* line 2580, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .content-inner .section {
+  margin-bottom: 30px;
+}
+/* line 2584, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .content-inner .section:last-child {
+  margin-bottom: 0;
+}
+/* line 2589, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .text {
+  background: white;
+  padding: 40px;
+}
+/* line 2594, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .attr {
+  position: relative;
+  padding: 170px 40px 20px;
+  background: #333;
+  background: rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
+  margin-top: -20px;
+}
+/* line 2602, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .attr h1 {
+  display: block;
+  color: white;
+  font-weight: 300;
+  font-size: 34px;
+}
+/* line 2607, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .attr h1 span {
+  color: #76c551;
+}
+/* line 2612, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .attr .user-image {
+  position: absolute;
+  top: 0px;
+  right: 240px;
+  left: 0px;
+  height: 150px;
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  background-image: url(/assets/about/osm-4c6c51f778f1119f7f10177c644ad568.png);
+  background-size: cover;
+  background-color: #76c551;
+}
+/* line 2625, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .attr .byosm {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+  width: 240px;
+  height: 150px;
+  padding: 20px 20px 20px 40px;
+  font: 500 20px/24px Helvetica, Arial, sans-serif;
+  white-space: nowrap;
+  color: #fff;
+  background: #76c551;
+}
+/* line 2639, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .attr .byosm span {
+  display: inline-block;
+  width: 20px;
+  margin-left: -20px;
+}
+/* line 2646, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content h2 {
+  margin-bottom: 10px;
+}
+/* line 2650, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background: 40px 40px url(/assets/about/sprite-7264b6f6ce5db3af96bd5fdb98cab410.png) no-repeat;
+}
+/* line 2657, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .icon.local {
+  background-position: 0px    0px;
+}
+/* line 2658, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .icon.community {
+  background-position: 0px  -40px;
+}
+/* line 2659, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .icon.open {
+  background-position: 0px  -80px;
+}
+/* line 2660, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .icon.partners {
+  background-position: 0px -120px;
+}
+/* line 2661, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+.site-about #content .icon.infringement {
+  background-position: 0px -160px;
+}
+
+/* Make space for icons */
+/* line 3, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.node::before,
+.way::before,
+.relation::before {
+  display: inline-block;
+  width: 25px;
+  margin-left: -25px;
+}
+
+/* line 11, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.node, .way, .relation {
+  margin-left: 25px;
+}
+
+/* Deleted objects */
+/* line 17, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.deleted {
+  text-decoration: line-through;
+}
+
+/* Nodes (and ways as areas) */
+/* line 21, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.aeroway.aerodrome::before {
+  content: url(/assets/browse/aerodrome.p.16-094212d3413dc67fb8c51b8918850f1e.png);
+}
+
+/* line 23, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.atm::before {
+  content: url(/assets/browse/amenity_atm.16-ce0a04c139dc0b48b36a5d761c2f1f1e.png);
+}
+
+/* line 24, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.bank::before {
+  content: url(/assets/browse/amenity_bank.16-85fa268514832e460e46bbadf8337d10.png);
+}
+
+/* line 25, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.bar::before {
+  content: url(/assets/browse/amenity_bar.16-00108a7e0e9c7aed3e6ee93b81599a85.png);
+}
+
+/* line 26, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.biergarten::before {
+  content: url(/assets/browse/amenity_biergarten.16-96c0fee0c9131c6a809cdff56dc2e6b4.png);
+}
+
+/* line 27, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.bicycle_parking::before {
+  content: url(/assets/browse/transport_parking_bicycle.p.16-d5296b37089ed3b93bfd16c594796372.png);
+}
+
+/* line 28, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.bicycle_rental::before {
+  content: url(/assets/browse/transport_rental_bicycle.16-45c08e3f25d65d336f731b7b06f99c66.png);
+}
+
+/* line 29, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.bus_station::before {
+  content: url(/assets/browse/bus_station.n.16-35111040e1e268013e11bdc259ccf731.png);
+}
+
+/* line 30, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.cafe::before {
+  content: url(/assets/browse/amenity_cafe.16-cab54617459a51ac36c6cbb8058c96df.png);
+}
+
+/* line 31, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.car_rental::before {
+  content: url(/assets/browse/transport_rental_car.16-6e771870a2cc92d003297661bed35050.png);
+}
+
+/* line 32, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.car_sharing::before {
+  content: url(/assets/browse/car_share.p.16-d09058344f47641802e4cb7964f4c012.png);
+}
+
+/* line 33, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.cinema::before {
+  content: url(/assets/browse/amenity_cinema.16-62717c832423593753cc68e7c4a0f726.png);
+}
+
+/* line 34, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.dentist::before {
+  content: url(/assets/browse/amenity_dentist.16-50c042f43a6aa689fbbb4ec3af165b01.png);
+}
+
+/* line 35, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.doctors::before {
+  content: url(/assets/browse/amenity_doctors.16-b0b18b9c55dff7f219caafc07de9ed93.png);
+}
+
+/* line 36, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.drinking_water::before {
+  content: url(/assets/browse/amenity_drinking_water.16-5e7b4c4511d72b36aaaeb6fb55098251.png);
+}
+
+/* line 37, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.embassy::before {
+  content: url(/assets/browse/amenity_embassy.16-a1345d0f61e712c3336801c843a22898.png);
+}
+
+/* line 38, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.fast_food::before {
+  content: url(/assets/browse/amenity_fast_food.16-04d18c4153f7a9657c1c8fda25075a7d.png);
+}
+
+/* line 39, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.fire_station::before {
+  content: url(/assets/browse/amenity_fire_station.16-d842b2ef1b76d7d56dd0559ff430ad48.png);
+}
+
+/* line 40, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.fuel::before {
+  content: url(/assets/browse/amenity_fuel.16-ca79641ca514915e42daab7f0d102c29.png);
+}
+
+/* line 41, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.hospital::before {
+  content: url(/assets/browse/amenity_hospital.16-56d081178543a8d40858b3ea7982de73.png);
+}
+
+/* line 42, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.library::before {
+  content: url(/assets/browse/library.p.16-60c633182810eccafe8de47f1b4ebbfa.png);
+}
+
+/* line 43, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.nursery::before {
+  content: url(/assets/browse/education_nursery.p.16-92e5d3186d35f7edaa9ce1a3fb499f4f.png);
+}
+
+/* line 44, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.nightclub::before {
+  content: url(/assets/browse/amenity_nightclub.16-780a1bccf3f340e0bf40a73b5c1b93db.png);
+}
+
+/* line 45, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.parking::before {
+  content: url(/assets/browse/parking.p.16-58335c518c0046dc3ccdf46b706930f5.png);
+}
+
+/* line 46, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.pharmacy::before {
+  content: url(/assets/browse/amenity_pharmacy.16-d3a0e7f5606e6771bce862834bd2f268.png);
+}
+
+/* line 47, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.place_of_worship::before {
+  content: url(/assets/browse/amenity_place_of_worship.16-bd67ee6c2c589c0f4977290b2b3aabb5.png);
+}
+
+/* line 48, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.police::before {
+  content: url(/assets/browse/amenity_police.16-5903cabf9202af4dc004575643070f05.png);
+}
+
+/* line 49, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.post_box::before {
+  content: url(/assets/browse/post_box.p.16-2eaaa6d2a89a21d3d4c82c6f7274bf4f.png);
+}
+
+/* line 50, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.post_office::before {
+  content: url(/assets/browse/post_office.p.16-f61240f9aa5e12e38c2daab6f3aa6d15.png);
+}
+
+/* line 51, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.prison::before {
+  content: url(/assets/browse/amenity_prison.16-f673c27023d0fa6e0927af64ace63d44.png);
+}
+
+/* line 52, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.pub::before {
+  content: url(/assets/browse/amenity_pub.16-4383cc14fd473c9ba1fda8439aa3635e.png);
+}
+
+/* line 53, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.restaurant::before {
+  content: url(/assets/browse/amenity_restaurant.16-1b3168c9e622e3dc38e308820c062176.png);
+}
+
+/* line 54, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.recycling::before {
+  content: url(/assets/browse/amenity_recycling.16-50b6f36257c0c94608c70c400f0dfc57.png);
+}
+
+/* line 55, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.school::before {
+  content: url(/assets/browse/education_school.p.16-b082eff468d9333e7ad95af99c93425c.png);
+}
+
+/* line 56, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.shelter::before {
+  content: url(/assets/browse/shelter2.p.16-86e3573f3bf57b45bc9d7b2c64c9bb9b.png);
+}
+
+/* line 57, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.telephone::before {
+  content: url(/assets/browse/telephone.p.16-bbc63deedf0bd8420cd1342e87cfc1af.png);
+}
+
+/* line 58, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.theatre::before {
+  content: url(/assets/browse/amenity_theatre.16-3992d457a75fbffb204e0e250e3c97b1.png);
+}
+
+/* line 59, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.toilets::before {
+  content: url(/assets/browse/amenity_toilets.16-12fe6a9af11a230d6388b702f8c590b9.png);
+}
+
+/* line 60, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.townhall::before {
+  content: url(/assets/browse/amenity_townhall.16-201b8ece980f2dc073295c22b690dd20.png);
+}
+
+/* line 61, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.university::before {
+  content: url(/assets/browse/education_university.p.16-f1335142f30681b4553b52af26cd6ecf.png);
+}
+
+/* line 62, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.amenity.veterinary::before {
+  content: url(/assets/browse/health_veterinary.p.16-a0af6d4878009c7ad1fea98619e62ce5.png);
+}
+
+/* line 64, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.barrier.gate::before {
+  content: url(/assets/browse/gate2.p.16-60ab03491d2705055f933a8a8b7193d9.png);
+}
+
+/* line 66, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.bus_stop::before {
+  content: url(/assets/browse/bus_stop.p.16-256151d1b3ba0fafa8abd26647472db4.png);
+}
+
+/* line 67, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.mini_roundabout::before {
+  content: url(/assets/browse/mini_round.p.16-d36bdcc978340871a72685af2ec4d3df.png);
+}
+
+/* line 68, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.traffic_signals::before {
+  content: url(/assets/browse/traffic_light-501a49ab9078a0cae73940a5bb1c2390.png);
+}
+
+/* line 69, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.turning_circle::before {
+  content: url(/assets/browse/turning_circle.p.16-73c726844bc5aa9bad0517a4403433b1.png);
+}
+
+/* line 71, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.historic.castle::before {
+  content: url(/assets/browse/tourist_castle.p.16-553adbc7d293c6a1b3d00b5a5fbcf0ce.png);
+}
+
+/* line 72, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.historic.memorial::before {
+  content: url(/assets/browse/historic_memorial.16-1b5e454ba1c6022a0841fad1e02ee944.png);
+}
+
+/* line 73, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.historic.monument::before {
+  content: url(/assets/browse/tourist_monument.p.16-5ef857437d0f138c93b7c32d75be9806.png);
+}
+
+/* line 74, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.historic.ruins::before {
+  content: url(/assets/browse/tourist_ruins.p.16-919b9593c0420b58abd885b2e0c2f851.png);
+}
+
+/* line 75, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.historic.wreck::before {
+  content: url(/assets/browse/tourist_wreck.p.16-22b60a114c2734a19ea5be6165f49bda.png);
+}
+
+/* line 77, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.man_made.lighthouse::before {
+  content: url(/assets/browse/lighthouse.p.16-8f8228e60258c3caeb7c7c8a994ea001.png);
+}
+
+/* line 78, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.man_made.windmill::before {
+  content: url(/assets/browse/tourist_windmill.p.16-e164584751e37210525d60556543af6e.png);
+}
+
+/* line 80, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.natural.tree::before {
+  content: url(/assets/browse/tree.p.16-97d70ccd5c59225a27b59bba6c2738f7.png);
+}
+
+/* line 82, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.railway.halt::before {
+  content: url(/assets/browse/halt.p.16-8d01a1b3df5e5d199655add8bbaf5b63.png);
+}
+
+/* line 83, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.railway.station::before {
+  content: url(/assets/browse/station.p.16-578b953191e92149950186b13c2a4cd5.png);
+}
+
+/* line 84, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.railway.level_crossing::before {
+  content: url(/assets/browse/level_crossing.p.16-358ec5e42e2399f8e97caafbe71293bb.png);
+}
+
+/* line 86, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop::before {
+  content: url(/assets/browse/shop_convenience.p.16-79895ca12742f475f19d1d2ccdc97a12.png);
+}
+
+/* line 87, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.bakery::before {
+  content: url(/assets/browse/shop_bakery.16-e6b685de194076f9cbbf8942d0da155a.png);
+}
+
+/* line 88, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.bicycle::before {
+  content: url(/assets/browse/shop_bicycle.p.16-ed2ca10996b6e6c879810fbae645e559.png);
+}
+
+/* line 89, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.books::before {
+  content: url(/assets/browse/shop_books.16-af0dfc30969d2295d640145067f98516.png);
+}
+
+/* line 90, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.butcher::before {
+  content: url(/assets/browse/shop_butcher.p.16-6cbf7768b7a9f76d37b9a69c7d822e13.png);
+}
+
+/* line 91, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.clothes::before {
+  content: url(/assets/browse/shop_clothes.p.16-5ba5ba4427b8e17b79c9285ffa208f4d.png);
+}
+
+/* line 92, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.car_repair::before {
+  content: url(/assets/browse/shop_car_repair.16-4972697ca846cb505a075829a7fa252d.png);
+}
+
+/* line 93, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.convenience::before {
+  content: url(/assets/browse/shop_convenience.p.16-79895ca12742f475f19d1d2ccdc97a12.png);
+}
+
+/* line 94, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.diy::before {
+  content: url(/assets/browse/shop_diy.p.16-52ab529f069f2f7df2f2b21f120774b0.png);
+}
+
+/* line 95, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.estate_agent::before {
+  content: url(/assets/browse/shop_estateagent2.p.16-dee6d8c39c2b47099c5561d831c52f25.png);
+}
+
+/* line 96, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.fish::before {
+  content: url(/assets/browse/shop_fish.p.16-44492f3675afa53487a83111a7a64fde.png);
+}
+
+/* line 97, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.florist::before {
+  content: url(/assets/browse/shop_florist.16-6423e3e77ed6f594e8cd17d0dc548ff6.png);
+}
+
+/* line 98, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.garden_centre::before {
+  content: url(/assets/browse/shop_florist.16-6423e3e77ed6f594e8cd17d0dc548ff6.png);
+}
+
+/* line 99, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.gift::before {
+  content: url(/assets/browse/shop_gift.p.16-101abf308f077836fa57fc5db2f93fa6.png);
+}
+
+/* line 100, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.greengrocer::before {
+  content: url(/assets/browse/shop_greengrocer.p.16-e868979f376dd29bfbe1ffb1c1f44a26.png);
+}
+
+/* line 101, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.hairdresser::before {
+  content: url(/assets/browse/shop_hairdresser.16-8d5981ae1934e61bc620c41570d79727.png);
+}
+
+/* line 102, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.jewelry::before {
+  content: url(/assets/browse/shop_jewelry.p.16-e2a67ca50e61fa71cc50ccd018905334.png);
+}
+
+/* line 103, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.supermarket::before {
+  content: url(/assets/browse/shop_supermarket.p.16-5968b4b20d2ba229ffa4782527c05347.png);
+}
+
+/* line 104, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.shop.pet::before {
+  content: url(/assets/browse/shop_pet.16-a41785677e9a3df8270ce6c17e1f0c47.png);
+}
+
+/* line 106, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.tourism.alpine_hut::before {
+  content: url(/assets/browse/alpinehut.p.16-c90e7062b9b20572acec6f3f0d996c9b.png);
+}
+
+/* line 107, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.tourism.camp_site::before {
+  content: url(/assets/browse/tourism_camp_site.16-d17ebeddfcc409ee8eb5aa539271ff3d.png);
+}
+
+/* line 108, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.tourism.caravan_site::before {
+  content: url(/assets/browse/caravan_park.n.16-36d7972cd4de2a2d640c79e23386135b.png);
+}
+
+/* line 109, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.tourism.hostel::before {
+  content: url(/assets/browse/hostel.p.16-9d1d088ae350bc784b5652fe783efe7a.png);
+}
+
+/* line 110, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.tourism.hotel::before {
+  content: url(/assets/browse/hotel.p.16-bc4e66eb7d84644c751d023b41a16824.png);
+}
+
+/* line 111, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.tourism.museum::before {
+  content: url(/assets/browse/tourism_museum.16-e928f94d97f774fee0cec07f19c83e4d.png);
+}
+
+/* line 112, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.tourism.picnic_site::before {
+  content: url(/assets/browse/tourism_picnic_site.16-d44754b25c2516b3e373b10f7183a756.png);
+}
+
+/* line 113, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.tourism.viewpoint::before {
+  content: url(/assets/browse/view_point.p.16-43508c92972c95b25f107eef06a6fd04.png);
+}
+
+/* Ways */
+/* line 117, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.aeroway.runway::before {
+  content: url(/assets/browse/runway.20-b85947998ba6f281062b638afe26736c.png);
+}
+
+/* line 118, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.aeroway.taxiway::before {
+  content: url(/assets/browse/taxiway.20-fda5f4424b9cf71a2a2a42f65131bda6.png);
+}
+
+/* line 120, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.barrier.wall::before {
+  content: url(/assets/browse/wall.20-0ccc53fc4a486ef76f7a5d506ebd8544.png);
+}
+
+/* line 122, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.building::before {
+  content: url(/assets/browse/building-0dddd7afe76fd988c048d2664d13c2b2.png);
+}
+
+/* line 124, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.bridleway::before {
+  content: url(/assets/browse/bridleway.20-4d05a314e6f9bbd86a34562272ac1917.png);
+}
+
+/* line 125, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.byway::before {
+  content: url(/assets/browse/byway.20-ccd79316821193ad9e9533dd4146cdc1.png);
+}
+
+/* line 126, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.cycleway::before {
+  content: url(/assets/browse/cycleway.20-de8dce9f62e30646b48f5fdb981ade70.png);
+}
+
+/* line 127, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.footway::before {
+  content: url(/assets/browse/footway.20-ab3c6d3ee293cac990a076efd14e079c.png);
+}
+
+/* line 128, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.motorway::before {
+  content: url(/assets/browse/motorway.20-47000a0211f2aa43ef693a6ba7a7bb7d.png);
+}
+
+/* line 129, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.motorway_link::before {
+  content: url(/assets/browse/motorway.20-47000a0211f2aa43ef693a6ba7a7bb7d.png);
+}
+
+/* line 130, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.path::before {
+  content: url(/assets/browse/path.20-b6f7eec6db1d5cbb0df019db4ea4446b.png);
+}
+
+/* line 131, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.pedestrian::before {
+  content: url(/assets/browse/service.20-1f75d594c5a9cc86aa1fa3ab90abbbf5.png);
+}
+
+/* line 132, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.primary::before {
+  content: url(/assets/browse/primary.20-5c0faabdc0ea2e13ab9b141bdc862d0f.png);
+}
+
+/* line 133, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.primary_link::before {
+  content: url(/assets/browse/primary.20-5c0faabdc0ea2e13ab9b141bdc862d0f.png);
+}
+
+/* line 134, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.residential::before {
+  content: url(/assets/browse/unclassified.20-28907928ec41ead288e1ae32ee43ef28.png);
+}
+
+/* line 135, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.secondary::before {
+  content: url(/assets/browse/secondary.20-e2830202f84407e0353d258c8c6d7a64.png);
+}
+
+/* line 136, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.secondary_link::before {
+  content: url(/assets/browse/secondary.20-e2830202f84407e0353d258c8c6d7a64.png);
+}
+
+/* line 137, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.service::before {
+  content: url(/assets/browse/service.20-1f75d594c5a9cc86aa1fa3ab90abbbf5.png);
+}
+
+/* line 138, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.tertiary::before {
+  content: url(/assets/browse/tertiary.20-916d8b31ce6be63f33ea74990cb47bf2.png);
+}
+
+/* line 139, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.track::before {
+  content: url(/assets/browse/track.20-f25bd9c9529134831d46388d956fe2c5.png);
+}
+
+/* line 140, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.trunk::before {
+  content: url(/assets/browse/trunk.20-498537f151b5fca8d8e132f6ba91045f.png);
+}
+
+/* line 141, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.trunk_link::before {
+  content: url(/assets/browse/trunk.20-498537f151b5fca8d8e132f6ba91045f.png);
+}
+
+/* line 142, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.highway.unclassified::before {
+  content: url(/assets/browse/unclassified.20-28907928ec41ead288e1ae32ee43ef28.png);
+}
+
+/* line 144, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.landuse.brownfield::before {
+  content: url(/assets/browse/brownfield-40d200bbc6f3fb8953b5ef3c5ed1960b.png);
+}
+
+/* line 145, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.landuse.cemetery::before {
+  content: url(/assets/browse/cemetery-a40853a6387a3d27d5369a61ee6b75a1.png);
+}
+
+/* line 146, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.landuse.commercial::before {
+  content: url(/assets/browse/commercial-a97500c0a19bc82408d476da6488cac2.png);
+}
+
+/* line 147, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.landuse.farm::before {
+  content: url(/assets/browse/farm-bfe54cc0cf2e5099bc6f35a3750f7ae5.png);
+}
+
+/* line 148, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.landuse.forest::before {
+  content: url(/assets/browse/forest-a1c5250f0dd43c3d336d85f145cedbd9.png);
+}
+
+/* line 149, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.landuse.industrial::before {
+  content: url(/assets/browse/industrial-38d29075321c7b84951ded4de0fbbfcc.png);
+}
+
+/* line 150, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.landuse.military::before {
+  content: url(/assets/browse/military-5d7f0251dab5471ab7e034f547ce1c79.png);
+}
+
+/* line 151, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.landuse.residential::before {
+  content: url(/assets/browse/residential-a410fc630dd680dc4cbf4b50d98ad069.png);
+}
+
+/* line 152, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.landuse.retail::before {
+  content: url(/assets/browse/retail-cfdd6625c4654fdd5ee74e62edf25b29.png);
+}
+
+/* line 153, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.landuse.tourism::before {
+  content: url(/assets/browse/tourism-211414b9891d300bc7315a77d8d2eae7.png);
+}
+
+/* line 154, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.landuse.wood::before {
+  content: url(/assets/browse/wood-230492fea63483f0439e84a9e76ca189.png);
+}
+
+/* line 156, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.leisure.golf_course::before {
+  content: url(/assets/browse/golf-508c91fa60d4305629293c860174a0af.png);
+}
+
+/* line 157, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.leisure.park::before {
+  content: url(/assets/browse/park-cd755a5939a021174ac5545cbcd6714e.png);
+}
+
+/* line 158, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.leisure.picnic_table::before {
+  content: url(/assets/browse/tourism_picnic_site.16-d44754b25c2516b3e373b10f7183a756.png);
+}
+
+/* line 159, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.leisure.playground::before {
+  content: url(/assets/browse/leisure_playground.16-ca45d54559f0cbcd7ad50b64a8f8c31e.png);
+}
+
+/* line 160, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.leisure.pitch::before {
+  content: url(/assets/browse/pitch-b6d8235d56e302ad42462261da28b79c.png);
+}
+
+/* line 161, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.leisure.nature_reserve::before {
+  content: url(/assets/browse/reserve-225b8896e3ac9f41c3bfcd7e1d25d62b.png);
+}
+
+/* line 163, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.natural.heath::before {
+  content: url(/assets/browse/heathland-e911ba2176dfea94acf0fd24dfd63265.png);
+}
+
+/* line 164, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.natural.water::before {
+  content: url(/assets/browse/lake-c07a0e12f0b20295e7a87eb6d493a662.png);
+}
+
+/* line 166, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.railway.light_rail::before {
+  content: url(/assets/browse/light_rail.20-c4f86e4d288e57a6715435253554ae6b.png);
+}
+
+/* line 167, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.railway.rail::before {
+  content: url(/assets/browse/rail.20-1b16a04c4cad626cf19426c28356c39c.png);
+}
+
+/* line 168, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.railway.subway::before {
+  content: url(/assets/browse/subway.20-17a3e59648bd1e16198c7fa5b6884693.png);
+}
+
+/* line 169, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/browse.scss */
+.railway.tram::before {
+  content: url(/assets/browse/tram.20-0a08414b544018248f7f2cee152b7ff2.png);
+}
+
+@media only screen and (max-width: 960px) {
+  /* line 2668, /srv/www.openstreetmap.org/rails/app/assets/stylesheets/ltr/common.scss */
+  .header-illustration.new-user-arm {
+    display: none;
+  }
+}
+/* Rules for bootstrap tooltips */
+
+
+.tooltip {
+  position: absolute;
+  display: none;
+  color: #333;
+  text-align: left;
+  font-size: 12px;
+  max-width: 250px;
+}
+
+.tooltip.in {
+  opacity: 0.8;
+  z-index: 1030;
+  height: auto;
+  display: block;
+}
+
+.tooltip.top {
+  margin-top: -10px;
+  text-align: center;
+}
+
+.tooltip.right {
+  margin-left: 10px;
+}
+
+.tooltip.bottom {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.tooltip.left {
+  margin-left: -10px;
+  text-align: right;
+}
+
+.tooltip-inner {
+  display: inline-block;
+  padding: 10px;
+  font-weight: normal;
+  background-color: white;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.tooltip.top .tooltip-arrow {
+  bottom: -5px;
+  left: 50%;
+  margin-left: -5px;
+  border-top-color: white;
+  border-width: 5px 5px 0;
+}
+
+.tooltip.right .tooltip-arrow {
+  top: 50%;
+  left: -5px;
+  margin-top: -5px;
+  border-right-color: white;
+  border-width: 5px 5px 5px 0;
+}
+
+.tooltip.left .tooltip-arrow {
+  top: 50%;
+  right: -5px;
+  margin-top: -5px;
+  border-left-color: white;
+  border-width: 5px 0 5px 5px;
+}
+
+.tooltip.bottom .tooltip-arrow {
+  top: -5px;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom-color: white;
+  border-width: 0 5px 5px;
+}
+/* Styles specific to large screens  */
+
+/*
+
+
+
+ */
+
