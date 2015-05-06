@@ -101,23 +101,23 @@ public class Dijstra {
 
 //        int [] path = findPath(id2Idx.get(1670432582L), id2Idx.get(676142837L));
 //        int [] path = findPath(id2Idx.get(1670432369L), id2Idx.get(1670432582L));
-        int [] path = findPath(id2Idx.get(2526989261L), id2Idx.get(1670432582L));
+//        int [] path = findPath(id2Idx.get(2526989261L), id2Idx.get(1670432582L));
+//
+////        2526989261
+//        for (int i = 0; i < path.length - 1; ++i) {
+//            System.out.printf("%d -> %d\n", path[i], path[i+1]);
+//        }
 
-//        2526989261
-        for (int i = 0; i < path.length - 1; ++i) {
-            System.out.printf("%d -> %d\n", path[i], path[i+1]);
-        }
 
+//        Map<Integer, Long> idx2Id = new HashMap<Integer, Long>();
+//
+//        for (Map.Entry<Long, Integer> entry : id2Idx.entrySet()) {
+//            idx2Id.put(entry.getValue(), entry.getKey());
+//        }
 
-        Map<Integer, Long> idx2Id = new HashMap<Integer, Long>();
-
-        for (Map.Entry<Long, Integer> entry : id2Idx.entrySet()) {
-            idx2Id.put(entry.getValue(), entry.getKey());
-        }
-
-        for (int i = 0; i < path.length; ++i) {
-            System.out.println(idx2Id.get(path[i]));
-        }
+//        for (int i = 0; i < path.length; ++i) {
+//            System.out.println(idx2Id.get(path[i]));
+//        }
     }
 
 
@@ -130,8 +130,18 @@ public class Dijstra {
     }
 
 
+    public Node [] findPath(long s, long t) {
+        int [] path = findPath0(id2Idx.get(s), id2Idx.get(t));
+        Node [] pathNodes = new Node[path.length];
 
-    public int [] findPath(int s, int t) {
+        for (int i = 0; i < path.length; ++i) {
+            pathNodes[i] = nodes[path[i]];
+        }
+
+        return pathNodes;
+    }
+
+    private int [] findPath0(int s, int t) {
 
         PriorityQueue<HeapNode> pq = new PriorityQueue<HeapNode>();
 
@@ -214,7 +224,7 @@ public class Dijstra {
     }
 
 
-    public class Node implements Comparable<Node>{
+    public static class Node implements Comparable<Node>{
         public Long id;
 
         public double x;

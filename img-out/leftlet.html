@@ -4,10 +4,13 @@
   <!-- // <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
 
   <link rel="stylesheet" type="text/css" href="./leaflet.css">
+   <script type="text/javascript" src="./jquery.js"></script>
+
   <script type="text/javascript" src="./leaflet-src.js"></script>
   <link rel="stylesheet" type="text/css" href="./leaflet-self.css">
 </head>
 <body>
+
  <div id="map"></div>
 
  <script>
@@ -95,6 +98,7 @@ var latlngs = [];
 
 obj.paths.forEach(function(e) {
 	latlngs.push(L.latLng(e.y, e.x));
+
 });
 
 
@@ -106,6 +110,13 @@ obj.paths.forEach(function(e) {
 
 
 map.on('click', function(e) {
+	L.marker(e.latlng).addTo(map);
+
+
+	// $.get("http://localhost:8080/api/map/nearest/" + e.latlng.lat + "/" + e.latlng.lon, function(data) {
+	// 	L.marker.L.latLng(data.y, data.x);
+	// });
+
     alert(e.latlng);
 });
 // var circle = L.circle([51.508, -0.11], 500, {

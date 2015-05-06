@@ -1,6 +1,7 @@
 package com.whimsy;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -34,15 +35,19 @@ public class MapAction {
 //        return Response.ok(rtnObj).build();
 //    }
 
-    @Path("/routing")
+    @Path("/routing/{sId}/{tId}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response routing() {
-//        int [] path = algo.findPath(952, 973);
-        int [] path = algo.findPath(973, 1416);
+    public Response routing(@PathParam("sId") Long sId,
+                            @PathParam("tId") Long tId
+                            ) {
+
+        System.out.printf("/routing  %d %d\n", sId, tId);
+
+        Dijstra.Node[] path = algo.findPath(sId, tId);
         ArrayList<NodeVO> nodeVOs = new ArrayList<NodeVO>();
         for (int i = 0; i < path.length; ++i) {
-            nodeVOs.add(new NodeVO(algo.nodes[path[i]].x, algo.nodes[path[i]].y));
+            nodeVOs.add(new NodeVO(path[i].x, path[i].y));
         }
 
         return Response.ok(new RouteVO(nodeVOs)).build();
