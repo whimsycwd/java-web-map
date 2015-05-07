@@ -3,8 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>webDemo</artifactId>
-        <groupId>com.whimsy.webdemo</groupId>
+        <artifactId>java-web-map</artifactId>
+        <groupId>com.whimsy</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -21,6 +21,22 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.0.13</version>
+        </dependency>
+
+
+        <!-- processing-core,  host on clojars -->
+
+        <dependency>
+            <groupId>quil</groupId>
+            <artifactId>processing-core</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+
+        <!-- algo, host on clojars -->
+        <dependency>
+            <groupId>com.whimsy</groupId>
+            <artifactId>princeton-algo-package</artifactId>
+            <version>1.0</version>
         </dependency>
 
         <!---jersey -->
@@ -59,5 +75,15 @@
         </dependency>
         <!-- jersey end -->
     </dependencies>
+
+
+    <!-- http://stackoverflow.com/questions/14111805/use-processing-core-library-with-maven -->
+
+    <repositories>
+        <repository>
+            <id>clojars.org</id>
+            <url>http://clojars.org/repo</url>
+        </repository>
+    </repositories>
 
 </project>

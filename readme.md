@@ -1,6 +1,19 @@
 ## TODO
-1.	后端代码日志
-2.	后端mvn 本地库
+1.	<strike>后端代码日志</strike>
+2.	<strike>后端本地库整理, 把不是maven依赖的东西改成maven依赖</strike>
+3.  前段代码重构
+4.  搞清跨域请求? 
+
+## Tech & Resource
+
+
+-	map dataset : https://www.openstreetmap.org/
+-	frontend js library : http://leafletjs.com/
+-	backend :  Java, Spring + Jersey 
+
+
+
+
 
 
 ## Logging

@@ -11,8 +11,8 @@
         <testng-version>6.8.7</testng-version>
     </properties>
 
-    <groupId>com.whimsy.webdemo</groupId>
-    <artifactId>webDemo</artifactId>
+    <groupId>com.whimsy</groupId>
+    <artifactId>java-web-map</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
@@ -80,11 +80,11 @@
         </dependency>
         <!-- spring end -->
 
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>log4j</groupId>-->
+            <!--<artifactId>log4j</artifactId>-->
+            <!--<version>1.2.17</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>javax.servlet</groupId>
