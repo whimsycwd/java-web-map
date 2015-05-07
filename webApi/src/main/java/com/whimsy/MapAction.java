@@ -16,6 +16,7 @@ import org.glassfish.jersey.server.JSONP;
 import com.whimsy.algo.Dijstra;
 import com.whimsy.algo.KdTree;
 import com.whimsy.process.entity.ContextObj;
+import com.whimsy.process.primitivie.Node;
 import com.whimsy.vo.NameVO;
 import com.whimsy.vo.NodeVO;
 import com.whimsy.vo.PinPointVO;
@@ -31,6 +32,21 @@ public class MapAction {
     public static KdTree tree = new KdTree(ContextObj.getInstance());
 
     public static NameService nameService = new NameService(ContextObj.getInstance());
+
+    @Path("/findNodes/{queryStr}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<NodeVO> findNodes(@PathParam("queryStr") String query) {
+        ArrayList<Node> nodes = nameService.findNodes(query);
+
+        ArrayList<NodeVO> res = new ArrayList<NodeVO>();
+
+        for (Node node : nodes) {
+            res.add(new NodeVO(node.getLon(), node.getLat()));
+        }
+
+        return res;
+    }
 
     @Path("/suggest")
     @GET

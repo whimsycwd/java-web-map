@@ -79,6 +79,33 @@ app.get('/', function (req, res) {
 //     console.log(req.param.queryStr);
 // });
 
+
+app.get('/api/map/findNodes/:queryStr', function (req, res) {
+
+    var options = {
+        host: '127.0.0.1',
+        port: 8080,
+        path: req.url,
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+
+    getJSON(options,
+        function(statusCode, result)
+        {
+            // I could work with the result html/json here.  I could also just return it
+            console.log("onResult: (" + statusCode + ")" + JSON.stringify(result));
+            res.statusCode = statusCode;
+            res.send(result);
+        });
+
+
+    console.log(req.param.queryStr);
+});
+
 app.get('/api/map/nearest/:x/:y', function (req, res) {
 
 	var options = {
