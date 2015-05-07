@@ -7,15 +7,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-import com.whimsy.process.LoadOSM;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.whimsy.process.entity.ContextObj;
-import com.whimsy.process.primitivie.Node;
 import com.whimsy.process.primitivie.Way;
 
 /**
  * Created by whimsy on 5/4/15.
  */
 public class Dijstra {
+
+
+    static final Logger logger = LoggerFactory.getLogger(Dijstra.class);
 
     public static ContextObj ctx = ContextObj.getInstance();
 
@@ -89,12 +93,6 @@ public class Dijstra {
                     }
 
                     // hack, It shouldn't occur. Could way use node that not appear in node list?
-//                    if (u == null || v == null) {
-//
-//                        System.out.println(entry.getKey());
-////                        continue;
-////                        throw new RuntimeException("way use node that not exist in node list");
-//                    }
 
 
                     double w = distance(u,v);
@@ -106,33 +104,11 @@ public class Dijstra {
             }
         }
 
-        System.out.printf("Total generated Edge %d\n", edgeCnt);
-        System.out.printf("Total missing Node %d\n", missingNode);
+        logger.info("Total generated Edge {}", edgeCnt);
+        logger.info("Total missing Node {}", missingNode);
 
 
 
-//        int [] path = findPath(id2Idx.get(300741651L), id2Idx.get(296419672L));
-//        int [] path = findPath(id2Idx.get(2801777886L), id2Idx.get(2803209426L));
-
-//        int [] path = findPath(id2Idx.get(1670432582L), id2Idx.get(676142837L));
-//        int [] path = findPath(id2Idx.get(1670432369L), id2Idx.get(1670432582L));
-//        int [] path = findPath(id2Idx.get(2526989261L), id2Idx.get(1670432582L));
-//
-////        2526989261
-//        for (int i = 0; i < path.length - 1; ++i) {
-//            System.out.printf("%d -> %d\n", path[i], path[i+1]);
-//        }
-
-
-//        Map<Integer, Long> idx2Id = new HashMap<Integer, Long>();
-//
-//        for (Map.Entry<Long, Integer> entry : id2Idx.entrySet()) {
-//            idx2Id.put(entry.getValue(), entry.getKey());
-//        }
-
-//        for (int i = 0; i < path.length; ++i) {
-//            System.out.println(idx2Id.get(path[i]));
-//        }
     }
 
 
@@ -192,7 +168,7 @@ public class Dijstra {
             }
         }
 
-        System.out.printf("Dij distance : %.12f\n", d[t]);
+        logger.info("Dij distance : {}", d[t]);
 
 
 

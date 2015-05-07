@@ -7,6 +7,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.whimsy.process.entity.ContextObj;
 import com.whimsy.process.primitivie.Node;
 import com.whimsy.process.primitivie.Way;
@@ -15,6 +18,8 @@ import com.whimsy.process.primitivie.Way;
  * Created by whimsy on 5/6/15.
  */
 public class NameService {
+
+    static final Logger logger = LoggerFactory.getLogger(NameService.class);
 
 
     private Set<String> nameDict = new TreeSet<String>();
@@ -67,7 +72,8 @@ public class NameService {
             }
         }
 
-        System.out.printf("Total Name Number : %d\n", nameDict.size());
+
+        logger.debug("Total Name Number : {}", nameDict.size());
     }
 
 
@@ -85,7 +91,6 @@ public class NameService {
 
         for (String name : nameDict) {
 
-//            System.out.println(name + " " + queryStr);
             if (!name.startsWith(queryStr) && name.contains(queryStr)) {
                 res.add(name);
                 if (res.size() > Config.MAXIMUM_ENTRYS) {

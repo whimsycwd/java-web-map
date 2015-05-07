@@ -15,6 +15,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.whimsy.process.entity.ContextObj;
 import com.whimsy.process.primitivie.Bound;
 import com.whimsy.process.primitivie.Way;
@@ -24,6 +27,7 @@ import edu.princeton.cs.introcs.StdDraw;
 
 public class KdTree {
 
+	static final Logger logger = LoggerFactory.getLogger(KdTree.class);
 
 
 	private static final boolean HORIZONTAL = true;
@@ -73,7 +77,7 @@ public class KdTree {
 
 
 	public KdTree(ContextObj ctx) {
-		System.out.println("Building KdTree start!");
+		logger.info("Building KdTree start!");
 
 		Long statTime = System.currentTimeMillis();
 
@@ -104,7 +108,7 @@ public class KdTree {
 		}
 
 
-		System.out.printf("Node inserted : %d \nBuilding KdTree end. used Time %.2f\n",
+		logger.info("Node inserted : {} \nBuilding KdTree end. used Time {}",
 							 hash.size(), (double) (System.currentTimeMillis() - statTime) / 1000);
 
 	}

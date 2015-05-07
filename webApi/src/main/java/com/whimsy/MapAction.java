@@ -1,7 +1,6 @@
 package com.whimsy;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,12 +11,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.server.JSONP;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.whimsy.algo.Dijstra;
 import com.whimsy.algo.KdTree;
 import com.whimsy.process.entity.ContextObj;
 import com.whimsy.process.primitivie.Node;
-import com.whimsy.vo.NameVO;
 import com.whimsy.vo.NodeVO;
 import com.whimsy.vo.PinPointVO;
 import com.whimsy.vo.RouteVO;
@@ -28,6 +28,8 @@ import com.whimsy.vo.RouteVO;
 @Path("map")
 public class MapAction {
 
+    static final Logger logger = LoggerFactory.getLogger(MapAction.class);
+
     public static Dijstra algo = new Dijstra();
     public static KdTree tree = new KdTree(ContextObj.getInstance());
 
@@ -37,6 +39,9 @@ public class MapAction {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<NodeVO> findNodes(@PathParam("queryStr") String query) {
+
+        logger.info("/findNodes/{queryStr} {}", query);
+
         ArrayList<Node> nodes = nameService.findNodes(query);
 
         ArrayList<NodeVO> res = new ArrayList<NodeVO>();
@@ -55,6 +60,9 @@ public class MapAction {
     public ArrayList<String> suggest(@QueryParam("callback") String callback,
                                      @QueryParam("q") String query) {
 
+
+        logger.info("/suggest callback = {}  q ={}", callback, query);
+
         return nameService.search(query);
     }
 
@@ -65,7 +73,7 @@ public class MapAction {
                             @PathParam("tId") Long tId
                             ) {
 
-        System.out.printf("/routing  %d %d\n", sId, tId);
+        logger.info("/routing/{sId}/{tId}  sId = {}, tid = {}", sId, tId);
 
         Dijstra.Node[] path = algo.findPath(sId, tId);
         ArrayList<NodeVO> nodeVOs = new ArrayList<NodeVO>();
@@ -83,13 +91,10 @@ public class MapAction {
     @Produces(MediaType.APPLICATION_JSON)
     public Response coordinate(@PathParam("coordinateX") Double coordinateX,
                                @PathParam("coordinateY") Double coordinateY) {
-        System.out.printf("/api/nearest  requesting %.8f %.8f\n", coordinateX, coordinateY);
+        logger.info("/nearest/{coordinateX}/{coordinateY}  X = {}, y = {}", coordinateX, coordinateY);
 
         KdTree.Point point = tree.nearest(new KdTree.Point(coordinateX, coordinateY));
-
-
-        System.out.printf("Res Point : %.6f %.6f\n", point.x(), point.y());
-        return Response.ok(new PinPointVO(point.getId(), point.x(), point.y())).build();
+      return Response.ok(new PinPointVO(point.getId(), point.x(), point.y())).build();
     }
 
     public static void main(String [] args) {

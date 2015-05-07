@@ -15,6 +15,14 @@
 
     <dependencies>
 
+
+        <!-- logging -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.0.13</version>
+        </dependency>
+
         <!---jersey -->
         <dependency>
             <groupId>javax.ws.rs</groupId>

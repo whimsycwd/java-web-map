@@ -2,6 +2,9 @@ package com.whimsy.process;
 
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.whimsy.Config;
 import com.whimsy.process.entity.ContextObj;
 import com.whimsy.process.primitivie.Bound;
@@ -16,21 +19,22 @@ import processing.data.XML;
  */
 public class LoadOSM extends PApplet {
 
+
+    static final Logger logger = LoggerFactory.getLogger(LoadOSM.class);
+
     public LoadOSM(ContextObj ctx) {
         this.ctx = ctx;
     }
 
     private ContextObj ctx = null;
 
-//    private String osmFilePath = "./osm-data/fudan.osm";
-//    private String osmFilePath = "./osm-data/chengdu_china.osm";
 
     private String osmFilePath = Config.OSM_FILE_PATH;
     public ContextObj work() {
 
         Long startTime = System.currentTimeMillis();
 
-        System.out.printf("Load OSM file from %s\n", osmFilePath);
+        logger.info("Load OSM file from {}", osmFilePath);
 
         XML mapData = loadXML(osmFilePath);
 
@@ -43,10 +47,10 @@ public class LoadOSM extends PApplet {
         XML[] ways = mapData.getChildren("way");
         loadWays(ways);
 
-        System.out.printf("Load XML :  %.1f sec\n", (double) (System.currentTimeMillis() - startTime) / 1000);
+        logger.info("Load XML :  {} sec", (double) (System.currentTimeMillis() - startTime) / 1000);
 
-        System.out.printf("Node Number : %d\n", ctx.getNodeMap().size());
-        System.out.printf("Way Number : %d\n", ctx.getWayMap().size());
+        logger.info("Node Number : {}", ctx.getNodeMap().size());
+        logger.info("Way Number : {}", ctx.getWayMap().size());
         return ctx;
     }
 

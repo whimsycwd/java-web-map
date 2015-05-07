@@ -3,6 +3,9 @@ package com.whimsy.process.entity;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.whimsy.process.LoadOSM;
 import com.whimsy.process.primitivie.Bound;
 import com.whimsy.process.primitivie.Node;
@@ -12,6 +15,10 @@ import com.whimsy.process.primitivie.Way;
  * Created by whimsy on 4/29/15.
  */
 public class ContextObj {
+
+    static Logger logger = LoggerFactory.getLogger(ContextObj.class);
+
+
     private Bound bound = new Bound();
     private Map<Long, Node> nodeMap = new HashMap<Long, Node>();
     private Map<Long, Way> wayMap = new HashMap<Long, Way>();
@@ -26,12 +33,12 @@ public class ContextObj {
     private static boolean isLoaded = false;
     public static ContextObj getInstance() {
 
-        System.out.println("ContextObj Building Start!");
+        logger.info("ContextObj Building Start!");
         if (!isLoaded) {
            instance = new LoadOSM(instance).work();
         }
 
-        System.out.println("ContextObj Building End.");
+        logger.info("ContextObj Building End.");
         return instance;
     }
 
