@@ -92,7 +92,9 @@ public class KdTree {
 
 				com.whimsy.process.primitivie.Node node = nodeMap.get(ndRef);
 
-				if (!hash.contains(ndRef)) {
+				// node can be null because the way can cross citys. but we only have one
+				// city's data
+				if (node != null && !hash.contains(ndRef)) {
 					hash.add(ndRef);
 					this.insert(new Point(ndRef, node.getLon(), node.getLat()));
 

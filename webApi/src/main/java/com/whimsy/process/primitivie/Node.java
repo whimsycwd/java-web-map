@@ -11,6 +11,17 @@ public class Node {
     private double lon;
     private double lat;
 
+    private String name = "none";
+
+    public Node() {
+
+    }
+
+    public Node(double lon, double lat) {
+        this.lon = lon;
+        this.lat = lat;
+    }
+
     private Map<String, String> tags = new HashMap<String, String>();
 
     public double getLon() {
@@ -35,5 +46,21 @@ public class Node {
 
     public void setTags(Map<String, String> tags) {
         this.tags = tags;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void tagClassify() {
+        for (Map.Entry<String, String> entry : tags.entrySet()) {
+            if (entry.getKey().equals("name")) {
+                name = entry.getValue();
+            }
+        }
     }
 }

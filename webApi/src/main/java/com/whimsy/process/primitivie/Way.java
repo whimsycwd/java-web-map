@@ -10,9 +10,7 @@ import java.util.Map;
  */
 public class Way {
 
-    public final static double ROAD_WIDTH = 3;
-    public final static double MID = ROAD_WIDTH / 2;
-    public final static double SMALL = ROAD_WIDTH / 3;
+    private String name = "none";
 
     public boolean is_area = false;
 
@@ -36,20 +34,24 @@ public class Way {
         this.tags = tags;
     }
 
-    public void tag_classify() {
+    public void tagClassify() {
         if (pathNodes.get(0) == pathNodes.get(pathNodes.size() - 1)) {
             is_area = true;
         }
 
-        for (String key : tags.keySet()) {
-            if (key.equals("aeroway")) {
-                String tag = tags.get(key);
-
-                if (tag.equals("runway")) {
-                    is_area = false;
-                }
+        for (Map.Entry<String, String> entry : tags.entrySet()) {
+            if (entry.getKey().equals("name")) {
+                name = entry.getValue();
             }
         }
 
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

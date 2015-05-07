@@ -2,6 +2,7 @@ package com.whimsy.process;
 
 import java.util.Map;
 
+import com.whimsy.Config;
 import com.whimsy.process.entity.ContextObj;
 import com.whimsy.process.primitivie.Bound;
 import com.whimsy.process.primitivie.Node;
@@ -24,10 +25,12 @@ public class LoadOSM extends PApplet {
 //    private String osmFilePath = "./osm-data/fudan.osm";
 //    private String osmFilePath = "./osm-data/chengdu_china.osm";
 
-    private String osmFilePath = "./osm-data/pudong-partial.osm";
+    private String osmFilePath = Config.OSM_FILE_PATH;
     public ContextObj work() {
 
         Long startTime = System.currentTimeMillis();
+
+        System.out.printf("Load OSM file from %s\n", osmFilePath);
 
         XML mapData = loadXML(osmFilePath);
 
@@ -66,7 +69,7 @@ public class LoadOSM extends PApplet {
                 way.getTags().put(tag.getString("k"), tag.getString("v"));
             }
 
-            way.tag_classify();
+            way.tagClassify();
             wayMap.put(id, way);
 
         }
@@ -89,6 +92,7 @@ public class LoadOSM extends PApplet {
                 node.getTags().put(tag.getString("k"), tag.getString("v"));
             }
 
+            node.tagClassify();
             nodeMap.put(id, node);
         }
     }

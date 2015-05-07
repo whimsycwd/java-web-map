@@ -35,10 +35,10 @@ public class Dijstra {
 
         int size = ctx.getNodeMap().size();
 
-        nodes = new Node[size];
+        nodes = new Node[size + 1];
 
-        bags = new ArrayList[size];
-        for (int i = 0; i < size; ++i) {
+        bags = new ArrayList[size + 1];
+        for (int i = 0; i < size + 1; ++i) {
             bags[i] = new ArrayList<Edge>();
         }
 
@@ -47,6 +47,11 @@ public class Dijstra {
         for (Map.Entry<Long, com.whimsy.process.primitivie.Node> entry : ctx.getNodeMap().entrySet()) {
             nodes[cnt++] = new Node(entry.getKey(), entry.getValue());
         }
+
+
+        // specal point to map all missing point.
+        nodes[cnt++] = new Node(-1L, new com.whimsy.process.primitivie.Node(0, 0));
+
 
         Arrays.sort(nodes);
 
@@ -73,13 +78,23 @@ public class Dijstra {
                     Integer v = id2Idx.get(way.getPathNodes().get(i));
 
 
-                    // hack, It shouldn't occur. Could way use node that not appear in node list?
-                    if (v == null) {
+
+                    if (u == null) {
+                        u = id2Idx.get(-1L);
                         ++missingNode;
-//                        System.out.println(i);
-                        continue;
-//                        throw new RuntimeException("way use node that not exist in node list");
                     }
+                    if (v == null) {
+                        v = id2Idx.get(-1L);
+                        ++missingNode;
+                    }
+
+                    // hack, It shouldn't occur. Could way use node that not appear in node list?
+//                    if (u == null || v == null) {
+//
+//                        System.out.println(entry.getKey());
+////                        continue;
+////                        throw new RuntimeException("way use node that not exist in node list");
+//                    }
 
 
                     double w = distance(u,v);

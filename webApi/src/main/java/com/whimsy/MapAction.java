@@ -7,12 +7,16 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.glassfish.jersey.server.JSONP;
 
 import com.whimsy.algo.Dijstra;
 import com.whimsy.algo.KdTree;
 import com.whimsy.process.entity.ContextObj;
+import com.whimsy.vo.NameVO;
 import com.whimsy.vo.NodeVO;
 import com.whimsy.vo.PinPointVO;
 import com.whimsy.vo.RouteVO;
@@ -26,14 +30,17 @@ public class MapAction {
     public static Dijstra algo = new Dijstra();
     public static KdTree tree = new KdTree(ContextObj.getInstance());
 
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response getAll() {
-//
-//        RtnObj rtnObj = new ReadFromOSM().work();
-//
-//        return Response.ok(rtnObj).build();
-//    }
+    public static NameService nameService = new NameService(ContextObj.getInstance());
+
+    @Path("/suggest")
+    @GET
+    @JSONP(queryParam = "callback")
+    @Produces({"application/javascript"})
+    public ArrayList<String> suggest(@QueryParam("callback") String callback,
+                                     @QueryParam("q") String query) {
+
+        return nameService.search(query);
+    }
 
     @Path("/routing/{sId}/{tId}")
     @GET
@@ -71,7 +78,7 @@ public class MapAction {
 
     public static void main(String [] args) {
         MapAction action = new MapAction();
-        action.coordinate(121.5758, 31.1869);
+//        action.coordinate(121.5758, 31.1869);
     }
 
 
