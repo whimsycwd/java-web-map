@@ -2,9 +2,45 @@
 1.	<strike>后端代码日志</strike>
 2.	<strike>后端本地库整理, 把不是maven依赖的东西改成maven依赖</strike>
 3.  前段代码重构
-4.  搞清跨域请求? 
+4.  <strike>搞清跨域请求</strike> 
+5.  换地图贴片服务
 
 
+
+## Memo
+	http://stackoverflow.com/questions/20751523/removing-leaflet-layers-and-l-marker-method
+	https://westcountrydeveloper.wordpress.com/2013/03/25/cross-domain-requests-when-using-jquery-autocomplete/
+
+
+## Architecture
+
+
+## Cross Domain Requests
+
+跨域的GET, 和POST请求是不允许的。
+会得到下面的结果
+
+```
+XMLHttpRequest cannot load http://127.0.0.1:8080/api/map/suggest/?callback=blabla&q=%E6%88%90%E9%83%BD&_=1430982414272. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://127.0.0.1:3000' is therefore not allowed access.
+```
+
+[JSONP](http://en.wikipedia.org/wiki/JSONP) 借助浏览器允许script标签引入跨域的脚本
+
+
+[栗子](./frontend/public/experiment/testJSONP.html) 
+
+JSONP的原理是定义一个本地的函数callbackFunc()，
+然后把get请求当成script的src来请求。 这时候返回的jsonp
+
+```
+callbackFunc({JSON-OBJECT})
+```
+如此浏览器便会去执行callbackFunc(), 从而达到跨域请求数据的目的
+
+#### Reference
+
+1. 	https://westcountrydeveloper.wordpress.com/2013/03/25/cross-domain-requests-when-using-jquery-autocomplete/
+2.	http://en.wikipedia.org/wiki/JSONP
 
 ## Tech & Resource
 

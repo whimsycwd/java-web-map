@@ -6,6 +6,12 @@ var app = express();
 var http = require("http");
 var https = require("https");
 
+var CONFIG = {
+    BACKEND_ADDRESS : "127.0.0.1",
+    BACKEND_PORT : 8080,
+    PORT : 3000    
+};
+
 /**
  * getJSON:  REST get request returning JSON object(s)
  * @param options: http options object
@@ -41,6 +47,7 @@ var getJSON = function(options, onResult)
 
 
 
+
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
@@ -48,40 +55,9 @@ app.get('/', function (req, res) {
 });
 
 
-// resend request to java backend to avoid cross-site request denied
-
-
-// app.get('/api/map/suggest', function (req, res) {
-
-
-
-//     var options = {
-//         host: '127.0.0.1',
-//         port: 8080,
-//         path: req.url,
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     };
-
-//     console.log(JSON.stringify(options));
-//     getJSON(options,
-//         function(statusCode, result)
-//         {
-//             // I could work with the result html/json here.  I could also just return it
-//             console.log("onResult: (" + statusCode + ")" + JSON.stringify(result));
-//             res.statusCode = statusCode;
-//             res.send(result);
-//         });
-
-
-//     console.log(req.param.queryStr);
-// });
-
-
 app.get('/api/map/findNodes/:queryStr', function (req, res) {
 
+    console.log(req.url);
     var options = {
         host: '127.0.0.1',
         port: 8080,
@@ -108,6 +84,7 @@ app.get('/api/map/findNodes/:queryStr', function (req, res) {
 
 app.get('/api/map/nearest/:x/:y', function (req, res) {
 
+    console.log(req.url);
 	var options = {
 	    host: '127.0.0.1',
 	    port: 8080,
@@ -190,6 +167,6 @@ var server = app.listen(3000, function () {
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log('Example app listening at http://%s:%s', host, port);
+  console.log('App listening at http://%s:%s', host, port);
 
 });
