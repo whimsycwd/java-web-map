@@ -4,13 +4,16 @@
 3.  前段代码重构
 4.  搞清跨域请求? 
 
+
+
 ## Tech & Resource
 
 
 -	map dataset : https://www.openstreetmap.org/
 -	frontend js library : http://leafletjs.com/
 -	backend :  Java, Spring + Jersey 
-
+- 	调查了这个项目， 但是最终没有使用， 只使用读取xml的代码 https://processing.org/
+- 	
 
 
 
