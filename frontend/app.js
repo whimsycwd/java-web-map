@@ -12,6 +12,18 @@ var CONFIG = {
     PORT : 3000    
 };
 
+
+
+
+app.use(express.static('public'));
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+
+//  To sovle cross domain request. We resend it from back to back
+
 /**
  * getJSON:  REST get request returning JSON object(s)
  * @param options: http options object
@@ -47,120 +59,42 @@ var getJSON = function(options, onResult)
 
 
 
+var reSendReq = function (url) {
+    app.get(url, 
+        function (req, res) {
 
-app.use(express.static('public'));
+            console.log(req.url);
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
+            var options = {
+                host: CONFIG.BACKEND_ADDRESS,
+                port: CONFIG.BACKEND_PORT,
+                path: req.url,
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
 
 
-app.get('/api/map/findNodes/:queryStr', function (req, res) {
-
-    console.log(req.url);
-    var options = {
-        host: '127.0.0.1',
-        port: 8080,
-        path: req.url,
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
+            getJSON(options,
+                function(statusCode, result)
+                {
+                    // I could work with the result html/json here.  I could also just return it
+                    console.log("onResult: (" + statusCode + ")" + JSON.stringify(result));
+                    res.statusCode = statusCode;
+                    res.send(result);
+                });
         }
-    };
+    );
+};
+
+// the url have to fully matched, :queryStr & :x/:y & :sId/:tId can't be removed.
+reSendReq('/api/map/findNodes/:queryStr');
+reSendReq('/api/map/nearest/:x/:y');
+reSendReq('/api/map/routing/:sId/:tId');
 
 
-    getJSON(options,
-        function(statusCode, result)
-        {
-            // I could work with the result html/json here.  I could also just return it
-            console.log("onResult: (" + statusCode + ")" + JSON.stringify(result));
-            res.statusCode = statusCode;
-            res.send(result);
-        });
-
-
-    console.log(req.param.queryStr);
-});
-
-app.get('/api/map/nearest/:x/:y', function (req, res) {
-
-    console.log(req.url);
-	var options = {
-	    host: '127.0.0.1',
-	    port: 8080,
-	    path: '/api/map/nearest/' + req.params.x + '/' + req.params.y,
-	    method: 'GET',
-	    headers: {
-	        'Content-Type': 'application/json'
-	    }
-	};
-
-
-	getJSON(options,
-        function(statusCode, result)
-        {
-            // I could work with the result html/json here.  I could also just return it
-            console.log("onResult: (" + statusCode + ")" + JSON.stringify(result));
-            res.statusCode = statusCode;
-            res.send(result);
-        });
-
-
-	console.log(req.params.x + " " + req.params.y);
-});
-
-
-app.get('/api/map/routing/:sId/:tId', function (req, res) {
-
-	var options = {
-	    host: '127.0.0.1',
-	    port: 8080,
-	    path: '/api/map/routing/' + req.params.sId + '/' + req.params.tId,
-	    method: 'GET',
-	    headers: {
-	        'Content-Type': 'application/json'
-	    }
-	};
-
-
-	getJSON(options,
-        function(statusCode, result)
-        {
-            // I could work with the result html/json here.  I could also just return it
-            console.log("onResult: (" + statusCode + ")" + JSON.stringify(result));
-            res.statusCode = statusCode;
-            res.send(result);
-        });
-
-
-	console.log(req.params.sId + " " + req.params.tId);
-});
-
-app.get('/api/map/nearest/:x/:y', function (req, res) {
-
-	var options = {
-	    host: '127.0.0.1',
-	    port: 8080,
-	    path: '/api/map/nearest/' + req.params.x + '/' + req.params.y,
-	    method: 'GET',
-	    headers: {
-	        'Content-Type': 'application/json'
-	    }
-	};
-
-
-	getJSON(options,
-        function(statusCode, result)
-        {
-            // I could work with the result html/json here.  I could also just return it
-            console.log("onResult: (" + statusCode + ")" + JSON.stringify(result));
-            res.statusCode = statusCode;
-            res.send(result);
-        });
-
-
-	console.log(req.params.x + " " + req.params.y);
-});
+//   resend part end.
 
 var server = app.listen(3000, function () {
 

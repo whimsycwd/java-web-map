@@ -1,9 +1,51 @@
+热门路径的规划
+热门路径数据
+
+出租车轨迹数据格式阅读
+
+热门路径反应到道路权值
+
+
+
+
+
+[A\*算法](http://zh.wikipedia.org/wiki/A*%E6%90%9C%E5%AF%BB%E7%AE%97%E6%B3%95)
+
+## ISSUES
+
+1.  Android Layout 无法正常显示
+2.  Gradle 依赖编译
+3.  http://www.crifan.com/android_studio_debug_osmand_not_run_unable_to_identify_the_apk_for_variant_free_legacy_armv5_debug_and_device/
+
+http://stackoverflow.com/questions/29182833/android-unable-to-identify-the-apk-for-variant-arm-debug-and-device
+
+4.  <strike>OsmAnd编译运行</strike>
+5.  OsmAnd地图渲染
+
+
+把文件存入Android Virtual Device
+
+http://wiki.openstreetmap.org/wiki/OsmAndMapCreator
+
+## Gradle 入门
+
+
+
+http://androidforums.com/threads/android-studio-broken-says-missing-class-no-matter-what-project-i-start.917603/
+
+
+https://code.google.com/p/android/issues/detail?id=170841
+
+
+
 ## TODO
 1.	<strike>后端代码日志</strike>
 2.	<strike>后端本地库整理, 把不是maven依赖的东西改成maven依赖</strike>
 3.  前段代码重构
 4.  <strike>搞清跨域请求</strike> 
 5.  换地图贴片服务
+6.  更换起点终点坐标. 
+7.  清空涂层
 
 
 
@@ -66,6 +108,19 @@ http://logback.qos.ch/
 
 
 ## RESTful Interface
+
+
+base url : /api/tool
+
+### 1. Find nearest point
+
+`nearest/{lng}/{lat}`
+
+### 2. Routing  
+
+`/routing/{sId}/{tId}`
+
+### 3.
 
 base url : /api/map
 
