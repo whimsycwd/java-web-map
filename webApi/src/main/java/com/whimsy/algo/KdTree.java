@@ -11,16 +11,13 @@ package com.whimsy.algo;
  */
 
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.whimsy.process.entity.ContextObj;
-import com.whimsy.process.primitivie.Bound;
-import com.whimsy.process.primitivie.Way;
+import com.whimsy.entity.Bound;
+import com.whimsy.entity.Graph;
 
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.introcs.StdDraw;
@@ -48,27 +45,27 @@ public class KdTree {
 	}
 
 	public static class Point extends Point2D {
-		private Long id;
+		private Integer id;
 
 		public Point(double x, double y) {
 			super(x,y);
 		}
 
-		public Point(Long id, double x, double y) {
+		public Point(Integer id, double x, double y) {
 			super(x, y);
 			this.id = id;
 		}
 
-		public Point(double x, double y, Long id) {
+		public Point(double x, double y, Integer id) {
 			super(x, y);
 			this.id = id;
 		}
 
-		public Long getId() {
+		public Integer getId() {
 			return id;
 		}
 
-		public void setId(Long id) {
+		public void setId(Integer id) {
 			this.id = id;
 		}
 	}
@@ -76,51 +73,35 @@ public class KdTree {
 	private Bound bound;
 
 
-	public KdTree(ContextObj ctx) {
+	public KdTree(Graph graph) {
 		logger.info("Building KdTree start!");
 
 		Long statTime = System.currentTimeMillis();
 
-		this.bound = ctx.getBound();
-
-		Map<Long, Way> wayMap = ctx.getWayMap();
-		Map<Long, com.whimsy.process.primitivie.Node> nodeMap = ctx.getNodeMap();
-
-		Set<Long> hash = new HashSet<Long>();
-
-		for (Map.Entry<Long, Way> entry : wayMap.entrySet()) {
-
-			List<Long> ndRefs = entry.getValue().getPathNodes();
-			for (int i = 0; i < ndRefs.size(); ++i) {
-				Long ndRef = ndRefs.get(i);
-
-				com.whimsy.process.primitivie.Node node = nodeMap.get(ndRef);
-
-				// node can be null because the way can cross citys. but we only have one
-				// city's data
-				if (node != null && !hash.contains(ndRef)) {
-					hash.add(ndRef);
-					this.insert(new Point(ndRef, node.getLon(), node.getLat()));
+		this.bound = graph.bound;
 
 
-				}
-			}
+		logger.info("Bound here is minLon = {} maxLon = {} minLat = {}  maxLat {}",
+					   bound.minLon, bound.maxLon, bound.minLat, bound.maxLat);
+
+		for (com.whimsy.entity.Node node : graph.nodes) {
+			this.insert(new Point(node.id, node.lon, node.lat));
 		}
 
 
 		logger.info("Node inserted : {} \nBuilding KdTree end. used Time {}",
-							 hash.size(), (double) (System.currentTimeMillis() - statTime) / 1000);
+							 this.size(), (double) (System.currentTimeMillis() - statTime) / 1000);
 
 	}
 
 
 	public KdTree() {
-		bound = new Bound();
-		bound.setMinLat(0);
-		bound.setMaxLat(1);
-		bound.setMinLat(0);
-		bound.setMaxLat(1);
+		bound.minLat = 0;
+		bound.maxLat = 1;
+		bound.minLon = 0;
+		bound.maxLon = 1;
 	}
+
 
 
 	private Node root;
@@ -144,16 +125,11 @@ public class KdTree {
 
 	private Node insert(Node node, Node parentNode, Point p, boolean orient) {
 		if (node == null) {
-			size++;
 
-
-			if (size == 69) {
-				int t = 1;
-			}
-			double rectXmin = bound.getMinLon() - MARGIN;
-			double rectXmax = bound.getMaxLon() + MARGIN;
-			double rectYmin = bound.getMinLat() - MARGIN;
-			double rectYmax = bound.getMaxLat() + MARGIN;
+			double rectXmin = bound.minLon - MARGIN;
+			double rectXmax = bound.maxLon + MARGIN;
+			double rectYmin = bound.minLat - MARGIN;
+			double rectYmax = bound.maxLat + MARGIN;
 
 			if (parentNode != null) {
 				if (HORIZONTAL == orient) {
@@ -321,6 +297,12 @@ public class KdTree {
 
 	private Point nearest;
 
+	/**
+	 * Point (x = lon, y = lat)
+	 *
+	 * @param p
+	 * @return
+	 */
 	public Point nearest(Point p) {
 		// a nearest neighbor in the set to p; null if set is empty
 		if (root == null)
@@ -329,6 +311,11 @@ public class KdTree {
 		nearestSearch(root, p, HORIZONTAL);
 		return nearest;
 	}
+
+	public Point nearest(double lat, double lon) {
+		return nearest(new Point(lon, lat));
+	}
+
 
 	private void nearestSearch(Node node, Point queryPoint, boolean orient) {
 		if (node == null) {
@@ -369,7 +356,10 @@ public class KdTree {
 
 
 	public static void main(String [] args) {
-		KdTree kdTree = new KdTree(ContextObj.getInstance());
+		KdTree kdTree = new KdTree(new Graph("./BeijingMap/nodeOSM.txt", "./BeijingMap/edgeOSM.txt"));
+
+		Point res = kdTree.nearest(39.9061898, 116.3894982);
+		System.out.println(res);
 	}
 
 }

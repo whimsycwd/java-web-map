@@ -8,5 +8,10 @@ public class Config {
 
     public static final String OSM_FILE_PATH = "./osm-data/chengdu_china.osm";
 
+    public static String NODE_FILE = "./BeijingMap/nodeOSM.txt";
+    public static String EDGE_FILE = "./BeijingMap/edgeOSM.txt";
+    public static String AUG_NODE_FILE = "./BeijingMap/augNodeOSM.txt";
+    public static String AUG_EDGE_FILE = "./BeijingMap/augEdgeOSM.txt";
+
     public static final int MAXIMUM_ENTRYS = 10;
 }

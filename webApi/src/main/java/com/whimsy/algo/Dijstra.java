@@ -10,8 +10,9 @@ import java.util.PriorityQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.whimsy.process.entity.ContextObj;
-import com.whimsy.process.primitivie.Way;
+import com.whimsy.entity.Edge;
+import com.whimsy.entity.Graph;
+import com.whimsy.entity.Node;
 
 /**
  * Created by whimsy on 5/4/15.
@@ -21,126 +22,32 @@ public class Dijstra {
 
     static final Logger logger = LoggerFactory.getLogger(Dijstra.class);
 
-    public static ContextObj ctx = ContextObj.getInstance();
+    ArrayList<Edge>[] bags;
 
+    Node[] nodes;
 
-
-
-    public static Node [] nodes;
-    static ArrayList<Edge> [] bags;
-    public static Map<Long, Integer> id2Idx;
-
-
-
-
-
-    @SuppressWarnings("unchecked")
-    public Dijstra() {
-
-        int size = ctx.getNodeMap().size();
-
-        nodes = new Node[size + 1];
-
-        bags = new ArrayList[size + 1];
-        for (int i = 0; i < size + 1; ++i) {
-            bags[i] = new ArrayList<Edge>();
-        }
-
-
-        int cnt = 0;
-        for (Map.Entry<Long, com.whimsy.process.primitivie.Node> entry : ctx.getNodeMap().entrySet()) {
-            nodes[cnt++] = new Node(entry.getKey(), entry.getValue());
-        }
-
-
-        // specal point to map all missing point.
-        nodes[cnt++] = new Node(-1L, new com.whimsy.process.primitivie.Node(0, 0));
-
-
-        Arrays.sort(nodes);
-
-        id2Idx = new HashMap<Long, Integer>();
-
-        for (int i = 0; i < nodes.length; ++i) {
-            id2Idx.put(nodes[i].id, i);
-        }
-
-
-
-
-        int edgeCnt = 0;
-        int missingNode = 0;
-
-        for (Map.Entry<Long, Way> entry : ctx.getWayMap().entrySet()) {
-
-            Way way = entry.getValue();
-
-            if (!way.is_area) {
-
-                for (int i = 1; i < way.getPathNodes().size(); ++i) {
-                    Integer u = id2Idx.get(way.getPathNodes().get(i - 1));
-                    Integer v = id2Idx.get(way.getPathNodes().get(i));
-
-
-
-                    if (u == null) {
-                        u = id2Idx.get(-1L);
-                        ++missingNode;
-                    }
-                    if (v == null) {
-                        v = id2Idx.get(-1L);
-                        ++missingNode;
-                    }
-
-                    // hack, It shouldn't occur. Could way use node that not appear in node list?
-
-
-                    double w = distance(u,v);
-
-                    bags[u].add(new Edge(u, v, w));
-                    bags[v].add(new Edge(v, u, w));
-                    ++edgeCnt;
-                }
-            }
-        }
-
-        logger.info("Total generated Edge {}", edgeCnt);
-        logger.info("Total missing Node {}", missingNode);
-
-
-
+    public Dijstra(Graph graph) {
+        bags = graph.bags;
+        nodes = graph.nodes;
     }
 
 
-    private double sqr(double x) {
-        return x * x;
-    }
-    private double distance(int u, int v) {
-
-        return Math.sqrt(sqr(nodes[u].x - nodes[v].x) + sqr(nodes[v].y - nodes[v].y));
-    }
 
 
-    public Node [] findPath(long s, long t) {
-        int [] path = findPath0(id2Idx.get(s), id2Idx.get(t));
-        Node [] pathNodes = new Node[path.length];
+    public Node [] findPath(int s, int t) {
 
-        for (int i = 0; i < path.length; ++i) {
-            pathNodes[i] = nodes[path[i]];
-        }
 
-        return pathNodes;
+        return findPath0(s, t);
     }
 
-    private int [] findPath0(int s, int t) {
+    private Node [] findPath0(int s, int t) {
 
         PriorityQueue<HeapNode> pq = new PriorityQueue<HeapNode>();
 
-        int n = nodes.length;
-        int [] pre = new int[n];
-        for (int i = 0; i < n; ++i) {
-            pre[i] = i;
-        }
+        int n = bags.length;
+
+        Edge [] preE = new Edge[n];
+
         double [] d = new double[n];
         for (int i = 0; i < n; ++i) {
             d[i] = Long.MAX_VALUE;
@@ -160,10 +67,10 @@ public class Dijstra {
             }
 
             for (Edge edge : bags[cur.idx]) {
-                if (d[edge.v] > d[cur.idx] + edge.w) {
-                    d[edge.v]  = d[cur.idx] + edge.w;
-                    pre[edge.v] = cur.idx;
-                    pq.add(new HeapNode(edge.v, d[edge.v]));
+                if (d[edge.tar] > d[cur.idx] + edge.weight) {
+                    d[edge.tar]  = d[cur.idx] + edge.weight;
+                    preE[edge.tar] = edge;
+                    pq.add(new HeapNode(edge.tar, d[edge.tar]));
                 }
             }
         }
@@ -173,28 +80,39 @@ public class Dijstra {
 
 
         // calc Path;
-        ArrayList<Integer> reversePath = new ArrayList<Integer>();
+        ArrayList<Edge> reverseEdge = new ArrayList<Edge>();
+
         int cur = t;
         if (d[cur] != Long.MAX_VALUE) {
-            while (pre[cur] != cur) {
-                reversePath.add(cur);
-                cur = pre[cur];
+            while (preE[cur] != null) {
+                reverseEdge.add(preE[cur]);
+                cur = preE[cur].sou;
             }
-            reversePath.add(s);
         }
 
-        Collections.reverse(reversePath);
+        Collections.reverse(reverseEdge);
 
-        int [] retArr = new int[reversePath.size()];
-        for (int i = 0; i < retArr.length; ++i) {
-            retArr[i] = reversePath.get(i);
+        ArrayList<Node> retArr = new ArrayList<Node>();
+
+        for (Edge edge : reverseEdge) {
+            for (Edge.EdgeNode edgeNode : edge.eNodes) {
+
+                retArr.add(new Node(edgeNode.lat, edgeNode.lon));
+            }
         }
-        return retArr;
+
+        Node [] res = new Node[retArr.size()];
+
+        retArr.toArray(res);
+
+        return res;
     }
 
 
     public static void main(String [] args) {
-        Dijstra algo = new Dijstra();
+        Dijstra algo = new Dijstra(new Graph());
+
+        System.out.println(algo.findPath(28064, 28063));
 
     }
 
@@ -215,41 +133,7 @@ public class Dijstra {
     }
 
 
-    public static class Node implements Comparable<Node>{
-        public Long id;
 
-        public double x;
-        public double y;
-
-        public Node(Long id, com.whimsy.process.primitivie.Node node) {
-            this.id = id;
-            x = node.getLon();
-            y = node.getLat();
-        }
-
-        @Override
-        public int compareTo(Node o) {
-            if (this.id < o.id) {
-                return -1;
-            }
-            if (this.id > o.id) {
-                return 1;
-            }
-            return 0;
-        }
-    }
-
-    class Edge {
-        int u;
-        int v;
-        double w;
-
-        public Edge(int u, int v, double w) {
-            this.u = u;
-            this.v = v;
-            this.w = w;
-        }
-    }
 
 
 }

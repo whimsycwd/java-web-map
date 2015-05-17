@@ -16,8 +16,9 @@ import org.slf4j.LoggerFactory;
 
 import com.whimsy.algo.Dijstra;
 import com.whimsy.algo.KdTree;
-import com.whimsy.process.entity.ContextObj;
-import com.whimsy.process.primitivie.Node;
+import com.whimsy.entity.Edge;
+import com.whimsy.entity.Graph;
+import com.whimsy.entity.Node;
 import com.whimsy.vo.NodeVO;
 import com.whimsy.vo.PinPointVO;
 import com.whimsy.vo.RouteVO;
@@ -30,55 +31,63 @@ public class MapAction {
 
     static final Logger logger = LoggerFactory.getLogger(MapAction.class);
 
-    public static Dijstra algo = new Dijstra();
-    public static KdTree tree = new KdTree(ContextObj.getInstance());
+    static Graph graph = new Graph(Config.AUG_NODE_FILE, Config.AUG_EDGE_FILE);
 
-    public static NameService nameService = new NameService(ContextObj.getInstance());
+    static KdTree tree = new KdTree(graph);
 
-    @Path("/findNodes/{queryStr}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<NodeVO> findNodes(@PathParam("queryStr") String query) {
+    static Dijstra dijstra = new Dijstra(graph);
 
-        logger.info("/findNodes/{queryStr} {}", query);
+//    public static Dijstra algo = new Dijstra();
+//    public static KdTree tree = new KdTree(ContextObj.getInstance());
+//
+//    public static NameService nameService = new NameService(ContextObj.getInstance());
 
-        ArrayList<Node> nodes = nameService.findNodes(query);
+//    @Path("/findNodes/{queryStr}")
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public ArrayList<NodeVO> findNodes(@PathParam("queryStr") String query) {
+//
+//        logger.info("/findNodes/{queryStr} {}", query);
+//
+////        ArrayList<Node> nodes = nameService.findNodes(query);
+////
+////        ArrayList<NodeVO> res = new ArrayList<NodeVO>();
+////
+////        for (Node node : nodes) {
+////            res.add(new NodeVO(node.getLon(), node.getLat()));
+////        }
+//
+////        return res;
+//        return null;
+//    }
 
-        ArrayList<NodeVO> res = new ArrayList<NodeVO>();
-
-        for (Node node : nodes) {
-            res.add(new NodeVO(node.getLon(), node.getLat()));
-        }
-
-        return res;
-    }
-
-    @Path("/suggest")
-    @GET
-    @JSONP(queryParam = "callback")
-    @Produces({"application/javascript"})
-    public ArrayList<String> suggest(@QueryParam("callback") String callback,
-                                     @QueryParam("q") String query) {
-
-
-        logger.info("/suggest callback = {}  q ={}", callback, query);
-
-        return nameService.search(query);
-    }
-
+//    @Path("/suggest")
+//    @GET
+//    @JSONP(queryParam = "callback")
+//    @Produces({"application/javascript"})
+//    public ArrayList<String> suggest(@QueryParam("callback") String callback,
+//                                     @QueryParam("q") String query) {
+//
+//
+//        logger.info("/suggest callback = {}  q ={}", callback, query);
+//
+////        return nameService.search(query);
+//        return null;
+//    }
+//
     @Path("/routing/{sId}/{tId}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response routing(@PathParam("sId") Long sId,
-                            @PathParam("tId") Long tId
+    public Response routing(@PathParam("sId") Integer sId,
+                            @PathParam("tId") Integer tId
                             ) {
 
         logger.info("/routing/{sId}/{tId}  sId = {}, tid = {}", sId, tId);
 
-        Dijstra.Node[] path = algo.findPath(sId, tId);
+        Node[] path = dijstra.findPath(sId, tId);
         ArrayList<NodeVO> nodeVOs = new ArrayList<NodeVO>();
         for (int i = 0; i < path.length; ++i) {
-            nodeVOs.add(new NodeVO(path[i].x, path[i].y));
+            nodeVOs.add(new NodeVO(path[i].lon, path[i].lat));
         }
 
         return Response.ok(new RouteVO(nodeVOs)).build();
@@ -86,20 +95,46 @@ public class MapAction {
     }
 
 
-    @Path("/nearest/{coordinateX}/{coordinateY}")
+    @Path("/nearest/{lat}/{lon}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response coordinate(@PathParam("coordinateX") Double coordinateX,
-                               @PathParam("coordinateY") Double coordinateY) {
-        logger.info("/nearest/{coordinateX}/{coordinateY}  X = {}, y = {}", coordinateX, coordinateY);
+    public Response coordinate(@PathParam("lat") Double lat,
+                               @PathParam("lon") Double lon) {
+        logger.info("/nearest/{lon}/{lat}  X = {}, y = {}", lon, lat);
 
-        KdTree.Point point = tree.nearest(new KdTree.Point(coordinateX, coordinateY));
+        KdTree.Point point = tree.nearest(lat, lon);
       return Response.ok(new PinPointVO(point.getId(), point.x(), point.y())).build();
+
+    }
+
+    @Path("/edge/{eId}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<NodeVO> edge(@PathParam("eId") Integer eId) {
+        for (Edge edge : graph.edges) {
+            if (edge.id == eId) {
+
+
+                ArrayList<NodeVO> nodeVOs = new ArrayList<NodeVO>();
+
+                for (Edge.EdgeNode node : edge.eNodes) {
+                    nodeVOs.add(new NodeVO(node.lon, node.lat));
+                }
+
+                return nodeVOs;
+            }
+        }
+
+        logger.info("Invalid edge Id");
+        return null;
     }
 
     public static void main(String [] args) {
         MapAction action = new MapAction();
 //        action.coordinate(121.5758, 31.1869);
+
+        action.coordinate(39.9933848,116.3982942);
+        action.routing(14660, 26844);
     }
 
 

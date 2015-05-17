@@ -1,9 +1,22 @@
+http://zh.wikipedia.org/wiki/%E7%BB%B4%E7%89%B9%E6%AF%94%E7%AE%97%E6%B3%95
+
+
+最终是单向边吗？
+
+
+
 热门路径的规划
 热门路径数据
 
 出租车轨迹数据格式阅读
 
 热门路径反应到道路权值
+
+
+
+1.	地图不连通。 要处理数据
+2.	边的选取
+
 
 
 
@@ -46,6 +59,9 @@ https://code.google.com/p/android/issues/detail?id=170841
 5.  换地图贴片服务
 6.  更换起点终点坐标. 
 7.  清空涂层
+8.  alg4的源代码提交到仓库
+9.  地图不连通
+10. 服务开启时初始化MapAction
 
 
 
@@ -120,14 +136,16 @@ base url : /api/tool
 
 `/routing/{sId}/{tId}`
 
-### 3.
+### 3.on
 
 base url : /api/map
 
 ### 1. Find nearest point
 
 
-`/nearest/{coordinateX}/{coordinateY}`
+<strike>`/nearest/{coordinateX}/{coordinateY}`</strike>
+
+`/nearest/{lat}/{lon}`
 
 ####Example 
 #####Request

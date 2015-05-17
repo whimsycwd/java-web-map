@@ -4,22 +4,22 @@ package com.whimsy.vo;
  * Created by whimsy on 5/4/15.
  */
 public class PinPointVO {
-    private Long id;
+    private Integer id;
 
     private double x;
     private double y;
 
-    public PinPointVO(Long id, double x, double y) {
+    public PinPointVO(Integer id, double x, double y) {
         this.id = id;
         this.x = x;
         this.y = y;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public double getX() {
