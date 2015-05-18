@@ -89,119 +89,31 @@ var paintEdgeObj = function(obj) {
         latlngs.push(L.latLng(e.y, e.x));
 
     });
-    var polyline = L.polyline(latlngs, {color: 'blue'}).addTo(map);
+    var polyline = L.polyline(latlngs, {color: 'blue'}).addTo(layer);
 };
 
-// $.get("/api/map/edgeIds", function(ids) {
-
-//     $.get("/api/map/edgesDict", function(dict) {
-//         ids.forEach(function(id) {
-//             if (id) {
-//                 paintEdgeObj(dict[id].eNodes);
-//             }
-//     });
-//     });
-    
-// });
 
 
-// for (var eId = 0; eId < 30; ++eId) {
-//     $.get("/api/map/edge/" + eId, function(obj) {
-//         var latlngs = [];
 
-//         obj.forEach(function(e) {
-//             latlngs.push(L.latLng(e.y, e.x));
 
-//         });
-//         var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
-//     });
-// }
 
-// draw the whole map
-var pathWholeMap = function () {
-    var randInt = function(bound) {
 
-        return Math.floor(Math.random() * bound);
+var layer = new L.FeatureGroup();
+map.addLayer(layer);
+
+function clearScreen() {
+    if (layer) {
+        map.removeLayer(layer);
+        layer = new L.featureGroup();
+        map.addLayer(layer);
     }
-
-
-
-    $.get("/api/map/edges/", function(edges) {
-        edges.forEach(function (edge) {
-            var latlngs = [];
-
-            edge.eNodes.forEach(function (e) {
-                // L.marker(L.latLng(e.y, e.x)).addTo(map);
-                latlngs.push(L.latLng(e.y, e.x));
-            });  
-
-            var colors = ['red', 'green', 'blue', 'gray', 'black']
-            var polyline = L.polyline(latlngs, {color: colors[randInt(5)], weight : 3}).addTo(map);
-        });
-
-    });
-}
-
-
-var paintTrajectory = function()  {
-    $.get("/api/map/trajectory/", function(path) {
-
-            var latlngs = [];
-
-            path.forEach(function (e) {
-                // L.marker(L.latLng(e.y, e.x)).addTo(map);
-                latlngs.push(L.latLng(e.y, e.x));
-            });  
-
-
-            var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
-        
-
-    });
-}
- 
-// paintTrajectory();
-
-
-
-
-
-var personMenu = [
-];
-
-var timeSelectSubMenu = {}
-
-
-
-function makeSubmenu(value) {
-    console.log(value);
-
-    $("#timeSelect").html("");
-
-    var timeSelect = timeSelectSubMenu[value];
-    timeSelect.forEach(function (entry) {
-        $('<option value="'+entry+'">'+ entry +'</option>').appendTo("#timeSelect");
-    });
-}
-function resetSelection() {
-
-    $.get("/api/map/select", function(data) {
-        personMenu = data.personSelect;
-        timeSelectSubMenu = data.timeSelect;
-        personMenu.forEach(function (entry) {
-            $('<option value="'+entry+'">'+ entry +'</option>').appendTo("#personSelect");
-        });
-
-        makeSubmenu(personMenu[0]);
-    });
-
-
-
 }
 
 function paintOriginTraj() {
     var person = $("#personSelect").val();
     var time = $("#timeSelect").val();
+
+    console.log(person + " " + time);
 
     $.get("/api/map/trajectory/origin/" + person + "/" + time, function(path) {
 
@@ -213,7 +125,7 @@ function paintOriginTraj() {
         });
 
 
-        var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+        var polyline = L.polyline(latlngs, {color: 'red'}).addTo(layer);
 
 
     });
@@ -251,8 +163,46 @@ function paintProjTraj() {
         });
 
 
-        var polyline = L.polyline(latlngs, {color: 'black'}).addTo(map);
+        var polyline = L.polyline(latlngs, {color: 'black'}).addTo(layer);
 
 
     });
+}
+
+
+
+var personMenu = [
+];
+
+var timeSelectSubMenu = {}
+
+
+
+function makeSubmenu(value) {
+
+    clearScreen();
+
+    console.log(value);
+
+    $("#timeSelect").html("");
+
+    var timeSelect = timeSelectSubMenu[value];
+    timeSelect.forEach(function (entry) {
+        $('<option value="'+entry+'">'+ entry +'</option>').appendTo("#timeSelect");
+    });
+}
+function resetSelection() {
+
+    clearScreen();
+
+    $.get("/api/map/select", function(data) {
+        personMenu = data.personSelect;
+        timeSelectSubMenu = data.timeSelect;
+        personMenu.forEach(function (entry) {
+            $('<option value="'+entry+'">'+ entry +'</option>').appendTo("#personSelect");
+        });
+
+        makeSubmenu(personMenu[0]);
+    });
+
 }

@@ -171,14 +171,14 @@ app.get('/api/map/edgesDict', function (req, res) {
 
 
 function getFile(person, time, suffix) {
-    return BASE_FOLDER + "/" + person + "/" + time + ".plt" + suffix;
+    return BASE_FOLDER + "/" + person + "/Trajectory/" + time + ".plt." + suffix;
 }
 
-app.get('/api/map/trajectory/origin/:persion/:time', function (req, res) {
+app.get('/api/map/trajectory/origin/:person/:time', function (req, res) {
 
     var person = req.params.person;
     var time = req.params.time;
-    var filename = getFile(person, time, "");
+    var filename = getFile(person, time, "path");
 
     console.log(filename);
 
@@ -189,6 +189,9 @@ app.get('/api/map/trajectory/origin/:persion/:time', function (req, res) {
 
         var result = [];
         lines.forEach(function(data) {
+            if (data == "") {
+                return;
+            }
             var entries = data.split(' ');
         
             var node = {}
@@ -211,7 +214,7 @@ app.get('/api/map/trajectory/edge/:person/:time', function(req, res) {
 
     var person = req.params.person;
     var time = req.params.time;
-    var filename = getFile(person, time, ".edge");
+    var filename = getFile(person, time, "edge");
 
     console.log(filename);
 
@@ -220,6 +223,9 @@ app.get('/api/map/trajectory/edge/:person/:time', function(req, res) {
 
         var results = [];
         lines.forEach(function(data) {
+            if (data == "") {
+                return;
+            }
             results.push(data);
         });
 
@@ -234,7 +240,7 @@ app.get('/api/map/trajectory/proj/:person/:time', function(req, res) {
 
     var person = req.params.person;
     var time = req.params.time;
-    var filename = getFile(person, time, ".proj");
+    var filename = getFile(person, time, "proj");
 
     console.log(filename);
 
@@ -243,7 +249,9 @@ app.get('/api/map/trajectory/proj/:person/:time', function(req, res) {
 
         var results = [];
         lines.forEach(function(data) {
-
+            if (data == "") {
+                return;
+            }
             var entries = data.split(' ');
 
             var obj = {};
