@@ -8,6 +8,8 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.whimsy.Config;
+
 /**
  * Created by whimsy on 5/13/15.
  */
@@ -64,6 +66,9 @@ public class Graph {
             }
             nodes.add(node);
         }
+
+
+        System.out.printf("Bound %.6f %.6f %.6f %.6f\n", bound.minLat, bound.maxLat, bound.minLon, bound.maxLon);
 
         this.nodes = new Node[nodes.size()];
         nodes.toArray(this.nodes);
@@ -150,6 +155,6 @@ public class Graph {
 
 
     public static void main(String [] args) {
-        new Graph("./BeijingMap/nodeOSM.txt", "./BeijingMap/edgeOSM.txt");
+        new Graph(Config.NODE_FILE_NEW, Config.EDGE_FILE_NEW);
     }
 }

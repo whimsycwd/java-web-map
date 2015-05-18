@@ -133,6 +133,44 @@ app.get('/api/map/edges', function (req, res) {
 });
 
 
+app.get('/api/map/edgesDict', function (req, res) {
+    fs.readFile('./BeijingMap/edgeOSM.txt', { encoding : "utf8" } , function(err, data) {
+        if (err) throw err;
+
+        var lines = data.split('\n');
+
+        var result = {};
+        lines.forEach(function(data) {
+            var entries = data.split('\t');
+            var obj = {}
+            obj.id = entries[0];
+            obj.sou = entries[1];
+            obj.tar = entries[2];
+            obj.cnt = entries[3];
+
+            var eNodes = [];
+            for (var i = 0; i < obj.cnt; ++i) {
+                var eNode = {}
+                eNode.x = entries[4 + 2 * i + 1];
+                eNode.y = entries[4 + 2 * i];
+                eNodes.push(eNode);
+            }
+
+            obj.eNodes = eNodes;
+
+            result[obj.id] = obj;
+        }); 
+
+
+      //  console.log(res.length);
+      //  console.log(res[0]);
+
+      res.send(result);
+    });
+});
+
+
+
 app.get('/api/map/trajectory', function (req, res) {
     fs.readFile('./BeijingMap/Trajectory/20081023025304.path', { encoding : "utf8" } , function(err, data) {
         if (err) throw err;
@@ -158,6 +196,42 @@ app.get('/api/map/trajectory', function (req, res) {
     });
 });
 
+
+app.get('/api/map/edgeIds', function(req, res) {
+    fs.readFile("./BeijingMap/edgeOut.txt", {encoding : "utf8"}, function(err, data) {
+        var lines = data.split("\n");
+
+        var results = [];
+        lines.forEach(function(data) {
+            results.push(data);
+        });
+
+        res.send(results);
+    });
+
+});
+
+
+app.get('/api/map/matchedNode', function(req, res) {
+    fs.readFile("./BeijingMap/pjNode.txt", {encoding : "utf8"}, function(err, data) {
+        var lines = data.split("\n");
+
+        var results = [];
+        lines.forEach(function(data) {
+
+            var entries = data.split(' ');
+
+            var obj = {};
+            obj.x = entries[1];
+            obj.y = entries[0];
+
+            results.push(obj);
+        });
+
+        res.send(results);
+    });
+
+});
 
 
 

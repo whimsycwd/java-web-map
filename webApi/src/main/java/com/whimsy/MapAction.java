@@ -31,7 +31,7 @@ public class MapAction {
 
     static final Logger logger = LoggerFactory.getLogger(MapAction.class);
 
-    static Graph graph = new Graph(Config.AUG_NODE_FILE, Config.AUG_EDGE_FILE);
+    static Graph graph = new Graph(Config.NODE_FILE_NEW, Config.EDGE_FILE_NEW);
 
     static KdTree tree = new KdTree(graph);
 

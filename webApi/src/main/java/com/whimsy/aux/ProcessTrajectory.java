@@ -1,7 +1,11 @@
 package com.whimsy.aux;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -10,32 +14,78 @@ import java.util.Scanner;
 public class ProcessTrajectory {
 
 
+    public static String trajSuffix = ".path";
+    public static String edgeSuffix = ".edge";
+    public static String projectSuffix = ".project";
 
-    void work() throws FileNotFoundException {
+    /**
+     * extract origrinal traj path
+     * @param filename
+     * @throws FileNotFoundException
+     * @throws ParseException
+     */
+    void extractTrajectory(String filename) throws FileNotFoundException, ParseException {
 
-//        String filename = "./BeijingMap/Trajectory/Source/20081023025304.plt";
-        String filename = "./BeijingMap/Trajectory/Source/20081024020959.plt";
-        Scanner in = new Scanner(this.getClass().getClassLoader().getResourceAsStream(filename));
+        Scanner in = new Scanner(new File(filename));
 
 
-//        String outputFile = "./BeijingMap/Trajectory/20081023025304.path";
-        String outputFile = "./BeijingMap/Trajectory/20081024020959.path";
+        String outputFile = filename + trajSuffix;
         PrintWriter out = new PrintWriter(outputFile);
 
         for (int i = 0; i < 6; ++i) {
             in.nextLine();
         }
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd hh:mm:ss");
+
+
+
         while (in.hasNext()) {
             String line = in.nextLine();
             String [] elments = line.split(",");
-            out.println(elments[0] + " " + elments[1]);
+
+
+            Date date = sdf.parse(String.format("%s %s", elments[5], elments[6]));
+
+
+//            System.out.println(date);
+
+            out.println(elments[0] + " " + elments[1] + " " + date.getTime() / 1000);
         }
+
 
         out.close();
     }
 
-    public static void main(String [] args) throws FileNotFoundException {
-        new ProcessTrajectory().work();
+
+    public void traverseFolder2(String path) throws FileNotFoundException, ParseException {
+
+        File file = new File(path);
+        if (file.exists()) {
+            File[] files = file.listFiles();
+            if (files.length == 0) {
+                System.out.println("File is empty");
+                return;
+            } else {
+                for (File file2 : files) {
+                    if (file2.isDirectory()) {
+                        System.out.println("Folder :" + file2.getAbsolutePath());
+                        traverseFolder2(file2.getAbsolutePath());
+                    } else {
+                        System.out.println("File :" + file2.getAbsolutePath());
+
+                        extractTrajectory(file2.getAbsolutePath());
+                    }
+                }
+            }
+        } else {
+            System.out.println("File dosen't exist");
+        }
+    }
+
+    public static void main(String [] args) throws FileNotFoundException, ParseException {
+//        new ProcessTrajectory().work();
+
+        new ProcessTrajectory().traverseFolder2("BeijingMap/Trajectory");
     }
 }

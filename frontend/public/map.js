@@ -150,7 +150,7 @@ $( "#target" ).autocomplete({
 // }).addTo(map);
 
 
-var map = L.map('map').setView([39.9067,116.3978], 12);
+var map = L.map('map').setView([39.9067,116.3978], 11);
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18
@@ -174,29 +174,30 @@ var paintPath = function(sId, tId) {
 
 var ids = [];
 
-    map.on('click', function(e) {
+map.on('click', function(e) {
 //        L.marker(e.latlng).addTo(map);
-    
-
-        $.get("/api/map/nearest/" + e.latlng.lat + "/" + e.latlng.lng, function(data) {
-            var marker = L.marker(L.latLng(data.y, data.x));
-            marker.addTo(map);
 
 
-          //  marker.bindPopup("popupContent bla bla").openPopup();
-            ids.push(data.id);
+    $.get("/api/map/nearest/" + e.latlng.lat + "/" + e.latlng.lng, function(data) {
+        var marker = L.marker(L.latLng(data.y, data.x));
+        marker.addTo(map);
 
-            if (ids.length % 2 == 0) {
-                paintPath(ids[ids.length - 2], ids[ids.length - 1]);
-            }
-        });
 
-       // alert(e.latlng);
+      //  marker.bindPopup("popupContent bla bla").openPopup();
+        ids.push(data.id);
+
+        if (ids.length % 2 == 0) {
+            paintPath(ids[ids.length - 2], ids[ids.length - 1]);
+        }
     });
 
+   // alert(e.latlng);
+});
 
-var paintEdge = function() {
-    var eId = $("#edgeId").val();
+
+
+var paintEdge = function(eId) {
+    // var eId = $("#edgeId").val();
     $.get("/api/map/edge/" + eId, function(obj) {
         var latlngs = [];
 
@@ -204,9 +205,45 @@ var paintEdge = function() {
             latlngs.push(L.latLng(e.y, e.x));
 
         });
-        var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+        var polyline = L.polyline(latlngs, {color: 'blue'}).addTo(map);
     });
 };
+
+
+
+// paint matched node
+   $.get("/api/map/matchedNode/" , function(obj) {
+        var latlngs = [];
+
+        obj.forEach(function(e) {
+            latlngs.push(L.latLng(e.y, e.x));
+
+        });
+        var polyline = L.polyline(latlngs, {color: 'black'}).addTo(map);
+    });
+
+
+var paintEdgeObj = function(obj) {
+    var latlngs = [];
+
+    obj.forEach(function(e) {
+        latlngs.push(L.latLng(e.y, e.x));
+
+    });
+    var polyline = L.polyline(latlngs, {color: 'blue'}).addTo(map);
+};
+
+// $.get("/api/map/edgeIds", function(ids) {
+
+//     $.get("/api/map/edgesDict", function(dict) {
+//         ids.forEach(function(id) {
+//             if (id) {
+//                 paintEdgeObj(dict[id].eNodes);
+//             }
+//     });
+//     });
+    
+// });
 
 
 // for (var eId = 0; eId < 30; ++eId) {
@@ -253,7 +290,7 @@ var paintTrajectory = function()  {
             var latlngs = [];
 
             path.forEach(function (e) {
-                L.marker(L.latLng(e.y, e.x)).addTo(map);
+                // L.marker(L.latLng(e.y, e.x)).addTo(map);
                 latlngs.push(L.latLng(e.y, e.x));
             });  
 
@@ -264,4 +301,4 @@ var paintTrajectory = function()  {
     });
 }
  
-paintTrajectory();
+// paintTrajectory();
