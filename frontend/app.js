@@ -14,7 +14,7 @@ var CONFIG = {
     PORT : 3000    
 };
 
-
+var BASE_FOLDER = "./BeijingMap/Trajectory";
 
 
 app.use(express.static('public'));
@@ -170,9 +170,19 @@ app.get('/api/map/edgesDict', function (req, res) {
 });
 
 
+function getFile(person, time, suffix) {
+    return BASE_FOLDER + "/" + person + "/" + time + ".plt" + suffix;
+}
 
-app.get('/api/map/trajectory', function (req, res) {
-    fs.readFile('./BeijingMap/Trajectory/20081023025304.path', { encoding : "utf8" } , function(err, data) {
+app.get('/api/map/trajectory/origin/:persion/:time', function (req, res) {
+
+    var person = req.params.person;
+    var time = req.params.time;
+    var filename = getFile(person, time, "");
+
+    console.log(filename);
+
+    fs.readFile(filename, { encoding : "utf8" } , function(err, data) {
         if (err) throw err;
 
         var lines = data.split('\n');
@@ -197,8 +207,15 @@ app.get('/api/map/trajectory', function (req, res) {
 });
 
 
-app.get('/api/map/edgeIds', function(req, res) {
-    fs.readFile("./BeijingMap/edgeOut.txt", {encoding : "utf8"}, function(err, data) {
+app.get('/api/map/trajectory/edge/:person/:time', function(req, res) {
+
+    var person = req.params.person;
+    var time = req.params.time;
+    var filename = getFile(person, time, ".edge");
+
+    console.log(filename);
+
+    fs.readFile(filename, {encoding : "utf8"}, function(err, data) {
         var lines = data.split("\n");
 
         var results = [];
@@ -212,8 +229,16 @@ app.get('/api/map/edgeIds', function(req, res) {
 });
 
 
-app.get('/api/map/matchedNode', function(req, res) {
-    fs.readFile("./BeijingMap/pjNode.txt", {encoding : "utf8"}, function(err, data) {
+
+app.get('/api/map/trajectory/proj/:person/:time', function(req, res) {
+
+    var person = req.params.person;
+    var time = req.params.time;
+    var filename = getFile(person, time, ".proj");
+
+    console.log(filename);
+
+    fs.readFile(filename, {encoding : "utf8"}, function(err, data) {
         var lines = data.split("\n");
 
         var results = [];
@@ -235,6 +260,58 @@ app.get('/api/map/matchedNode', function(req, res) {
 
 
 
+
+
+
+Array.prototype.unique = function() {
+    var a = this.concat();
+    for(var i=0; i<a.length; ++i) {
+        for(var j=i+1; j<a.length; ++j) {
+            if(a[i] === a[j])
+                a.splice(j--, 1);
+        }
+    }
+
+    return a;
+};
+
+
+// 级连下拉框
+app.get("/api/map/select", function(req, res){
+
+
+
+    var filenames = fs.readdirSync(BASE_FOLDER);
+
+    var results = {};
+    results.personSelect = filenames;
+
+    var dict = {};
+
+    filenames.forEach(function (data) {
+        //console.log(data);
+        files = fs.readdirSync(BASE_FOLDER + "/" + data + "/" + "Trajectory" + "/");
+
+        var newFiles = [];
+        files.forEach(function (file) {
+            newFiles.push(file.substr(0, 14));
+        });
+
+        newFiles = newFiles.unique();
+
+        dict[data] = newFiles;
+
+    });
+
+
+    results.timeSelect = dict;
+
+    console.log(results);
+
+    res.send(results);
+});
+
+
 //   resend part end.
 
 var server = app.listen(3000, function () {
@@ -245,3 +322,5 @@ var server = app.listen(3000, function () {
   console.log('App listening at http://%s:%s', host, port);
 
 });
+
+
