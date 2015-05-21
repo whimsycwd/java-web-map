@@ -27,23 +27,39 @@ public class Graph {
 
 
 
-    public Graph() {
-        GraphInit("./BeijingMap/nodeOSM.txt", "./BeijingMap/edgeOSM.txt");
-    }
-    public Graph(String nodeFile, String edgeFile) {
-        GraphInit(nodeFile, edgeFile);
+//    public Graph() {
+//        GraphInit("./BeijingMap/nodeOSM.txt", "./BeijingMap/edgeOSM.txt", false);
+//    }
+    public Graph(String nodeFile, String edgeFile, boolean isAbsolutePath) {
+        Scanner nodeIn = null;
+        Scanner edgeIn = null;
+        if (!isAbsolutePath) {
+            nodeIn = new Scanner(this.getClass().getClassLoader().getResourceAsStream(nodeFile));
+            edgeIn = new Scanner(this.getClass().getClassLoader().getResourceAsStream(edgeFile));
+        } else {
+            try {
+                nodeIn = new Scanner(new File(nodeFile));
+                edgeIn = new Scanner(new File(edgeFile));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+
+        }
+
+        GraphInit(nodeIn, edgeIn);
     }
 
 
     @SuppressWarnings("unchecked")
-    public void GraphInit(String nodeFile, String edgeFile) {
+    public void GraphInit(Scanner nodeIn, Scanner edgeIn) {
 
 
         Long startTime = System.currentTimeMillis();
 
         // read Nodes
 
-        Scanner in = new Scanner(this.getClass().getClassLoader().getResourceAsStream(nodeFile));
+        Scanner in = nodeIn;
 
         ArrayList<Node> nodes = new ArrayList<Node>();
 
@@ -82,7 +98,7 @@ public class Graph {
         startTime = System.currentTimeMillis();
         // read Edges
 
-       in = new Scanner(this.getClass().getClassLoader().getResourceAsStream(edgeFile));
+       in = edgeIn;
 
         ArrayList<Edge> edges = new ArrayList<Edge>();
 
@@ -155,6 +171,6 @@ public class Graph {
 
 
     public static void main(String [] args) {
-        new Graph(Config.NODE_FILE_NEW, Config.EDGE_FILE_NEW);
+//        new Graph(Config.NODE_FILE_NEW, Config.EDGE_FILE_NEW);
     }
 }

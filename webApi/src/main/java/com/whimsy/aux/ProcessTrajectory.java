@@ -72,9 +72,11 @@ public class ProcessTrajectory {
                         System.out.println("Folder :" + file2.getAbsolutePath());
                         traverseFolder2(file2.getAbsolutePath());
                     } else {
-                        System.out.println("File :" + file2.getAbsolutePath());
+                        if (file2.getAbsolutePath().endsWith(".plt")) {
+                            System.out.println("File :" + file2.getAbsolutePath());
 
-                        extractTrajectory(file2.getAbsolutePath());
+                            extractTrajectory(file2.getAbsolutePath());
+                        }
                     }
                 }
             }

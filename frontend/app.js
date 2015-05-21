@@ -1,28 +1,73 @@
 var express = require('express');
+var busyboy = require('connect-busboy');
+
+
 var app = express();
-
-
 
 var http = require("http");
 var https = require("https");
+var inspect = require("util").inspect;
 
 var fs = require("fs");
 
 var CONFIG = {
     BACKEND_ADDRESS : "127.0.0.1",
     BACKEND_PORT : 8080,
-    PORT : 3000    
+    PORT : 3000,
+    UPLOAD_NODE_FILE : "/Users/whimsy/Data/UploadDir/nodeOSM.txt",
+    UPLOAD_EDGE_FILE : "/Users/whimsy/Data/UploadDir/edgeOSM.txt",
+    UPLOAD_TRAJ_NODE_FILE : "/Users/whimsy/Data/UploadDir/trajNode.txt",
+    UPLOAD_TRAJ_EDGE_FILE : "/Users/whimsy/Data/UploadDir/trajEdge.txt"
 };
 
 var BASE_FOLDER = "./BeijingMap/Trajectory";
 
-
+app.use(busyboy());
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
+
+// 上传文件 start 
+
+var generateFile = function(outputFile) {
+    return function (req, res, next) {
+
+        var fstream;
+        req.pipe(req.busboy);
+        req.busboy.on('file', function (fieldname, file, filename) {
+            console.log("Uploading: " + filename);
+
+
+            //Path where image will be uploaded
+            fstream = fs.createWriteStream(outputFile);
+            file.pipe(fstream);
+            fstream.on('close', function () {    
+                console.log("Upload Finished of " + filename);              
+                res.redirect('back');           //where to go next
+            });
+        });
+    };
+};
+
+app.route('/api/upload/node')
+    .post(generateFile(CONFIG.UPLOAD_NODE_FILE));
+
+app.route('/api/upload/edge')
+    .post(generateFile(CONFIG.UPLOAD_EDGE_FILE));
+
+app.route('/api/upload/trajectory/edge')
+    .post(generateFile(CONFIG.UPLOAD_TRAJ_EDGE_FILE));
+
+app.route('/api/upload/trajectory/node')
+    .post(generateFile(CONFIG.UPLOAD_TRAJ_NODE_FILE));
+
+
+
+
+//  上传文件结束   
 
 //  To sovle cross domain request. We resend it from back to back
 
@@ -209,12 +254,69 @@ app.get('/api/map/trajectory/origin/:person/:time', function (req, res) {
     });
 });
 
+app.get('/api/map/trajectory/nodeFile', function (req, res) {
+
+    var filename = CONFIG.UPLOAD_TRAJ_NODE_FILE;
+
+    console.log(filename);
+
+    fs.readFile(filename, { encoding : "utf8" } , function(err, data) {
+        if (err) throw err;
+
+        var lines = data.split('\n');
+
+        var result = [];
+        lines.forEach(function(data) {
+            if (data == "") {
+                return;
+            }
+            var entries = data.split(' ');
+        
+            var node = {}
+            node.x = entries[1];
+            node.y = entries[0];
+
+            result.push(node);
+        }); 
+
+
+      //  console.log(res.length);
+      //  console.log(res[0]);
+
+      res.send(result);
+    });
+});
+
 
 app.get('/api/map/trajectory/edge/:person/:time', function(req, res) {
 
     var person = req.params.person;
     var time = req.params.time;
     var filename = getFile(person, time, "edge");
+
+    console.log(filename);
+
+    fs.readFile(filename, {encoding : "utf8"}, function(err, data) {
+        var lines = data.split("\n");
+
+        var results = [];
+        lines.forEach(function(data) {
+            if (data == "") {
+                return;
+            }
+            results.push(data);
+        });
+
+        res.send(results);
+    });
+
+});
+
+
+app.get('/api/map/trajectory/edgeFile', function(req, res) {
+
+
+    var filename = CONFIG.UPLOAD_TRAJ_EDGE_FILE;
 
     console.log(filename);
 
@@ -318,6 +420,7 @@ app.get("/api/map/select", function(req, res){
 
     res.send(results);
 });
+
 
 
 //   resend part end.

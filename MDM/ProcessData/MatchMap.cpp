@@ -96,11 +96,16 @@ void extract(string inputFile) {
     matcher.MapMatching(traj, resEdges, 10);
 
     ofstream ofs(projectOutputFile);
+    ofs.precision(10);
     int idx = 0;
     double pjDist;
     list<GeoPoint*> ::iterator iter = traj.begin();
     for (auto edge : resEdges) {
         projectPointFromTransplantFromSRC((*iter)->lat, (*iter)->lon, edge, pjDist, *iter);
+//        cout << projectPointFromTransplantFromSRC((*iter)->lat, (*iter)->lon, edge, pjDist, *iter) << endl;
+        ++iter;
+
+
     }
 
 

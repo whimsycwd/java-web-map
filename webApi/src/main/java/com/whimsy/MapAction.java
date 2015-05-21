@@ -1,8 +1,16 @@
 package com.whimsy;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -10,6 +18,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
+import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.glassfish.jersey.server.JSONP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +41,7 @@ public class MapAction {
 
     static final Logger logger = LoggerFactory.getLogger(MapAction.class);
 
-    static Graph graph = new Graph(Config.NODE_FILE_NEW, Config.EDGE_FILE_NEW);
+    static Graph graph = new Graph(Config.NODE_FILE_NEW, Config.EDGE_FILE_NEW, false);
 
     static KdTree tree = new KdTree(graph);
 
@@ -107,34 +117,48 @@ public class MapAction {
 
     }
 
-    @Path("/edge/{eId}")
+    @Path("/reload")
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<NodeVO> edge(@PathParam("eId") Integer eId) {
-        for (Edge edge : graph.edges) {
-            if (edge.id == eId) {
+    public Response reload() {
+        logger.info("Reloading");
 
+        graph = new Graph(Config.NODE_UPLOAD_FILE, Config.EDGE_UPLOAD_FILE, true);
+        tree = new KdTree(graph);
+        dijstra = new Dijstra(graph);
 
-                ArrayList<NodeVO> nodeVOs = new ArrayList<NodeVO>();
-
-                for (Edge.EdgeNode node : edge.eNodes) {
-                    nodeVOs.add(new NodeVO(node.lon, node.lat));
-                }
-
-                return nodeVOs;
-            }
-        }
-
-        logger.info("Invalid edge Id");
-        return null;
+        return Response.ok("Reload Success").build();
     }
 
+//    @Path("/edge/{eId}")
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public ArrayList<NodeVO> edge(@PathParam("eId") Integer eId) {
+//        for (Edge edge : graph.edges) {
+//            if (edge.id == eId) {
+//
+//
+//                ArrayList<NodeVO> nodeVOs = new ArrayList<NodeVO>();
+//
+//                for (Edge.EdgeNode node : edge.eNodes) {
+//                    nodeVOs.add(new NodeVO(node.lon, node.lat));
+//                }
+//
+//                return nodeVOs;
+//            }
+//        }
+//
+//        logger.info("Invalid edge Id");
+//        return null;
+//    }
+
     public static void main(String [] args) {
-        MapAction action = new MapAction();
+//        MapAction action = new MapAction();
 //        action.coordinate(121.5758, 31.1869);
 
-        action.coordinate(39.9933848,116.3982942);
-        action.routing(14660, 26844);
+//        action.coordinate(39.9933848,116.3982942);
+//        action.routing(14660, 26844);
+
+
     }
 
 

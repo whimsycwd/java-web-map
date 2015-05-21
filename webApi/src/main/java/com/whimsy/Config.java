@@ -15,5 +15,8 @@ public class Config {
     public static String AUG_NODE_FILE = "./BeijingMap/augNodeOSM.txt";
     public static String AUG_EDGE_FILE = "./BeijingMap/augEdgeOSM.txt";
 
+    public static String NODE_UPLOAD_FILE = "/Users/whimsy/Data/UploadMap/nodeOSM.txt";
+    public static String EDGE_UPLOAD_FILE = "/Users/whimsy/Data/UploadMap/edgeOSM.txt";
+
     public static final int MAXIMUM_ENTRYS = 10;
 }

@@ -66,7 +66,7 @@ public class SCCKosaraju {
     public static void main(String[] args) {
 
 //        Graph graph = new Graph(Config.AUG_NODE_FILE, Config.AUG_EDGE_FILE);
-        Graph graph = new Graph(Config.NODE_FILE, Config.EDGE_FILE);
+        Graph graph = new Graph(Config.NODE_FILE, Config.EDGE_FILE, false);
         List<Integer>[] g = new List[graph.bags.length];
         for (int i = 0; i < g.length; i++) {
             g[i] = new ArrayList<Integer>();

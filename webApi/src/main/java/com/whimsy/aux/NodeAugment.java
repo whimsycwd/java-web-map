@@ -42,7 +42,7 @@ public class NodeAugment {
 
 
     public NodeAugment() {
-        Graph graph = new Graph(nodeFile, edgeFile);
+        Graph graph = new Graph(nodeFile, edgeFile, false);
 
         nodes = graph.nodes;
         edges = graph.edges;

@@ -356,10 +356,10 @@ public class KdTree {
 
 
 	public static void main(String [] args) {
-		KdTree kdTree = new KdTree(new Graph("./BeijingMap/nodeOSM.txt", "./BeijingMap/edgeOSM.txt"));
+//		KdTree kdTree = new KdTree(new Graph("./BeijingMap/nodeOSM.txt", "./BeijingMap/edgeOSM.txt"));
 
-		Point res = kdTree.nearest(39.9061898, 116.3894982);
-		System.out.println(res);
+//		Point res = kdTree.nearest(39.9061898, 116.3894982);
+//		System.out.println(res);
 	}
 
 }

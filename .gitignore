@@ -5,3 +5,7 @@ target
 *DS_Store
 *.txt
 Main
+*.plt
+*.path
+*.edge
+*.proj

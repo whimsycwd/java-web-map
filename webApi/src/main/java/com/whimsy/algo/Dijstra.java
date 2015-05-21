@@ -10,6 +10,7 @@ import java.util.PriorityQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.whimsy.Config;
 import com.whimsy.entity.Edge;
 import com.whimsy.entity.Graph;
 import com.whimsy.entity.Node;
@@ -110,7 +111,7 @@ public class Dijstra {
 
 
     public static void main(String [] args) {
-        Dijstra algo = new Dijstra(new Graph());
+        Dijstra algo = new Dijstra(new Graph(Config.NODE_FILE_NEW, Config.EDGE_FILE_NEW, false));
 
         System.out.println(algo.findPath(28064, 28063));
 
