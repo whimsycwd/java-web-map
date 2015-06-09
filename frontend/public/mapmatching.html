@@ -1,0 +1,49 @@
+<html>
+<head>
+    <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" /> -->
+    <!-- // <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="./leaflet.css">
+    <script type="text/javascript" src="./jquery.js"></script> 
+    <!-- // must go before leaflet-src.js  -->
+    <script type="text/javascript" src="./leaflet-src.js"></script>
+
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <!-- Bootstrap theme CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.css">
+
+    <!--<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">-->
+    <!---->
+
+    <script src="./js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="./css/jquery-ui.css">
+
+    <link rel="stylesheet" type="text/css" href="./leaflet-self.css">
+
+    <script>
+
+    </script>
+</head>
+<body>
+
+
+
+
+
+<input type="submit" value="HMM预匹配" onclick="startHMMMatch()" />
+<input type="submit" value="开始匹配" onclick="startMatch()" />
+<button type="submit" class="btn btn-primary" onclick="genFile();return false;">生成文件</button>
+
+
+<div id="map" />
+
+
+
+<script type="text/javascript" src="./mapmatching.js"></script>
+
+
+</body>
+</html>

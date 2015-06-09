@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -24,14 +25,22 @@ import org.glassfish.jersey.server.JSONP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.google.common.base.Function;
+import com.google.common.collect.Lists;
 import com.whimsy.algo.Dijstra;
 import com.whimsy.algo.KdTree;
 import com.whimsy.entity.Edge;
 import com.whimsy.entity.Graph;
 import com.whimsy.entity.Node;
+import com.whimsy.map.algo.MapMaptching;
+import com.whimsy.map.base.GeoPoint;
 import com.whimsy.vo.NodeVO;
 import com.whimsy.vo.PinPointVO;
+import com.whimsy.vo.Point;
 import com.whimsy.vo.RouteVO;
+
+import edu.princeton.cs.algs4.Stopwatch;
 
 /**
  * Created by whimsy on 4/29/15.
@@ -46,6 +55,72 @@ public class MapAction {
     static KdTree tree = new KdTree(graph);
 
     static Dijstra dijstra = new Dijstra(graph);
+//
+    static com.whimsy.map.base.Graph mapGraph = null;
+
+    void initMapGraph() {
+        if (mapGraph == null) {
+            mapGraph = new com.whimsy.map.base.Graph();
+            mapGraph.loadNode(this.getClass().getClassLoader().getResourceAsStream(Config.NODE_FILE_NEW));
+            mapGraph.loadEdge(this.getClass().getClassLoader().getResourceAsStream(Config.EDGE_FILE_NEW));
+            mapGraph.buildGridIndex(50);
+            mapGraph.buildShortestPathAlgorithm();
+        }
+    }
+
+    @Path("nearestEdges/{lat}/{lon}/{k}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getNearestEdges(@PathParam("lat") double lat,
+                                    @PathParam("lon") double lon,
+                                    @PathParam("k") int k) {
+        initMapGraph();
+
+        List<com.whimsy.map.base.Edge> res = mapGraph.getNearEdges(lat, lon, k);
+        return Response.ok(res).build();
+    }
+
+    @Path("mapmatching")
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response mapMatching(List<Point> points) {
+        initMapGraph();
+
+        MapMaptching mapMaptching = new MapMaptching(mapGraph);
+
+        List<GeoPoint> trajectory = Lists.newArrayList();
+
+        double deltaT = 0;
+
+        for (Point point : points) {
+            System.out.println(point.getLat() + " " + point.getLon());
+
+            GeoPoint gp = new GeoPoint();
+            gp.lat = point.getLat();
+            gp.lon = point.getLon();
+            gp.time = deltaT;
+            deltaT += 10000;
+
+            trajectory.add(gp);
+        }
+
+
+        Stopwatch stopwatch = new Stopwatch();
+
+        List<com.whimsy.map.base.Edge> edges = mapMaptching.hmmMatching(trajectory, 20);
+        logger.info("Matching time consumes {} sec", stopwatch.elapsedTime());
+
+//        List<Integer> edgeIds = Lists.transform(edges, new Function<com.whimsy.map.base.Edge, Integer>() {
+//            @Override
+//            public Integer apply(com.whimsy.map.base.Edge input) {
+//                return input.eId;
+//            }
+//        });
+
+        return Response.ok(edges).build();
+
+    }
 
 //    public static Dijstra algo = new Dijstra();
 //    public static KdTree tree = new KdTree(ContextObj.getInstance());
@@ -117,39 +192,39 @@ public class MapAction {
 
     }
 
-    @Path("/reload")
-    @GET
-    public Response reload() {
-        logger.info("Reloading");
-
-        graph = new Graph(Config.NODE_UPLOAD_FILE, Config.EDGE_UPLOAD_FILE, true);
-        tree = new KdTree(graph);
-        dijstra = new Dijstra(graph);
-
-        return Response.ok("Reload Success").build();
-    }
-
-//    @Path("/edge/{eId}")
+//    @Path("/reload")
 //    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public ArrayList<NodeVO> edge(@PathParam("eId") Integer eId) {
-//        for (Edge edge : graph.edges) {
-//            if (edge.id == eId) {
+//    public Response reload() {
+//        logger.info("Reloading");
 //
+//        graph = new Graph(Config.NODE_UPLOAD_FILE, Config.EDGE_UPLOAD_FILE, true);
+//        tree = new KdTree(graph);
+//        dijstra = new Dijstra(graph);
 //
-//                ArrayList<NodeVO> nodeVOs = new ArrayList<NodeVO>();
-//
-//                for (Edge.EdgeNode node : edge.eNodes) {
-//                    nodeVOs.add(new NodeVO(node.lon, node.lat));
-//                }
-//
-//                return nodeVOs;
-//            }
-//        }
-//
-//        logger.info("Invalid edge Id");
-//        return null;
+//        return Response.ok("Reload Success").build();
 //    }
+
+    @Path("/edge/{eId}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<NodeVO> edge(@PathParam("eId") Integer eId) {
+        for (Edge edge : graph.edges) {
+            if (edge.id == eId) {
+
+
+                ArrayList<NodeVO> nodeVOs = new ArrayList<NodeVO>();
+
+                for (Edge.EdgeNode node : edge.eNodes) {
+                    nodeVOs.add(new NodeVO(node.lon, node.lat));
+                }
+
+                return nodeVOs;
+            }
+        }
+
+        logger.info("Invalid edge Id");
+        return null;
+    }
 
     public static void main(String [] args) {
 //        MapAction action = new MapAction();

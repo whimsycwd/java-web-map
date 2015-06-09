@@ -1,5 +1,7 @@
 var express = require('express');
 var busyboy = require('connect-busboy');
+var bodyParser = require('body-parser')
+
 
 
 var app = express();
@@ -8,11 +10,19 @@ var http = require("http");
 var https = require("https");
 var inspect = require("util").inspect;
 
+
+var request = require("request");
+
+
+request.debug = true;
+
+
 var fs = require("fs");
 
 var CONFIG = {
     BACKEND_ADDRESS : "127.0.0.1",
     BACKEND_PORT : 8080,
+    BACKEND_URL : "http://127.0.0.1:8080",
     PORT : 3000,
     UPLOAD_NODE_FILE : "/Users/whimsy/Data/UploadDir/nodeOSM.txt",
     UPLOAD_EDGE_FILE : "/Users/whimsy/Data/UploadDir/edgeOSM.txt",
@@ -24,6 +34,7 @@ var BASE_FOLDER = "./BeijingMap/Trajectory";
 
 app.use(busyboy());
 app.use(express.static('public'));
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
@@ -140,6 +151,7 @@ reSendReq('/api/map/findNodes/:queryStr');
 reSendReq('/api/map/nearest/:x/:y');
 reSendReq('/api/map/routing/:sId/:tId');
 reSendReq('/api/map/edge/:eId');
+reSendReq('/api/map/nearestEdges/:lon/:lat/:k');
 
 app.get('/api/map/edges', function (req, res) {
     fs.readFile('./BeijingMap/edgeOSM.txt', { encoding : "utf8" } , function(err, data) {
@@ -368,7 +380,73 @@ app.get('/api/map/trajectory/proj/:person/:time', function(req, res) {
 
 });
 
+app.post('/api/map/saveNodeIds', function (req, res) {
+    console.log(req.body);
 
+
+    var filename = "bla";
+    var stream = fs.createWriteStream("./MapMatchingDataDir/" + filename +".node");
+
+    stream.once('open', function(fd) {
+        req.body.forEach(function (e) {
+           // console.log(e);
+            stream.write(JSON.stringify(e));
+            stream.write("\n");
+        });
+
+        stream.end();
+    });
+
+    res.send("sucess");
+});
+
+app.post('/api/map/saveEdgeIds', function(req, res) {
+    console.log(req.body);
+
+    // var date = new Date();
+    // var filename = date.toISOString();
+
+    var filename = "bla";
+    var stream = fs.createWriteStream("./MapMatchingDataDir/" + filename+".edge");
+
+    stream.once('open', function(fd) {
+        req.body.forEach(function (e) {
+           // console.log(e);
+            stream.write(JSON.stringify(e));
+            stream.write("\n");
+        });
+
+        stream.end();
+    });
+
+    res.send("sucess");
+});
+
+
+app.put('/api/map/mapmatching', function(req, res) {
+    console.log(req.body);
+
+    request({
+        method : "PUT",
+        // url : CONFIG.BACKEND_URL + "/api/map/mapmatching",
+        uri : "http://127.0.0.1:8080/api/map/mapmatching",
+        json : true,
+        headers : {
+            "content-type" : "application/json"
+        }, 
+        body : req.body
+         // body : {"pointList" : req.body}
+    }, function (err, response, body) {
+        console.log(err);
+        console.log(response.statusCode);
+        console.log(body);
+        if (!err && response.statusCode == 200) {
+            console.log(body) // Show the HTML for the Google homepage. 
+
+            res.send(body);
+        }
+    });
+});
 
 
 
