@@ -94,7 +94,7 @@ function startHMMMatch() {
         console.log(data);
 
         if (hmmLayer) {
-            map.remvoeLayer(hmmLayer);
+            map.removeLayer(hmmLayer);
         }
         data.forEach(function (e) {
             var geoJson = []; // get geoJson using edges;
@@ -152,14 +152,14 @@ function startMatch() {
 
     map.off("click", onClick);
 
-    var coord = coords[idx];
+    var coord = coordsObj[idx];
     if (edgesLayer) {
         map.removeLayer(edgesLayer);
     }
 
 
 
-    $.get("/api/map/nearestEdges/" + coord[1] + "/" + coord[0] + "/10", function (data) {
+    $.get("/api/map/nearestEdges/" + coord.lat + "/" + coord.lon + "/10", function (data) {
         // process to get edges;
 
 

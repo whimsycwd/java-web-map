@@ -12,6 +12,8 @@ public class Config {
     public static String EDGE_FILE = "./BeijingMap/edgeOSM.txt";
     public static String NODE_FILE_NEW = "./BeijingMapNew/nodeOSM.txt";
     public static String EDGE_FILE_NEW = "./BeijingMapNew/edgeOSM.txt";
+    public static String NODE_FILE_GEN = "./BeijingMapGen/nodeOSM.txt";
+    public static String EDGE_FILE_GEN = "./BeijingMapGen/edgeOSM.txt";
     public static String AUG_NODE_FILE = "./BeijingMap/augNodeOSM.txt";
     public static String AUG_EDGE_FILE = "./BeijingMap/augEdgeOSM.txt";
 
