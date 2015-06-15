@@ -380,6 +380,29 @@ app.get('/api/map/trajectory/proj/:person/:time', function(req, res) {
 
 });
 
+
+app.post('/api/map/saveCoords', function (req, res) {
+    console.log(req.body);
+
+
+    var filename = "bla";
+    var stream = fs.createWriteStream("./MapMatchingDataDir/" + filename +".coord");
+
+    stream.once('open', function(fd) {
+        req.body.forEach(function (e) {
+           // console.log(e);
+            stream.write(JSON.stringify(e.lat));
+            stream.write(" ");
+            stream.write(JSON.stringify(e.lon));
+            stream.write("\n");
+        });
+
+        stream.end();
+    });
+
+    res.send("sucess");
+});
+
 app.post('/api/map/saveNodeIds', function (req, res) {
     console.log(req.body);
 
@@ -472,11 +495,26 @@ app.get("/api/map/select", function(req, res){
     var filenames = fs.readdirSync(BASE_FOLDER);
 
     var results = {};
+
+    var tmp = [];
+    filenames.forEach(function (data) {
+        if (data != ".DS_Store") {
+            tmp.push(data);
+        }
+    });
+
+
+    filenames = tmp;
+
+    
     results.personSelect = filenames;
 
     var dict = {};
 
+
+
     filenames.forEach(function (data) {
+        if (data == ".DS_Store") return;
         //console.log(data);
         files = fs.readdirSync(BASE_FOLDER + "/" + data + "/" + "Trajectory" + "/");
 

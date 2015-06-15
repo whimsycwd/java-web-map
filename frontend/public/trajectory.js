@@ -170,30 +170,6 @@ function paintProjTraj() {
 }
 
 
-function displayNodeTraj() {
-    $.get("/api/map/trajectory/nodeFile", function(path) {
-        var latlngs = [];
-        path.forEach(function (e) {
-            latlngs.push(L.latLng(e.y, e.x));
-        });
-
-        var polyline = L.polyline(latlngs, {color: 'red'}).addTo(layer);
-    })
-
-}
-
-function displayEdgeTraj() {
-    $.get("/api/map/trajectory/edgeFile", function(ids) {
-        $.get("/api/map/edgesDict", function(dict) {
-             ids.forEach(function(id) {
-                 if (id) {
-                     paintEdgeObj(dict[id].eNodes);
-                 }
-            });
-         });
-    })
-
-}
 
 
 var personMenu = [

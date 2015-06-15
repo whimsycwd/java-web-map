@@ -1,7 +1,7 @@
 
 
 
-
+// 定义地图贴片
 var map = L.map('map').setView([39.982578968682176, 116.2926971912384], 18);
 L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -16,6 +16,22 @@ L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
 // }).addTo(map);
 
 
+var LeafIcon = L.Icon.extend({
+    options: {
+        shadowUrl: 'images/leaf-shadow.png',
+        iconSize:     [18, 48],
+        shadowSize:   [25, 32],
+        iconAnchor:   [11, 47],
+        shadowAnchor: [2, 31],
+        popupAnchor:  [-1, -38]
+    }
+});
+
+
+var greenIcon = new LeafIcon({iconUrl: 'images/leaf-green.png'}),
+    redIcon = new LeafIcon({iconUrl: 'images/leaf-red.png'}),
+    orangeIcon = new LeafIcon({iconUrl: 'images/leaf-orange.png'});
+
 var ids = [];
 var coordsObj = [];
 
@@ -23,6 +39,8 @@ var coordsObj = [];
 var coords = [];
 var edgeIds = [];
 var idx = 0;
+
+var markers = [];
 
 var edgesLayer;
 
@@ -68,6 +86,13 @@ function genFile() {
     });
 
     $.ajax({
+      method: "POST",
+      url: "/api/map/saveCoords",
+      data : JSON.stringify(coordsObj),
+      contentType : "application/json"
+    });
+
+    $.ajax({
         method : "POST",
         url : "/api/map/saveEdgeIds",
         data : JSON.stringify(edgeIds),
@@ -103,6 +128,8 @@ function startHMMMatch() {
             data.forEach(function (e) {
 
                 var coords = [];
+
+                edgeIds.push(e.id);
 
                 e.figures.forEach(function (e) {
                     coords.push([e.lon, e.lat]);
@@ -156,6 +183,8 @@ function startMatch() {
     if (edgesLayer) {
         map.removeLayer(edgesLayer);
     }
+
+    markers[idx].setIcon(redIcon);
 
 
 
@@ -214,7 +243,10 @@ function startMatch() {
 
 
 var onClick = function(e) {
-    L.marker(e.latlng).addTo(map);
+    var marker = L.marker(e.latlng, {icon : greenIcon});
+    marker.addTo(map);
+
+    markers.push(marker);
 
     coordsObj.push({ "lat" : e.latlng.lat, "lon" : e.latlng.lng});
 

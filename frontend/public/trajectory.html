@@ -35,43 +35,11 @@
 <select id="timeSelect" size = 1 onchange="clearScreen()">
 </select>
 
-<input type="submit" value="原轨迹" onclick="paintOriginTraj()" />
-<input type="submit" value="匹配边" onclick="paintEdgeTraj()" />
-<input type="submit" value="映射点" onclick="paintProjTraj()" />
+<input type="submit" class="btn btn-warning" value="原轨迹" onclick="paintOriginTraj()" />
+<input type="submit" class="btn btn-primary" value="匹配边" onclick="paintEdgeTraj()" />
+<input type="submit" class="btn btn-success" value="映射点" onclick="paintProjTraj()" />
 
-<br/>
-
-
-
-
-<form action="/api/upload/trajectory/node" method="post" enctype="multipart/form-data">
-
-    <p>
-        Select a file : <input type="file" name="file" size="50" />
-    </p>
-
-    <input type="submit" value="Upload New Node Trajectory" />
-</form>
-
-<input type="submit" value="展示节点轨迹" onclick="displayNodeTraj()" />
-
-<form action="/api/upload/trajectory/edge" method="post" enctype="multipart/form-data">
-
-    <p>
-        Select a file : <input type="file" name="file" size="50" />
-    </p>
-
-    <input type="submit" value="Upload New Edge Trajectory" />
-</form>
-
-<input type="submit" value="展示边轨迹" onclick="displayEdgeTraj()" />
-
-<br/>
-
-<input type="submit" value="清空图层" onclick="clearScreen()" />
-
-<div id="map"></div>
-
+<div id="map">
 
 <script type="text/javascript" src="./trajectory.js"></script>
 

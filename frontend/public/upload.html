@@ -1,36 +1,77 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Form Page</title>
+    <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" /> -->
+    <!-- // <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="./leaflet.css">
+    <script type="text/javascript" src="./jquery.js"></script> 
+    <!-- // must go before leaflet-src.js  -->
+    <script type="text/javascript" src="./leaflet-src.js"></script>
+
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <!-- Bootstrap theme CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.css">
+
+    <!--<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">-->
+    <!---->
+
+    <script src="./js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="./css/jquery-ui.css">
+
+    <link rel="stylesheet" type="text/css" href="./leaflet-self.css">
+
+    <style type="text/css">
+        .floatclass {float : left;}
+        .clear {clear : both;}
+    </style>
+    <script>
+
+    </script>
 </head>
 <body>
-<h1>Upload a File</h1>
 
-<form action="/api/upload/node" method="post" enctype="multipart/form-data">
-
-    <p>
-        Select a file : <input type="file" name="file" size="50" />
-    </p>
-
-    <input type="submit" value="Upload It" />
-</form>
-
-
-<form action="/api/upload/edge" method="post" enctype="multipart/form-data">
+<div class="floatclass">
+<form action="/api/upload/trajectory/node" method="post" enctype="multipart/form-data">
 
     <p>
         Select a file : <input type="file" name="file" size="50" />
     </p>
 
-    <input type="submit" value="Upload It" />
+    <input type="submit"  value="上传点轨迹" />
 </form>
 
-<form action="/api/map/reload" method="put">
-	<input type="submit" value="Reload" />
+<input type="submit" value="展示节点轨迹" onclick="displayNodeTraj()" />
+
+</div>
+
+<div class="floatclass">
+<form action="/api/upload/trajectory/edge" method="post" enctype="multipart/form-data">
+
+    <p>
+        Select a file : <input type="file" name="file" size="50" />
+    </p>
+
+    <input type="submit" value="上传边轨迹" />
 </form>
 
+<input type="submit" value="展示边轨迹" onclick="displayEdgeTraj()" />
 
+</div>
+
+<br/>
+
+<input type="submit" value="清空图层" onclick="clearScreen()" />
+
+<div class="clear" />
+
+<div id="map"></div>
+
+
+<script type="text/javascript" src="./upload.js"></script>
 
 </body>
 </html>

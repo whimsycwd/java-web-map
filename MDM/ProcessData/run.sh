@@ -21,6 +21,6 @@ done
 
 
 make compile
-for i in $(find ../../BeijingMap/Trajectory -name *.path); do
+for i in $(find ../../frontend/BeijingMap/Trajectory/ -name *.path); do
     ./Main $i
 done
